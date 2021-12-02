@@ -9,19 +9,16 @@ import java.util.Set;
 
 public class User {
 
-    //Instance Variables
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="address_id_seq")
+    @Column(name="id", columnDefinition="int")
+    @SequenceGenerator(name="address_id_seq", sequenceName="address_id_seq",  allocationSize=1)
     private int user_id;
 
     private String first_name;
 
     @Column(name = "last_name")
-    private String last;
-
-    private String education;
-
-    private String title;
+    private String last_name;
 
     private String email;
 
@@ -48,9 +45,7 @@ public class User {
                 String title, String email, String username, String password, String phone_number) {
         this.user_id = user_id;
         this.first_name = first_name;
-        this.last = last;
-        this.education = education;
-        this.title = title;
+
         this.email = email;
         this.username = username;
         this.password = password;
@@ -78,28 +73,14 @@ public class User {
     }
 
     public String getLast() {
-        return last;
+        return last_name;
     }
 
     public void setLast(String last) {
-        this.last = last;
+        this.last_name = last;
     }
 
-    public String getEducation() {
-        return education;
-    }
 
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getEmail() {
         return email;
@@ -148,9 +129,6 @@ public class User {
         return "User{" +
                 "user_id=" + user_id +
                 ", first_name='" + first_name + '\'' +
-                ", last='" + last + '\'' +
-                ", education='" + education + '\'' +
-                ", title='" + title + '\'' +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -158,20 +136,4 @@ public class User {
                 '}';
     }
 
-
-
-
-//    @Override
-//    public String toString() {
-//        return "User{" +
-//                "user_id=" + user_id +
-//                ", first_name='" + first_name + '\'' +
-//                ", last_name='" + last + '\'' +
-//                ", education='" + education + '\'' +
-//                ", title='" + title + '\'' +
-//                ", email='" + email + '\'' +
-//                ", password='" + password + '\'' +
-//                ", phone_number='" + phone_number + '\'' +
-//                '}';
-//    }
 }

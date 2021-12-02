@@ -1,6 +1,6 @@
 package com.revature.RCUbackend.security;
 
-import com.revature.Spring.services.UserDetailsServiceImpl;
+import com.revature.RCUbackend.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

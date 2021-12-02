@@ -90,12 +90,10 @@ public class LoginController {
         User user = new User();
         user.setFirst_name(signupRequest.getFirst_name());
         user.setLast(signupRequest.getLast());
-        user.setEducation(signupRequest.getEducation());
         user.setUsername(signupRequest.getUsername());
         user.setEmail(signupRequest.getEmail());
         user.setPassword(encoder.encode(signupRequest.getPassword()));
         user.setPhone_number(signupRequest.getPhone_number());
-        user.setTitle(signupRequest.getTitle());
 //        user.setRoles(signupRequest.getRole("ADMIN"));
 
         Set<Role> strRoles = user.getRoles();
