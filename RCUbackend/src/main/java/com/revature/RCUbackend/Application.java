@@ -16,10 +16,10 @@ import java.util.Arrays;
 @ComponentScan("com.revature.RCUbackend") // look for components/stereotypes
 @EnableJpaRepositories("com.revature.RCUbackend.repositories") //tells spring where to find our repos so hibernate can do its work
 @EntityScan("com.revature.RCUbackend.models")
-public class RCUbackendApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RCUbackendApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 	/**
