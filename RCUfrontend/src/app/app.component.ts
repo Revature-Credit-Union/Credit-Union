@@ -6,5 +6,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+<<<<<<< HEAD
   title = 'RCUfrontend';
+=======
+  private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  username?: string;
+  first_name?: string;
+
+  constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+
+      this.username = user.username;
+      this.first_name = user.first_name;
+      
+    }
+    
+  }
+
+  logout(): void {
+    this.tokenStorageService.signOut();
+  }
+>>>>>>> TeamOne
 }
