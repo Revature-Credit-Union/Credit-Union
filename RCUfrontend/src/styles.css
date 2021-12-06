@@ -39,11 +39,22 @@
 
     background-color: var(--orange);
 
+
+}
+.nav-link{
+  color: var(--white);
+  margin: 5px;
+  padding: 5px;
+}
+
+body {
+  background-color: var(--lightgray);
 }
 
 .nav-item {
 
     font-family: "Futura";
     font-weight: bolder;
+
 
 }
