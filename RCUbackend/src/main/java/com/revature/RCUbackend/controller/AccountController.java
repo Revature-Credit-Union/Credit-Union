@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.RCUbackend.models.Account;
 import com.revature.RCUbackend.service.AccountService;
 
-@RestController("transactionController")
+@RestController("accountController")
 @RequestMapping("/account") //this can be changed depending on frontend
 @CrossOrigin(origins="*")
 public class AccountController {
@@ -21,6 +21,8 @@ public class AccountController {
 	public AccountController(AccountService accountService) {
 		this.accountService = accountService;
 	}
+	
+	//any of these mappings are subject to change depending on HTTP requests from frontend
 	
 	@PostMapping(path = "/deposit", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void deposit(@RequestParam int amount, @RequestBody Account account) {

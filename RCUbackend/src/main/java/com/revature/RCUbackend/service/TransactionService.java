@@ -24,24 +24,24 @@ public class TransactionService {
 		return this.transactionRepository.findAll();
 	}
 	
-	public Transaction findbyTransactionID(int id) {
-		return this.transactionRepository.findbyTransactionID(id);
+	public Transaction findByTransactionID(int id) {
+		return this.transactionRepository.findByTransactionID(id);
 	}
 	
-	public List<Transaction> findbyUserID(int id) {
-		return this.transactionRepository.findbyUserID(id);
+	public List<Transaction> findByUserId(int id) {
+		return this.transactionRepository.findByUserID(id);
 	}
 	
-	public List<Transaction> findbyAccountID(int id) {
-		return this.transactionRepository.findbyAccountID(id);
+	public List<Transaction> findByAccountID(int id) {
+		return this.transactionRepository.findByAccountID(id);
 	}
 	
-	public List<Transaction> findbyrTranscationTypeAndUserID(int type, int id) {
-		return this.transactionRepository.findbyTranscationTypeAndUserID(type, id);
+	public List<Transaction> findByTransactionTypeAndUserID(int type, int id) {
+		return this.transactionRepository.findByTransactionTypeAndUserID(type, id);
 	}
 	
-	public List<Transaction> findbyUserTranscationTypeAndAccountID(int type, int id) {
-		return this.transactionRepository.findbyTranscationTypeAndUserID(type, id);
+	public List<Transaction> findByUserTransactionTypeAndAccountID(int type, int id) {
+		return this.transactionRepository.findByTransactionTypeAndUserID(type, id);
 	}
 	
 	public Transaction saveTransaction(Transaction transaction) {

@@ -40,26 +40,26 @@ public class TranscationController {
 	
 	@GetMapping(path = "/findbyUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findbyUser(@RequestParam int id) {
-		return this.transactionService.findbyUserID(id);
+		return this.transactionService.findByUserId(id);
 	}
 	
 	@GetMapping(path = "/findbyAccount", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findbyAccount(@RequestParam int id) {
-		return this.transactionService.findbyAccountID(id);
+		return this.transactionService.findByAccountID(id);
 	}
 	
 	@GetMapping(path = "/findDeposits", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findDeposits(@RequestParam int id) {
-		return this.transactionService.findbyUserTranscationTypeAndAccountID(0, id);
+		return this.transactionService.findByUserTransactionTypeAndAccountID(0, id);
 	}
 	
 	@GetMapping(path = "/findWithdrawls", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findWithdrawls(@RequestParam int id) {
-		return this.transactionService.findbyUserTranscationTypeAndAccountID(1, id);
+		return this.transactionService.findByUserTransactionTypeAndAccountID(1, id);
 	}
 	
 	@GetMapping(path = "/findTransfers", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findTransfers(@RequestParam int id) {
-		return this.transactionService.findbyUserTranscationTypeAndAccountID(2, id);
+		return this.transactionService.findByUserTransactionTypeAndAccountID(2, id);
 	}
 }
