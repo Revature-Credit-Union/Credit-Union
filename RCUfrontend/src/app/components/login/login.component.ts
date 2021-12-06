@@ -10,6 +10,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  username = "";
   form: any = {
     username: null,
     password: null
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+      this.roles = this.tokenStorage.getUser().roles;//does not work
     }
   }
 
@@ -45,17 +46,10 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+        this.username = this.tokenStorage.getUser().username;
         // this.reloadPage();
         console.log(this.tokenStorage.getUser());
         console.log(this.tokenStorage.getUser().token);
-        console.log(this.tokenStorage.getUser().title);
-        if (this.tokenStorage.getUser().title == "Doctor"){
-           this.router.navigate(['doctors']);
-          // window.location.href="doctors"
-        } else {
-           this.router.navigate(['nurses']);
-          // window.location.href="nurses"
-        }
        
       },
       err => {
