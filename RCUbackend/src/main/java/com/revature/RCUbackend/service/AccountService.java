@@ -1,5 +1,7 @@
 package com.revature.RCUbackend.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +9,7 @@ import com.revature.RCUbackend.models.Account;
 import com.revature.RCUbackend.repository.AccountRepository;
 
 @Service
+@Transactional
 public class AccountService {
 	private AccountRepository accountRepository;
 	

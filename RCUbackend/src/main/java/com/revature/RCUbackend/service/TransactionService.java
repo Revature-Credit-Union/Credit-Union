@@ -36,15 +36,15 @@ public class TransactionService {
 		return this.transactionRepository.findbyAccountID(id);
 	}
 	
-	public List<Transaction> findbyTranscationType(int type) {
-		return this.transactionRepository.findbyTranscationType(type);
-	}
-	
 	public List<Transaction> findbyrTranscationTypeAndUserID(int type, int id) {
 		return this.transactionRepository.findbyTranscationTypeAndUserID(type, id);
 	}
 	
 	public List<Transaction> findbyUserTranscationTypeAndAccountID(int type, int id) {
 		return this.transactionRepository.findbyTranscationTypeAndUserID(type, id);
+	}
+	
+	public Transaction saveTransaction(Transaction transaction) {
+		return this.transactionRepository.saveTransaction(transaction);
 	}
 }

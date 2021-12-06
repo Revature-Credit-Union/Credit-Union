@@ -12,9 +12,9 @@ import com.revature.RCUbackend.models.Account;
 public interface AccountRepository extends JpaRepository<Account, Integer>{
 	@Modifying
 	@Query("update Account a SET a.balance = a.balance + :amount WHERE a.accountID = :accountID")
-	public void depositAccount(int amount, @Param("accountID") int accountID);
+	public void depositAccount(@Param("amount") int amount, @Param("accountID") int accountID);
 	
 	@Modifying
 	@Query("update Account a SET a.balance = a.balance - :amount WHERE a.accountID = :accountID")
-	public void withdrawAccount(int amount, @Param("accountID") int accountID);
+	public void withdrawAccount(@Param("amount") int amount, @Param("accountID") int accountID);
 }
