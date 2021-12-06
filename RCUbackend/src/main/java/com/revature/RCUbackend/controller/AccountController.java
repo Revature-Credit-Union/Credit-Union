@@ -32,6 +32,7 @@ public class AccountController {
 		this.accountService.withdraw(amount, account);
 	}
 	
+	@PostMapping(path = "/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void transfer(@RequestParam int amount, @RequestBody Account fromAccount, @RequestBody Account toAccount) {
 		this.accountService.withdraw(amount, fromAccount);
 		this.accountService.deposit(amount, toAccount);
