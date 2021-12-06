@@ -33,4 +33,17 @@
     --yellow: #FCB414;
     --lightgray: #B9B9BA;
 
-  }
+}
+
+.navbar {
+
+    background-color: var(--orange);
+
+}
+
+.nav-item {
+
+    font-family: "Futura";
+    font-weight: bolder;
+
+}
