@@ -63,10 +63,10 @@ public class LoginController {
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getUser_id(),
                 userDetails.getFirst_name(),
-                userDetails.getLast(),
+                userDetails.getLast_name(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
-                userDetails.getTitle(),
+                userDetails.getPhone_number(),
                 roles));
 
     }
@@ -89,7 +89,7 @@ public class LoginController {
         // Create new user's account
         User user = new User();
         user.setFirst_name(signupRequest.getFirst_name());
-        user.setLast(signupRequest.getLast());
+        user.setLast_name(signupRequest.getLast_name());
         user.setUsername(signupRequest.getUsername());
         user.setEmail(signupRequest.getEmail());
         user.setPassword(encoder.encode(signupRequest.getPassword()));
