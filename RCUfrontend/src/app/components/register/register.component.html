@@ -106,37 +106,7 @@
               <div *ngIf="last_name.errors.required">Last Name is required</div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="education">Education</label>
-            <input
-              type="text"
-              class="form-control"
-              name="education"
-              [(ngModel)]="form.education"
-              required
-              #education="ngModel"
-            />
-            <div class="alert-danger" *ngIf="education.errors && f.submitted">
-              <div *ngIf="education.errors.required">Education is required</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input
-              type="text"
-              class="form-control"
-              name="title"
-              [(ngModel)]="form.title"
-              required
-              #title="ngModel"
-            />
-            <div class="alert-danger" *ngIf="title.errors && f.submitted">
-              <div *ngIf="title.errors.required">Title is required</div>
-            </div>
-        </div>
-
-
-
+        
         <div class="form-group">
             <label for="phone_number">Phone Number</label>
             <input
