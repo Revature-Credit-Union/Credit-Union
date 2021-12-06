@@ -68,15 +68,13 @@ public class User {
         this.first_name = first_name;
     }
 
-    public String getLast() {
+    public String getLast_name() {
         return last_name;
     }
 
-    public void setLast(String last) {
-        this.last_name = last;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
-
-
 
     public String getEmail() {
         return email;

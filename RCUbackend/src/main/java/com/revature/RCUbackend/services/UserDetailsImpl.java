@@ -20,11 +20,7 @@ public class UserDetailsImpl implements UserDetails {
 
     private String first_name;
 
-    private String last;
-
-    private String education;
-
-    private String title;
+    private String last_name;
 
     private String email;
 
@@ -39,14 +35,12 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(int user_id, String first_name, String last, String education, String title,
+    public UserDetailsImpl(int user_id, String first_name, String last_name,
                            String email, String username, String password, String phone_number,
                            Collection<? extends GrantedAuthority> authorities) {
         this.user_id = user_id;
         this.first_name = first_name;
-        this.last = last;
-        this.education = education;
-        this.title = title;
+        this.last_name = last_name;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -66,9 +60,7 @@ public class UserDetailsImpl implements UserDetails {
         return new UserDetailsImpl(
                 user.getUser_id(),
                 user.getFirst_name(),
-                user.getLast(),
-                user.getEducation(),
-                user.getTitle(),
+                user.getLast_name(),
                 user.getEmail(),
                 user.getUsername(),
                 user.getPassword(),
@@ -89,16 +81,8 @@ public class UserDetailsImpl implements UserDetails {
         return first_name;
     }
 
-    public String getLast() {
-        return last;
-    }
-
-    public String getEducation() {
-        return education;
-    }
-
-    public String getTitle() {
-        return title;
+    public String getLast_name() {
+        return last_name;
     }
 
     public String getEmail() {
