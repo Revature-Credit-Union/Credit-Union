@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Futura";
+    src: url(./assets/fonts/Futura-Std-Book.otf);
+}
+
+@font-face {
+    font-family: "Futura";
+    font-weight: bold;
+    src: url(./assets/fonts/Futura-Std-Bold.otf);
+}
+
+@font-face {
+    font-family: "Futura";
+    font-weight: bolder;
+    src: url(./assets/fonts/Futura-Std-Heavy.otf);
+}
+
+@font-face {
+    font-family: "Futura";
+    font-weight: 500;
+    src: url(./assets/fonts/Futura-Std-Medium.otf);
+}
