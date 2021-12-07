@@ -18,11 +18,8 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
-<<<<<<< HEAD
   {path: 'user-profile', component: UserProfileComponent},
-=======
   { path: 'settings', component: AccountSettingsComponent },
->>>>>>> 6bfceb41e6990c65fb111ab4592104e22e05ab96
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
