@@ -1,6 +1,10 @@
 package com.revature.RCUbackend.models;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -8,11 +12,7 @@ import lombok.*;
 @Setter
 @ToString
 public class Response {
-
     Boolean success;
-
     String message;
-
     Object data;
-
 }

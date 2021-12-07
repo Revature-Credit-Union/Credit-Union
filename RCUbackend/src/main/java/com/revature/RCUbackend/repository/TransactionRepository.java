@@ -11,17 +11,17 @@ import com.revature.RCUbackend.models.Transaction;
 public interface TransactionRepository extends JpaRepository<Transaction, Integer>{
 	public List<Transaction> findAll();
 	
-	public Transaction saveTransaction(Transaction transaction);
+	public default Transaction saveTransaction(Transaction transaction) {
+		return save(transaction);
+	}
 	
-	public Transaction findbyTransactionID(int id);
+	public Transaction findByTransactionID(int id);
 	
-	public List<Transaction> findbyUserID(int id);
+	public List<Transaction> findByUserID(int id);
 	
-	public List<Transaction> findbyAccountID(int id);
+	public List<Transaction> findByAccountID(int id);
 	
-	public List<Transaction> findbyTranscationType(int type);
+	public List<Transaction> findByTransactionTypeAndUserID(int type, int id);
 	
-	public List<Transaction> findbyTranscationTypeAndUserID(int type, int id);
-	
-	public List<Transaction> findbyTranscationTypeAndAccountID(int type, int id);
+	public List<Transaction> findByTransactionTypeAndAccountID(int type, int id);
 }

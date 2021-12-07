@@ -20,9 +20,9 @@ public class Account {
 	@Id
 	@Column(name = "accountID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int accountID;
+	int accountId;
 	@Column(name = "userID")
-	String userID;
+	String userId;
 	@Column(name = "accountNumber")
 	String accountNumber;
 	@Column(name = "type")
