@@ -17,20 +17,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Transaction {
-	@Id
-	@Column(name = "transactionID")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int transactionID;
-	@Column(name = "userID")
-	int userID;
-	@Column(name = "accountID")
-	int accountID;
-	@Column(name = "transactionType")
-	int transactionType; //0 = deposit, 1 = withdrawal, 2 = transfer
-	@Column(name = "debitcredit") //0 - debit, 1 - credit
-	int debitcredit;
-	@Column(name = "amount")
-	int amount;
-	@Column(name = "transactionTimestamp")
-	Date transactionTimestamp;
+    @Id
+    @Column(name = "transactionID")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    int transactionID;
+    @Column(name = "userID")
+    int userID;
+    @Column(name = "accountID")
+    int accountID;
+    @Column(name = "transactionType")
+    int transactionType; //0 = deposit, 1 = withdrawal, 2 = transfer
+    @Column(name = "debitcredit") //0 - debit, 1 - credit
+    int debitcredit;
+    @Column(name = "amount")
+    int amount;
+    @Column(name = "transactionTimestamp")
+    Date transactionTimestamp;
 }

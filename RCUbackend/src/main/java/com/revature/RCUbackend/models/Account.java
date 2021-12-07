@@ -17,16 +17,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "account")
 public class Account {
-	@Id
-	@Column(name = "accountID")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int accountId;
-	@Column(name = "userID")
-	String userId;
-	@Column(name = "accountNumber")
-	String accountNumber;
-	@Column(name = "type")
-	int accountType; //0 = checking, 1 = savings
-	@Column(name = "balance")
-	int balance;
+    @Id
+    @Column(name = "accountID")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    int accountId;
+    @Column(name = "userID")
+    String userId;
+    @Column(name = "accountNumber")
+    String accountNumber;
+    @Column(name = "type")
+    int accountType; //0 = checking, 1 = savings
+    @Column(name = "balance")
+    int balance;
 }
