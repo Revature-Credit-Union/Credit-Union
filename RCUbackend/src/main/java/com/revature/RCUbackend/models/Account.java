@@ -23,9 +23,7 @@ public class Account {
 	int accountId;
 	@Column(name = "userID")
 	String userId;
-	@Column(name = "accountNumber")
-	String accountNumber;
-	@Column(name = "type")
+	@Column(name = "accountType")
 	int accountType; //0 = checking, 1 = savings
 	@Column(name = "balance")
 	int balance;

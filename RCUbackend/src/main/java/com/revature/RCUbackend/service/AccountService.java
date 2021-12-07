@@ -1,5 +1,7 @@
 package com.revature.RCUbackend.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,10 @@ public class AccountService {
 	@Autowired
 	public AccountService(AccountRepository accountRepository) {
 		this.accountRepository = accountRepository;
+	}
+	
+	public List<Account> findAll() {
+		return this.accountRepository.findAll();
 	}
 	
 	public void deposit(int amount, Account account) {
