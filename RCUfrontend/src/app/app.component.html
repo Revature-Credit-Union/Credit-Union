@@ -1,0 +1,43 @@
+<body>
+  <div id="app">
+    <nav class="navbar navbar-expand justify-content-end fixed-top">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="/login"
+            class="nav-link"
+            routerLink="login"
+            [hidden]="isLoggedIn"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item" [hidden]="!isLoggedIn">
+          <a href="" class="nav-link" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- <div class="container">
+    <router-outlet></router-outlet>
+  </div> -->
+</body>
+
+<!-- <app-doctor-form></app-doctor-form>
+<app-old-active-case></app-old-active-case>
+<app-diagnosis></app-diagnosis>
+<app-doctors></app-doctors> -->
+<!-- <app-nurses></app-nurses>  -->
+<!-- * * * * * * * * * * Header * * * * * * * * * * * -->
+<app-header></app-header>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- <app-nurses></app-nurses>  -->
+<!-- * * * * * * * * * * * The content * * * * * * * * * * * -->
+<router-outlet></router-outlet>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<!-- * * * * * * * * * * Footer * * * * * * * * * * * -->
+<app-footer class="footer py-3 fixed-bottom"></app-footer>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
