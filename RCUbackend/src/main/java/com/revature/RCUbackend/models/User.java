@@ -36,6 +36,8 @@ public class User {
 	String lastName;
 	@Column(name = "email")
 	String email;
+//	@Column(name = "phoneNumber")
+//	String Phone_number;
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name="accountID")
 	private List<Account> accounts;
