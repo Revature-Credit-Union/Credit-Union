@@ -39,21 +39,17 @@ public class User {
     public User() {
     }
 
-
-
-    public User(int user_id, String first_name, String last, String education,
-                String title, String email, String username, String password, String phone_number) {
+    public User(int user_id, String first_name, String last_name, String email, String username, String password,
+                String phone_number, Set<Role> roles) {
         this.user_id = user_id;
         this.first_name = first_name;
-
+        this.last_name = last_name;
         this.email = email;
         this.username = username;
         this.password = password;
         this.phone_number = phone_number;
+        this.roles = roles;
     }
-
-
-
 
     // Getters and Setters
     public int getUser_id() {
@@ -72,15 +68,13 @@ public class User {
         this.first_name = first_name;
     }
 
-    public String getLast() {
+    public String getLast_name() {
         return last_name;
     }
 
-    public void setLast(String last) {
-        this.last_name = last;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
-
-
 
     public String getEmail() {
         return email;
