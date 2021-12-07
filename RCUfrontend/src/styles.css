@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Futura";
+    src: url(./assets/fonts/Futura-Std-Book.otf);
+}
+
+@font-face {
+    font-family: "Futura";
+    font-weight: bold;
+    src: url(./assets/fonts/Futura-Std-Bold.otf);
+}
+
+@font-face {
+    font-family: "Futura";
+    font-weight: bolder;
+    src: url(./assets/fonts/Futura-Std-Heavy.otf);
+}
+
+@font-face {
+    font-family: "Futura";
+    font-weight: 500;
+    src: url(./assets/fonts/Futura-Std-Medium.otf);
+}
+
+:root {
+
+    /* Revature Primary */
+    --orange: #F26925;
+    --white: #FFFFFF;
+    --darkgray: #474C55;
+
+    /* Revature Secondary */
+    --blue: #72A4C2;
+    --yellow: #FCB414;
+    --lightgray: #B9B9BA;
+
+}
+
+.navbar {
+
+    background-color: var(--orange);
+
+
+}
+.nav-link{
+  color: var(--white);
+  margin: 5px;
+  padding: 5px;
+}
+
+body {
+  background-color: var(--lightgray);
+}
+
+.nav-item {
+
+    font-family: "Futura";
+    font-weight: bolder;
+
+
+}
