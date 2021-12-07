@@ -33,16 +33,7 @@ public class TranscationController {
 	
     @GetMapping(path = "/allTransactions", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response allTransactions(@RequestBody User user){
-        Response response;
-        ArrayList<Transaction> temp = (ArrayList<Transaction>) this.transactionService.findByUserId(user.getUserID());
-
-        if(temp != null){
-            response = new Response(true, "Transactions found", temp);
-        }else{
-            response = new Response(false, "Transactions not found", null);
-        }
-
-        return response;
+        return this.transactionService.findByUserId(user.getUserID());
     }
 	
 	@PostMapping(path = "/new", consumes = MediaType.APPLICATION_JSON_VALUE) 

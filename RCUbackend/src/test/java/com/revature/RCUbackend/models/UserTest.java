@@ -1,2 +1,4 @@
-package java.com.revature.RCUbackend.models;public class UserTest {
+package java.com.revature.RCUbackend.models;
+
+public class UserTest {
 }

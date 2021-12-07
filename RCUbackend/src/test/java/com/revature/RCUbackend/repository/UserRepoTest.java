@@ -1,2 +1,4 @@
-package java.com.revature.RCUbackend.repository;public class UserRepoTest {
+package java.com.revature.RCUbackend.repository;
+
+public class UserRepoTest {
 }
