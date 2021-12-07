@@ -13,11 +13,7 @@ public class SignupRequest {
 
     private String first_name;
 
-    private String last;
-
-    private String education;
-
-    private String title;
+    private String last_name;
 
     private String password;
 
@@ -50,29 +46,14 @@ public class SignupRequest {
         this.first_name = first_name;
     }
 
-    public String getLast() {
-        return last;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLast(String last) {
-        this.last = last;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getPassword() {
         return password;
