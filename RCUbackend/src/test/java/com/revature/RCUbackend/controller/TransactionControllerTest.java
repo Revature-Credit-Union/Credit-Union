@@ -1,11 +1,10 @@
-package java.com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controller;
 
-import com.revature.RCUbackend.controller.*;
-import com.revature.RCUbackend.service.*;
-import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+import com.revature.RCUbackend.controllers.TransactionController;
+import com.revature.RCUbackend.services.TransactionService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 public class TransactionControllerTest {
 

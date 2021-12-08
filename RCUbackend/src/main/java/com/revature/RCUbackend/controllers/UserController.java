@@ -43,7 +43,7 @@ public class UserController {
     public void updateUser (@PathVariable Integer user_id, @RequestBody User user){
 //        Users u = userService.getUser(user_id);
 
-        if (Objects.equals(user_id, user.getUser_id())){ // compare the 2 user IDs
+        if (Objects.equals(user_id, user.getUserID())){ // compare the 2 user IDs
             userService.updateUser(user);
         }
 
