@@ -1,0 +1,16 @@
+<div class="container" id="myInfo">
+    <br>
+    <h2 class="first-name">First Name: </h2>
+    <h2 class="last-name">Last Name: </h2>
+    <label class="email">Email: </label>
+    <br>
+    <button class="editbtn btn btn-primary" (click) = "edit()"><span> Edit</span></button>
+</div>
+
+<div class="editingInfo" id="edit-Info">
+    <form class="editing-form">
+        <h2>Editing</h2>
+        <button class="submitbtn btn btn-primary" type="submit" (click) = "close()"> Submit Changes </button>
+        <button class="closebtn btn btn-primary" (click) = "close()"> Cancel </button>
+    </form>
+</div>
