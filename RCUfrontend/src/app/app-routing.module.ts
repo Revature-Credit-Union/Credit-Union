@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FrontDoorComponent } from './components/front-door/front-door.component';
+
 
 
 import { LoginComponent } from './components/login/login.component';
@@ -15,7 +15,6 @@ import { AccountSettingsComponent } from './components/account-settings/account-
 
 const routes: Routes = [
   {path: '', redirectTo: '/front-door', pathMatch: 'full'},
-  {path: 'front-door', component: FrontDoorComponent},
     //{ path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -27,12 +26,6 @@ const routes: Routes = [
   { path: 'settings', component: AccountSettingsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-//import { ProfileComponent } from './components/profile/profile.component';
-import { BoardUserComponent } from './components/board-user/board-user.component';
-import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
-import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 
 ];
 
