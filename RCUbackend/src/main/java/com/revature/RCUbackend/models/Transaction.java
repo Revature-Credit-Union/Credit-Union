@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Transaction {
+
 	@Id
 	@Column(name = "transactionID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

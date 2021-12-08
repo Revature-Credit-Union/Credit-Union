@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.RCUbackend.models.Response;
 import com.revature.RCUbackend.models.Transaction;
-import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.service.TransactionService;
 
 @RestController("transactionController")

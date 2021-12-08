@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "account")
 public class Account {
+
 	@Id
 	@Column(name = "accountID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -28,3 +29,4 @@ public class Account {
 	@Column(name = "balance")
 	int balance;
 }
+
