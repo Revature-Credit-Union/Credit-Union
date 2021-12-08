@@ -1,6 +1,5 @@
-package com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controllers;
 
-import com.revature.RCUbackend.controllers.TransactionController;
 import com.revature.RCUbackend.services.TransactionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
