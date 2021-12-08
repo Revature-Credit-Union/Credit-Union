@@ -1,5 +1,4 @@
 package com.revature.RCUbackend.controllers;
-
 import com.revature.RCUbackend.models.ERole;
 import com.revature.RCUbackend.models.Role;
 import com.revature.RCUbackend.payload.request.LoginRequest;
