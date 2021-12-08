@@ -1,4 +1,4 @@
-package java.com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controller;
 
 import com.revature.RCUbackend.controller.*;
 import com.revature.RCUbackend.service.*;
