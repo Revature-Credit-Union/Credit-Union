@@ -15,16 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.RCUbackend.models.Response;
 import com.revature.RCUbackend.models.Transaction;
+import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.service.TransactionService;
 
 @RestController("transactionController")
 @RequestMapping("/transaction") //this can be changed depending on frontend
 @CrossOrigin(origins="*")
-public class TranscationController {
+public class TransactionController {
 	private TransactionService transactionService;
 	
 	@Autowired
-	public TranscationController (TransactionService transactionService) {
+	public TransactionController (TransactionService transactionService) {
 		this.transactionService = transactionService;
 	}
 	
@@ -32,7 +33,16 @@ public class TranscationController {
 	
     @GetMapping(path = "/allTransactions", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response allTransactions(@RequestBody User user){
-        return this.transactionService.findByUserId(user.getUserID());
+        Response response;
+        ArrayList<Transaction> temp = (ArrayList<Transaction>) this.transactionService.findByUserId(user.getUserID());
+
+        if(temp != null){
+            response = new Response(true, "Transactions found", temp);
+        }else{
+            response = new Response(false, "Transactions not found", null);
+        }
+
+        return response;
     }
 	
 	@PostMapping(path = "/new", consumes = MediaType.APPLICATION_JSON_VALUE) 
