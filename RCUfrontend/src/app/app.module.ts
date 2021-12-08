@@ -22,7 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
     RegisterComponent,
     LoginComponent,
-    FrontDoorComponent
+    FrontDoorComponent,
 
     HeaderComponent,
     FooterComponent
