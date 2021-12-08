@@ -1,6 +1,5 @@
 package com.revature.RCUbackend.services;
 
-import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

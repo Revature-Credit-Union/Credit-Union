@@ -1,3 +1,24 @@
+
+<h2 class = "center">Login</h2>
+<div class = "center">
+    <form>
+        <mat-form-field class = "form-group center">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)] = "login.username" type = "text" name = "username" class = "form-control">
+        </mat-form-field>
+        <br>
+        <mat-form-field class = "form-group center">
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)] = "login.password" type = "password" name = "password" class = "form-control">
+        </mat-form-field>
+        <br>
+        <label class = "warn-label"><i>{{ status }}</i></label>
+        <br>
+        <br>
+        <button type="submit" class = "btn center" (click)=logIn()>Login</button>
+    </form>
+</div>
+
 <div class="col-md-12">
     <div class="card card-container">
       <img
@@ -73,3 +94,4 @@
       </div>
     </div>
   </div>
+
