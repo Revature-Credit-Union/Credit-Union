@@ -88,12 +88,12 @@ public class LoginController {
 
         // Create new user's account
         User user = new User();
-        user.setFirst_name(signupRequest.getFirst_name());
-        user.setLast_name(signupRequest.getLast_name());
+        user.setFirstName(signupRequest.getFirst_name());
+        user.setLastName(signupRequest.getLast_name());
         user.setUsername(signupRequest.getUsername());
         user.setEmail(signupRequest.getEmail());
         user.setPassword(encoder.encode(signupRequest.getPassword()));
-        user.setPhone_number(signupRequest.getPhone_number());
+        user.setPhoneNumber(signupRequest.getPhone_number());
 //        user.setRoles(signupRequest.getRole("ADMIN"));
 
         Set<Role> strRoles = user.getRoles();
