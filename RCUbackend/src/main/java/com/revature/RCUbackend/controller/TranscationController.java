@@ -30,11 +30,6 @@ public class TranscationController {
 	
 	//any of these mappings are subject to change depending on HTTP requests from frontend
 	
-    @GetMapping(path = "/allTransactions", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response allTransactions(@RequestBody User user){
-        return this.transactionService.findByUserId(user.getUserID());
-    }
-	
 	@PostMapping(path = "/new", consumes = MediaType.APPLICATION_JSON_VALUE) 
 	public Transaction saveTransaction(@RequestBody Transaction transaction) {
 		return this.transactionService.saveTransaction(transaction);

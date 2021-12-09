@@ -20,22 +20,34 @@ public class TransactionControllerTest {
     }
 
     @Test
-    void allTransactionsTest(){}
+    void allTransactionsTest(){
+        transactionController.allTransactions();
+    }
 
     @Test
-    void saveTransactionTest(){}
+    void saveTransactionTest(){
+        transactionController.saveTransaction();
+    }
 
     @Test
-    void getallTest(){}
+    void getallTest(){
+        transactionController.getall();
+    }
 
     @Test
-    void findByUserTest(){}
+    void findByUserTest(){
+        transactionController.findbyUser();
+    }
 
     @Test
-    void findByAccountTest(){}
+    void findByAccountTest(){
+        transactionController.findbyAccount()
+    }
 
     @Test
-    void findDepositsTest(){}
+    void findDepositsTest(){
+        transactionController.findDeposits()
+    }
 
     @Test
     void findWithdrawalsTest(){}
