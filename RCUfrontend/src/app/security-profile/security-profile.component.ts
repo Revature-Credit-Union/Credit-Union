@@ -16,8 +16,8 @@ export class SecurityProfileComponent implements OnInit {
 
   
   userID = null;
-  username = "FUCKYO";
-  password = "fuckyo";
+  username = "";
+  password = "";
   goodPassword = true;
 
   constructor(private userService:UserService) { }
@@ -27,10 +27,10 @@ export class SecurityProfileComponent implements OnInit {
     document.getElementById("edit-Info")!.style.display = "none";
   }
 
-  //  getusers(): void{
-  //  this.userService.updateUserInfo(this.username, this.password).subscribe( resp => {this.userID = resp;} 
-  //   )
-  // }
+   getusers(): void{
+   this.userService.updateUserInfo(this.username, this.password).subscribe( resp => {this.userID = resp;} 
+    )
+  }
 
 
   edit(){
