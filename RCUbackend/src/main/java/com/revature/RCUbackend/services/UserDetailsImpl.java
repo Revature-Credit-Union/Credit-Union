@@ -1,6 +1,7 @@
 package com.revature.RCUbackend.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.revature.RCUbackend.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -57,13 +58,13 @@ public class UserDetailsImpl implements UserDetails {
                 .collect(Collectors.toList());
 
         return new UserDetailsImpl(
-                user.getUser_id(),
-                user.getFirst_name(),
-                user.getLast_name(),
+                user.getUserID(),
+                user.getFirstName(),
+                user.getLastName(),
                 user.getEmail(),
                 user.getUsername(),
                 user.getPassword(),
-                user.getPhone_number(),
+                user.getPhoneNumber(),
                 authorities);
     }
 

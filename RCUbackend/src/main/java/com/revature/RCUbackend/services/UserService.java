@@ -1,5 +1,6 @@
 package com.revature.RCUbackend.services;
 
+import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,13 +8,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserService{
 
     private UserRepo userRepo;
 
     @Autowired
     public UserService(UserRepo userRepo) {
         this.userRepo = userRepo;
+    }
+
+    public UserService() {
+
     }
 
     // CREATE
