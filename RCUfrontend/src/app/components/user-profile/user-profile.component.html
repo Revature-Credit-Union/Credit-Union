@@ -1,15 +1,21 @@
 <div class="container" id="myInfo">
     <br>
-    <h2 class="first-name">First Name: </h2>
-    <h2 class="last-name">Last Name: </h2>
+    <p class="first-name">First Name: </p>
+    <p class="last-name">Last Name: </p>
     <label class="email">Email: </label>
-    <br>
+    <br><br>
     <button class="editbtn btn btn-primary" (click) = "edit()"><span> Edit</span></button>
 </div>
 
 <div class="editingInfo" id="edit-Info">
     <form class="editing-form">
-        <h2>Editing</h2>
+        <h2 class="title">Update Information</h2>
+        <label>First Name: </label>
+        <input type="text" class="inputs">
+        <label>Last Name: </label>
+        <input type="text" class="inputs">
+        <label>Email: </label>
+        <input type="text" class="inputs" placeholder="">
         <button class="submitbtn btn btn-primary" type="submit" (click) = "close()"> Submit Changes </button>
         <button class="closebtn btn btn-primary" (click) = "close()"> Cancel </button>
     </form>

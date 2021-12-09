@@ -2,6 +2,11 @@
     padding-top: 5%;
 }
 
+h2.title{
+    position: relative;
+    text-align: center;
+}
+
 .editingInfo{
     position: absolute;
     top: 10rem;
@@ -9,7 +14,7 @@
     left: 0;
     right: 0;
     margin: auto;
-    width: 500px;
+    width: 20rem;
     height: auto;  
     box-shadow: rgb(3, 3, 3);
     z-index: 9;
@@ -20,9 +25,21 @@
     padding-left: 10px;
 }
 
+input.inputs{
+    margin-left: 10px;
+    margin-top: 5px;
+    
+}
+
 .submitbtn{
     padding-right: 5px;
     margin-right:5px;
+    margin-top: 1rem;
+}
+
+.closebtn{
+    margin-right:5px;
+    margin-top: 1rem;
 }
 
 .editbtn{
@@ -30,6 +47,11 @@
     background-color: gray;
     border-style: none;
     border-color: orange;
+}
+
+.editbtn:hover{
+    background-color: var(--orange);
+    color: white;
 }
 
 .editbtn span::after{

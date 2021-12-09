@@ -20,6 +20,8 @@ export class UserProfileComponent implements OnInit {
   edit(){
     document.getElementById("edit-Info")!.style.display = "block";
     document.getElementById("myInfo")!.style.filter = "blur(4px)"; //blur will blur the background content to make it look nicer
+    document.getElementById("myInfo")!.style.pointerEvents = "none"; //pointerEvents to none will not let the mouse click anything else besides the form
+
   }
  
   close(){
