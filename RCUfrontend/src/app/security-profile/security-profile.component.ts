@@ -24,9 +24,12 @@ export class SecurityProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     this.updateUserInfo();
 
-    document.getElementById("edit-Info")!.style.display = "none";
+
+    document.getElementById("editInfo")!.style.display = "none";
+ //f45939eebffd34500feec9cf7abd74c83e5b85c4
   }
 
   updateUserInfo(): void{
@@ -36,12 +39,12 @@ export class SecurityProfileComponent implements OnInit {
 
 
   edit(){
-    document.getElementById("edit-Info")!.style.display = "block";
+    document.getElementById("editInfo")!.style.display = "block";
     document.getElementById("myInfo")!.style.filter = "blur(4px)"; //blur will blur the background content to make it look nicer
   }
  
   close(){
-    document.getElementById("edit-Info")!.style.display = "close";
+    document.getElementById("editInfo")!.style.display = "close";
   }
 
 
