@@ -5,27 +5,33 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { FrontDoorComponent } from './components/front-door/front-door.component';
+
 
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SecurityProfileComponent } from './security-profile/security-profile.component';
+
+import { ProfileModule } from './modules/profile/profile.module';
+
+import { TransferComponent } from './components/transfer/transfer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
     RegisterComponent,
     LoginComponent,
-    FrontDoorComponent
-
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SecurityProfileComponent,
+    TransferComponent
+
 
   ],
   imports: [
@@ -33,7 +39,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

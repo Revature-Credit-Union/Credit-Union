@@ -1,0 +1,39 @@
+
+<div class="container">
+<div class="container" id="myInfo">
+    <br>
+    <h2 class="first-name">First Name: </h2>
+    <h2 class="last-name">Last Name: </h2>
+    <label class="email">Email: </label>
+    <br>
+    <button class="editbtn btn btn-primary" (click) = "edit()"><span> Edit</span></button>
+</div>
+
+
+    <div class="card card-container" id="myInfo">
+        <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+        <br>
+        <h2 class="first-name">First Name: {{ firstName }} </h2>
+        <h2 class="last-name">Last Name: {{ lastName }} </h2>
+        <label class="email">Email: {{ email }}</label>
+        <br>
+        <button class="editbtn btn btn-primary" (click)="edit()"><span> Edit</span></button>
+    </div>
+
+    <div class="editingInfo" id="edit-Info">
+        <form class="editing-form">
+            <h2 class="title">Update Information</h2>
+            <label>First Name: </label>
+            <input type="text" class="inputs" [(NgModel)] = "form.first_name">
+            <br>
+            <label>Last Name: </label>
+            <input type="text" class="inputs" [(NgModel)] = "form.last_name">
+            <br>
+            <label>Email: </label>
+            <input type="text" class="inputs" placeholder="" [(NgModel)]="form.email">
+            <br>
+            <button class="submitbtn btn btn-primary" type="submit" (click)="updateInfo()"> Submit Changes </button>
+            <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
+        </form>
+    </div>
+</div>

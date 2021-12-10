@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card card-container" id="myInfo">
+       
+
+
+
+
+        <h2 class="Title">Security Settings </h2>
+        <h2 class="username">Username: {{username}}</h2>
+        <h2 class="password">Password: {{password}}</h2>
+
+
+        <button class="editbtn btn btn-primary" (click)="edit()"><span> Reset Username and Password</span></button>
+    
+    </div>
+
+
+<div class="editingInfo" id="editInfo">
+    <form class="editing-form">
+        <h2>Editing</h2>
+        <h2>Enter new Username: </h2><input type="text" [(ngModel)]="username">
+
+        <br>
+        <h2> Enter new Password:</h2><input type="text" class="form-control" id="password" [(ngModel)]="password">
+        <h2> Hello, {{username}}</h2>
+        <div *ngIf=!passwordNotSatisfy>
+            Password must be at least 6 characters
+        </div>
+
+        <button class="submitbtn btn btn-primary" type="submit" (click)="close()"> Submit Changes </button>
+
+
+        <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
+    </form>
+
+</div>
