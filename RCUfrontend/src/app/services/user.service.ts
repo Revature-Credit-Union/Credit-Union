@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { catchError, retry } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { User } from '../models/userModel';
+import { EmailValidator } from '@angular/forms';
+
 import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 
 
+
 //const API_URL = 'http://ec2-54-89-183-177.compute-1.amazonaws.com:8080/revcare/api/test/';
-const API_URL =  'http://localhost:8080/users'
+const API_URL =  'http://localhost:8080/users/'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -35,13 +42,10 @@ export class UserService {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
 
-  updateUserInfo(username: string, password: string): Observable<any> {
+  updateUserInfo(email:string, first_name:string, last_name:string): Observable<any> {
 
-    return this.http.put(API_URL + '/update/{user_id}',
-    {
-      username,
-      password
-    }, httpOptions);
+    return this.http.put(API_URL + 'update_this', { email,first_name, last_name }, httpOptions);
+    
   }
 
 
