@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
+import { ProfileModule } from './modules/profile/profile.module';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { SecurityProfileComponent } from './security-profile/security-profile.co
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    SecurityProfileComponent
+    //SecurityProfileComponent
 
   ],
   imports: [
@@ -33,7 +34,9 @@ import { SecurityProfileComponent } from './security-profile/security-profile.co
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]
