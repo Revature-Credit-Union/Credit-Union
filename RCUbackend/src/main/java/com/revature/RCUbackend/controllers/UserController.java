@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public class UserController {
 
     private UserService userService;
 
+    @Autowired PasswordEncoder passwordEncoder;
+    
     @Autowired JavaMailSender javaMailSender;
 
     @Autowired
@@ -66,12 +69,14 @@ public class UserController {
     public boolean changePassword(@RequestBody ChangePasswordObject changePasswordObject)
     {
     	boolean success = false;
-    	
+
     	User changeUser = this.userService.findByUsername(changePasswordObject.getUsername()).get();
-    	if ( changePasswordObject.getCurrentPassword().equals(changeUser.getPassword()) && 
+    	System.out.println(changeUser.toString());
+    	System.out.println(changePasswordObject.toString());
+    	if (passwordEncoder.matches(changePasswordObject.getCurrentPassword(), changeUser.getPassword()) && 
     	changePasswordObject.getNewPassword().equals(changePasswordObject.getConfirmNewPassword()) )
     	{
-    		changeUser.setPassword(changePasswordObject.getNewPassword());
+    		changeUser.setPassword(passwordEncoder.encode(changePasswordObject.getNewPassword()));
     		this.userService.updateUser(changeUser);
     		success = true;
     	}
