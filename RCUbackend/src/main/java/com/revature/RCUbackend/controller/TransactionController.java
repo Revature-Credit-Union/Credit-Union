@@ -1,4 +1,4 @@
-package com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.RCUbackend.models.Response;
 import com.revature.RCUbackend.models.Transaction;
 import com.revature.RCUbackend.models.User;
-import com.revature.RCUbackend.service.TransactionService;
+import com.revature.RCUbackend.services.TransactionService;
 
 @RestController("transactionController")
 @RequestMapping("/transaction") //this can be changed depending on frontend
@@ -67,16 +67,16 @@ public class TransactionController {
 	
 	@GetMapping(path = "/findDeposits", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findDeposits(@RequestParam int id) {
-		return this.transactionService.findByUserTransactionTypeAndAccountID(0, id);
+		return this.transactionService.findByTransactionTypeAndUserID(0, id);
 	}
 	
 	@GetMapping(path = "/findWithdrawls", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findWithdrawls(@RequestParam int id) {
-		return this.transactionService.findByUserTransactionTypeAndAccountID(1, id);
+		return this.transactionService.findByTransactionTypeAndUserID(1, id);
 	}
 	
 	@GetMapping(path = "/findTransfers", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findTransfers(@RequestParam int id) {
-		return this.transactionService.findByUserTransactionTypeAndAccountID(2, id);
+		return this.transactionService.findByTransactionTypeAndUserID(2, id);
 	}
 }
