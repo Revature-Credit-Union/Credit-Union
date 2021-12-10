@@ -1,6 +1,7 @@
 package com.revature.RCUbackend.controllers;
 
 import com.revature.RCUbackend.models.User;
+import com.revature.RCUbackend.models.ChangePasswordObject;
 import com.revature.RCUbackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -61,8 +62,25 @@ public class UserController {
         userService.deleteUser(u);
     }
     
-    @PostMapping(path = "/resetpassword", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public boolean resetPass(@RequestBody User resetUser) {
+    @PutMapping(path = "/changePassword", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean changePassword(@RequestBody ChangePasswordObject changePasswordObject)
+    {
+    	boolean success = false;
+    	
+    	User changeUser = this.userService.findByUsername(changePasswordObject.getUsername()).get();
+    	if ( changePasswordObject.getCurrentPassword().equals(changeUser.getPassword()) && 
+    	changePasswordObject.getNewPassword().equals(changePasswordObject.getConfirmNewPassword()) )
+    	{
+    		changeUser.setPassword(changePasswordObject.getNewPassword());
+    		this.userService.updateUser(changeUser);
+    		success = true;
+    	}
+    	
+    	return success;
+    }
+    
+    @PostMapping(path = "/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public boolean resetPassword(@RequestBody User resetUser) {
     	
     	resetUser = this.userService.findByEmail(resetUser.getEmail()).get();
     	Random r = new Random();

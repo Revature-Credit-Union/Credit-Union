@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SecurityProfileComponent } from './security-profile/security-profile.co
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    SecurityProfileComponent
+    SecurityProfileComponent,
+    ChangePasswordComponent
 
   ],
   imports: [
