@@ -24,11 +24,13 @@ export class SecurityProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.updateUserInfo();
+
     document.getElementById("edit-Info")!.style.display = "none";
   }
 
-   getusers(): void{
-   this.userService.updateUserInfo(this.username, this.password).subscribe( resp => {this.userID = resp;} 
+  updateUserInfo(): void{
+   this.userService.updateUserInfo(this.username, this.password).subscribe( resp => {this.updateUserInfo = resp;} 
     )
   }
 

@@ -40,7 +40,7 @@ export class UserService {
     {
       username,
       password
-    }, httpOptions);
+    });
   }
 
 }
