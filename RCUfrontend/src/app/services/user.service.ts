@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { User } from '../models/userModel';
+import { EmailValidator } from '@angular/forms';
 
 
 //const API_URL = 'http://ec2-54-89-183-177.compute-1.amazonaws.com:8080/revcare/api/test/';
@@ -36,9 +37,9 @@ export class UserService {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
 
-  updateUserInfo(userID: any | User[], user: User): Observable<User> {
+  updateUserInfo(email:string, first_name:string, last_name:string): Observable<any> {
 
-    return this.http.put<User>(API_URL + userID, user,httpOptions)
+    return this.http.put(API_URL + 'update_this', { email,first_name, last_name }, httpOptions);
     
   }
 
