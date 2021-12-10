@@ -7,6 +7,7 @@ import { UserService } from '../services/user.service';
 
 
 
+
 @Component({
   selector: 'app-security-profile',
   templateUrl: './security-profile.component.html',
@@ -14,6 +15,9 @@ import { UserService } from '../services/user.service';
 })
 export class SecurityProfileComponent implements OnInit {
 
+
+  users: User[] = [];
+  
   
   userID = null;
   username = "";
@@ -24,17 +28,19 @@ export class SecurityProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-    this.updateUserInfo();
+    
+    
 
 
     document.getElementById("editInfo")!.style.display = "none";
  //f45939eebffd34500feec9cf7abd74c83e5b85c4
   }
+  
 
-  updateUserInfo(): void{
-   this.userService.updateUserInfo(this.username, this.password).subscribe( resp => {this.updateUserInfo = resp;} 
-    )
+  updateUserInfo(_userID: any, users: User){
+    
+  //  this.userService.updateUserInfo(_userID,this.users).subscribe( resp => {this.users = resp;} 
+  //   )
   }
 
 
