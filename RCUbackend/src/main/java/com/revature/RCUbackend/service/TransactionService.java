@@ -1,4 +1,4 @@
-package com.revature.RCUbackend.service;
+package com.revature.RCUbackend.services;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.RCUbackend.models.Transaction;
-import com.revature.RCUbackend.repository.TransactionRepository;
+import com.revature.RCUbackend.repositories.TransactionRepository;
 
 @Service
 @Transactional
@@ -40,8 +40,8 @@ public class TransactionService {
 		return this.transactionRepository.findByTransactionTypeAndUserID(type, id);
 	}
 	
-	public List<Transaction> findByUserTransactionTypeAndAccountID(int type, int id) {
-		return this.transactionRepository.findByTransactionTypeAndUserID(type, id);
+	public List<Transaction> findByTransactionTypeAndAccountID(int type, int id) {
+		return this.transactionRepository.findByTransactionTypeAndAccountID(type, id);
 	}
 	
 	public Transaction saveTransaction(Transaction transaction) {
