@@ -11,7 +11,7 @@ import { BoardModeratorComponent } from './components/board-moderator/board-mode
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
-
+import { SecurityProfileComponent } from './security-profile/security-profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/front-door', pathMatch: 'full'},
@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   {path: 'user-profile', component: UserProfileComponent},
+  {path: 'security-profile', component: SecurityProfileComponent},
   { path: 'settings', component: AccountSettingsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 

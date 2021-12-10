@@ -1,0 +1,55 @@
+.container{
+    padding-top: 5%;
+}
+
+.editingInfo{
+    position: absolute;
+    top: 10rem;
+    bottom: 10rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: auto;  
+    box-shadow: rgb(3, 3, 3);
+    z-index: 9;
+    color: white;
+    background-color: rgba(63, 60, 60, 0.479);
+    border-radius: 8px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.submitbtn{
+    padding-right: 5px;
+    margin-right:5px;
+}
+
+.editbtn{
+    color: black;
+    background-color: gray;
+    border-style: none;
+    border-color: orange;
+}
+
+.editbtn span::after{
+  content: '\270E';
+  position: relative;
+  opacity: 1;
+  top: 0;
+  right: -5px;
+}
+
+.foo {
+    outline: 1px solid orange;
+}
+
+
+* {
+    box-sizing: border-box;
+  }
+
+
+  html, body {
+    margin: 0;
+  }
