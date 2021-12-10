@@ -1,51 +1,49 @@
 <div class="container">
-    <div>
-        <div class="card card-container" id="myInfo">
-            <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
-            <br>
-            <h2 class="first-name">First Name: {{ firstName }} </h2>
-            <h2 class="last-name">Last Name: {{ lastName }} </h2>
-            <label class="email">Email: {{ email }}</label>
-            <br>
-            <button class="editbtn btn btn-primary" (click)="edit()"><span> Edit</span></button>
-            <br>
-            <button class="editbtn btn btn-primary" (click)="changePass()"><span> Change Password </span></button>
-        </div>
 
-        <div class="editingInfo" id="edit-Info">
-            <form class="editing-form">
-                <h2 class="title">Update Information</h2>
-                <label>First Name: </label>
-                <input type="text" class="inputs">
-                <br>
-                <label>Last Name: </label>
-                <input type="text" class="inputs">
-                <br>
-                <label>Email: </label>
-                <input type="text" class="inputs" placeholder="">
-                <br>
-                <button class="submitbtn btn btn-primary" type="submit" (click)="close()"> Submit Changes </button>
-                <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
-            </form>
-        </div>
-
-        <div class="editingInfo" id="edit-Pass">
-            <form class="editing-form">
-                <h2>Change My Password</h2>
-                <label>Old Password: </label>
-                <input type="text" class="inputs">
-                <br>
-                <label>New Password: </label>
-                <input type="text" class="inputs">
-                <br>
-                <label>Re-Enter New Password: </label>
-                <input type="text" class="inputs" placeholder="">
-                <br>
-                <button class="submitbtn btn btn-primary" type="submit" (click)="close()"> Submit Changes </button>
-                <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
-
-            </form>
-        </div>
-
+    <div class="card card-container" id="myInfo">
+        <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+        <br>
+        <h2 class="first-name">First Name: {{ firstName }} </h2>
+        <h2 class="last-name">Last Name: {{ lastName }} </h2>
+        <label class="email">Email: {{ email }}</label>
+        <br>
+        <button class="editbtn btn btn-primary" (click)="edit()"><span> Edit</span></button>
+        <br>
+        <button class="editbtn btn btn-primary" (click)="changePass()"><span> Change Password </span></button>
     </div>
+
+    <div class="editingInfo" id="edit-Info">
+        <form class="editing-form">
+            <h2 class="title">Update Information</h2>
+            <label>First Name: </label>
+            <input type="text" class="inputs">
+            <br>
+            <label>Last Name: </label>
+            <input type="text" class="inputs">
+            <br>
+            <label>Email: </label>
+            <input type="text" class="inputs" placeholder="">
+            <br>
+            <button class="submitbtn btn btn-primary" type="submit" (click)="close()"> Submit Changes </button>
+            <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
+        </form>
+    </div>
+</div>
+
+<div class="editingInfo" id="edit-Pass">
+    <form class="editing-form">
+        <h2>Change My Password</h2>
+        <label>Old Password: </label>
+        <input type="text" class="inputs">
+        <br>
+        <label>New Password: </label>
+        <input type="text" class="inputs">
+        <br>
+        <label>Re-Enter New Password: </label>
+        <input type="text" class="inputs" placeholder="">
+        <br>
+        <button class="submitbtn btn btn-primary" type="submit" (click)="close()"> Submit Changes </button>
+        <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
+
+    </form>
 </div>
