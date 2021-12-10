@@ -6,6 +6,7 @@ import com.revature.RCUbackend.service.*;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.junit.jupiter.api.BeforeEach;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -51,7 +52,9 @@ public class AccountControllerTest {
     void transferTest(){
         int newAmount1 = testUser1.getBalance() - 200;
         int newAmount2 = testUser2.getBalance() + 200;
+
         accountController.transfer(200, testUser1, testUser2);
+
         assertEquals(testUser1.getBalance(), newAmount1);
         assertEquals(testUser2.getBalance(), newAmount2);
     }
