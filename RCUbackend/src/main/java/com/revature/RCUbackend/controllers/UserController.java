@@ -3,10 +3,14 @@ package com.revature.RCUbackend.controllers;
 import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 @RestController
 @RequestMapping(path="/users")
@@ -14,12 +18,13 @@ public class UserController {
 
     private UserService userService;
 
+    @Autowired JavaMailSender javaMailSender;
 
     @Autowired
     public UserController(UserService userService){
         this.userService = userService;
     }
-//Create
+    //Create
     @PostMapping(path ="/addUser", consumes = "application/json", produces = "application/json")
     public void addUser(@RequestBody User user){
         userService.addUser(user);
@@ -55,8 +60,34 @@ public class UserController {
         User u = userService.getUser(user_id);
         userService.deleteUser(u);
     }
-
-
-
+    
+    @PostMapping(path = "/resetpassword", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public boolean resetPass(@RequestBody User resetUser) {
+    	
+    	resetUser = this.userService.findByEmail(resetUser.getEmail()).get();
+    	Random r = new Random();
+    	String tempPassword = "";
+    	
+    	for (int count = 0; count < 16; count++)
+    	{
+    		tempPassword = tempPassword + (char)(r.nextInt(26) + 'a');
+    	}
+    	
+    	resetUser.setPassword(tempPassword);
+    	this.userService.updateUser(resetUser);
+    	
+    	SimpleMailMessage temporaryPasswordMessage = new SimpleMailMessage();
+    	temporaryPasswordMessage.setFrom("RCU_test@hotmail.com");
+		temporaryPasswordMessage.setTo(resetUser.getEmail());
+		
+		String mailSubject ="Password Reset";
+		String mailContent = "You requested a new password: " + resetUser.getPassword()+ "\nPlease change this password upon login.";
+		temporaryPasswordMessage.setSubject(mailSubject);
+		temporaryPasswordMessage.setText(mailContent);
+    	
+    	javaMailSender.send(temporaryPasswordMessage);
+		
+    	return true;
+    }
 
 }
