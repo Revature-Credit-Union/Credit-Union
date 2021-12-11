@@ -12,6 +12,7 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
+import { TransferComponent } from './components/transfer/transfer.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/front-door', pathMatch: 'full'},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'security-profile', component: SecurityProfileComponent},
   { path: 'settings', component: AccountSettingsComponent },
+  { path: 'transfer', component:TransferComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 
