@@ -44,12 +44,5 @@ public class UserService{
     public void deleteUser(User user) {
         userRepo.delete(user);
     }
-    
-//	public Optional<User> findByEmail(String email) {
-//		return this.userRepo.findByEmail(email);
-//	}
-//
-//	public Optional<User> findByUsername(String username) {
-//		return this.userRepo.findByUsername(username);
-//	}
+
 }
