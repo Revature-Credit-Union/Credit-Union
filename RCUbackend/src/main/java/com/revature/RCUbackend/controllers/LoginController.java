@@ -10,6 +10,7 @@ import com.revature.RCUbackend.payload.response.MessageResponse;
 import com.revature.RCUbackend.repositories.RoleRepo;
 import com.revature.RCUbackend.repositories.UserRepo;
 import com.revature.RCUbackend.security.JwtUtils;
+import com.revature.RCUbackend.services.EmailService;
 import com.revature.RCUbackend.services.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/auth")
 public class LoginController {
+    @Autowired
+    EmailService email;
     @Autowired
     AuthenticationManager authenticationManager;
 
@@ -123,6 +126,8 @@ public class LoginController {
 
         user.setRoles(roles);
         userRepo.save(user);
+
+        email.alert( user.getUserID(), "Revature Credit Union Registration Successful" , "<html><body><p>Thank You for creating a User account</p></body></html>");
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
