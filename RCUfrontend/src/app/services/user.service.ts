@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { catchError, retry } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
+//import { Observable, throwError } from 'rxjs';
 import { User } from '../models/userModel';
 import { EmailValidator } from '@angular/forms';
 
@@ -46,6 +46,11 @@ export class UserService {
 
     return this.http.put(API_URL + 'update_this', { email,first_name, last_name }, httpOptions);
     
+  }
+
+  getallusers(): Observable<any> {
+
+    return this.http.get(API_URL + '/find');
   }
 
 

@@ -30,10 +30,8 @@ import { TransferComponent } from './components/transfer/transfer.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    SecurityProfileComponent,
-
-    TransferComponent
-
+    //SecurityProfileComponent,
+    TransferComponent,
     ChangePasswordComponent
 
 
