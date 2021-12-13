@@ -1,9 +1,12 @@
 
 package com.revature.RCUbackend.controllers;
 
+import com.revature.RCUbackend.models.ChangePasswordObject;
 import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +19,8 @@ public class UserController {
 
     private UserService userService;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserController(UserService userService){
@@ -57,6 +62,57 @@ public class UserController {
         User u = userService.getUser(user_id);
         userService.deleteUser(u);
     }
+
+
+
+    @PutMapping(path = "/changePassword", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean changePassword(@RequestBody ChangePasswordObject changePasswordObject)
+    {
+        boolean success = false;
+
+        User changeUser = this.userService.findByUsername(changePasswordObject.getUsername()).get();
+        System.out.println(changeUser.toString());
+        System.out.println(changePasswordObject.toString());
+        if (passwordEncoder.matches(changePasswordObject.getCurrentPassword(), changeUser.getPassword()) &&
+                changePasswordObject.getNewPassword().equals(changePasswordObject.getConfirmNewPassword()) )
+        {
+            changeUser.setPassword(passwordEncoder.encode(changePasswordObject.getNewPassword()));
+            this.userService.updateUser(changeUser);
+            success = true;
+        }
+
+        return success;
+    }
+
+    @PostMapping(path = "/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean resetPassword(@RequestBody User resetUser) {
+
+        resetUser = this.userService.findByEmail(resetUser.getEmail()).get();
+        Random r = new Random();
+        String tempPassword = "";
+
+        for (int count = 0; count < 16; count++)
+        {
+            tempPassword = tempPassword + (char)(r.nextInt(26) + 'a');
+        }
+
+        resetUser.setPassword(tempPassword);
+        this.userService.updateUser(resetUser);
+
+        SimpleMailMessage temporaryPasswordMessage = new SimpleMailMessage();
+        temporaryPasswordMessage.setFrom("RCU_test@hotmail.com");
+        temporaryPasswordMessage.setTo(resetUser.getEmail());
+
+        String mailSubject ="Password Reset";
+        String mailContent = "You requested a new password: " + resetUser.getPassword()+ "\nPlease change this password upon login.";
+        temporaryPasswordMessage.setSubject(mailSubject);
+        temporaryPasswordMessage.setText(mailContent);
+
+        javaMailSender.send(temporaryPasswordMessage);
+
+        return true;
+    }
+
 
 
 
