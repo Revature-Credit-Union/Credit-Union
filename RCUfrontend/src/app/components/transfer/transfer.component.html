@@ -7,12 +7,11 @@
     </div>
 
 
-    <!-- <form> --> <form
-            *ngIf="!isSuccessful"
+        <form
             name="form1"
-            (ngSubmit)="onSubmit()"
+            (click)="onSubmit()"
             > 
-            <!-- novalidatef.form.valid && #f="ngForm" -->
+           
     <div>
           
             
@@ -21,14 +20,8 @@
           <br>
           <p>
             <label>From Account:</label>
-            <select ng-model="selectedName" ng-options="x for x in names">
-         <!-- </select>
-              <select> -->
-                
-                 <option value="test1">test 1</option>
-                     
-                    <option value="test2">test 2
-                </option> 
+            <select class ="account1" >
+              <option *ngFor=""></option>
             </select>  
         </p>
     </div>
@@ -37,9 +30,7 @@
         <p>
             <label>To Account:</label>
             <select>
-                 <option value="test3">test 3</option>
-                  
-                    <option value="test4">test 4</option> 
+                 <option class="account2" ng-options="x for x in accounts">
 
             </select>
         </p>
@@ -47,8 +38,8 @@
     
     <div>
         <p>
-             <label>Amount:</label><input id="amount" type="text" name="amount">
-            <!-- [(ngModel)]="form.amount"> -->
+             <label>Amount:</label><input class="amount" id="amount" type="text" name="amount">
+           
         </p>
     </div>
     <div>
