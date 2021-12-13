@@ -3,36 +3,47 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Transaction } from '../models/Transaction';
 import { environment } from 'src/environments/environment';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactonSummaryService {
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient, private tokenStorage: TokenStorageService) { 
 
   }
 
   //FIX THESE METHODS BELOW!
 
-  // getDeposits() : Observable<Transaction[]> {
-  //   return this.httpClient.get(environment.getDeposits, 
-  //     params : {
-  //       id : //User ID here (alternatively a User object can suffice)
-  //     }) as Observable<Transaction[]>;
-  // }
+  // let params = new HttpParams();
+  // params.append('id', this.tokenStorage.getUser().user_id)
 
-  // getWithdrawls() : Observable<Transaction[]> {
-  //   return this.httpClient.get(environment.getWithdrawls, 
-  //     params : {
-  //       id : //User ID here (alternatively a User object can suffice)
-  //     }) as Observable<Transaction[]>;
-  // }
+  getDeposits() : Observable<Transaction[]> {
+    return this.httpClient.get(environment.getDeposits, 
+      { 
+      params : {
+        id : this.tokenStorage.getUser().user_id
+      } 
+    }) as Observable<Transaction[]>;
+  }
 
-  // getTransfers() : Observable<Transaction[]> {
-  //   return this.httpClient.get(environment.getWithdrawls, 
-  //     params : {
-  //       id : //User ID here
-  //     }) as Observable<Transaction[]>;
-  // }
+  getWithdrawls() : Observable<Transaction[]> {
+    return this.httpClient.get(environment.getWithdrawls, 
+      {
+        params : {
+        id : this.tokenStorage.getUser().user_id
+      }
+    }) as Observable<Transaction[]>;
+  }
+
+  getTransfers() : Observable<Transaction[]> {
+    return this.httpClient.get(environment.getWithdrawls,
+      {
+        params : {
+        id : this.tokenStorage.getUser().user_id
+      }
+    }) as Observable<Transaction[]>;
+  }
 }
+
