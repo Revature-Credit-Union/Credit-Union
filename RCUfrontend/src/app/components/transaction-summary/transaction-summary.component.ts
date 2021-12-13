@@ -20,36 +20,35 @@ export class TransactionSummaryComponent implements OnInit {
 
   }
 
-  //FIX THESE AFTER SERVICE METHODS ARE FIXED 
+  getDeposits(){
+    return this.transactionService.getDeposits().subscribe((data) => 
+    {
+      console.log(data);
+      this.deposits = data;
+    }
 
-  // getDeposits(){
-  //   return this.transactionService.getDeposits().subscribe((data) => 
-  //   {
-  //     console.log(data);
-  //     this.deposits = data;
-  //   }
+    )
+  }
 
-  //   )
-  // }
+  getWithdrawals(){
+    return this.transactionService.getWithdrawls().subscribe((data) => 
+    {
+      console.log(data);
+      this.withdrawals = data;
+    }
 
-  // getWithdrawals(){
-  //   return this.transactionService.getWithdrawals().subscribe((data) => 
-  //   {
-  //     console.log(data);
-  //     this.deposits = data;
-  //   }
+    )
+  }
 
-  //   )
-  // }
+  getTransfers(){
+    return this.transactionService.getTransfers().subscribe((data) => 
+    {
+      console.log(data);
+      this.transfers = data;
+    }
 
-  // getTransfers(){
-  //   return this.transactionService.getTransfers().subscribe((data) => 
-  //   {
-  //     console.log(data);
-  //     this.deposits = data;
-  //   }
+    )
+  }
 
-  //   )
-  // }
 }
 

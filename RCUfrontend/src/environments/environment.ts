@@ -8,7 +8,8 @@ export const environment = {
   getWithdrawls : "localhost:8080/transactions/findWithdrawls",
   getTransfers : "localhost:8080/transactions/findWithdrawls",
   deposit : "localhost:8080/account/deposit",
-  withdraw : "llocalhost:8080/account/withdraw"
+  withdraw : "localhost:8080/account/withdraw",
+  getUserAccounts : "localhost:8080/account/findByUser"
 };
 
 /*

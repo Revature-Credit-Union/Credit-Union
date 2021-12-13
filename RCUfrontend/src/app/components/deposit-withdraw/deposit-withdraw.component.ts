@@ -18,16 +18,45 @@ export class DepositWithdrawComponent implements OnInit {
 
   amount = 0;
   account = new Account(0, 0, 0);
+  transaction = 0;
+  accounts : Account[] = [];
+  
+  changeTransaction(entry : number){
+    this.transaction = entry;
+  }
+
+
+  changeAccount(account : Account){
+    this.account = account;
+  }
+
+  enactTransaction() {
+    if (this.transaction === 1) {
+      this.deposit()
+    }
+
+    else if (this.transaction === 2) {
+      this.withdraw();
+    }
+  }
 
   //FIX THESE METHODS AFTER SERVICE METHODS ARE FIXED!
 
-  // deposit(){
-  //   this.depositWithdrawService.deposit(this.amount, this.account).subscribe();
-  //   //add router navigation code here
-  // }
+  deposit(){
+    this.depositWithdrawService.deposit(this.amount, this.account).subscribe();
+    //add router navigation code here
+  }
 
-  // withdraw(){
-  //   this.depositWithdrawService.withdraw(this.amount, this.account).subscribe();
-  //   //add router navigation code here
-  // }
+  withdraw(){
+    this.depositWithdrawService.withdraw(this.amount, this.account).subscribe();
+    //add router navigation code here
+  }
+
+  getUserAccounts(){
+    return this.depositWithdrawService.getUserAccounts().subscribe((data) => 
+    {
+      console.log(data);
+      this.accounts = data
+    });
+  }
 }
