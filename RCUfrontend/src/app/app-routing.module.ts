@@ -12,11 +12,7 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
-
-import { ProfileComponent } from './components/profile/profile.component';
-
-import { TransferComponent } from './components/transfer/transfer.component';
-
+import { TransactionSummaryComponent } from './components/transaction-summary/transaction-summary.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/front-door', pathMatch: 'full'},
@@ -30,10 +26,8 @@ const routes: Routes = [
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'security-profile', component: SecurityProfileComponent},
   { path: 'settings', component: AccountSettingsComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'transfer', component:TransferComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
-
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: "summary", component: TransactionSummaryComponent}
 
 ];
 
