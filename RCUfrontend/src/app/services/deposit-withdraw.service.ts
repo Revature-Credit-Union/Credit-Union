@@ -37,4 +37,16 @@ export class DepositWithdrawService {
   //     })
   // }
 
+
+    // transfer(amountInput : number, accountInput : Account) : Observable<Object>{
+  //   return this.httpClient.post(environment.withdraw, 
+  //     params : {
+  //       amount : amountInput; //amount here
+  //     }, 
+      
+  //     account : {
+  //       account : accountInput; //Account object here (alternatively an account ID works fine)
+  //     })
+  // }
+
 }
