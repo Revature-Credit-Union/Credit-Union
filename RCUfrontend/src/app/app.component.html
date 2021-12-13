@@ -14,10 +14,18 @@
             >Login</a
           >
         </li>
+
         <li class="nav-item" [hidden]="!isLoggedIn">
           <a href="" class="nav-link" (click)="logout()">LogOut</a>
         </li>
+        <li *ngif="isLoggedIn" class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile">Profile</a>
+        </li>
+        <li *ngif="isLoggedIn" class="nav-item">
+          <a href="/transfer" class="nav-link" routerLink="transfer">Transfer</a>
+        </li>
       </ul>
+
     </nav>
   </div>
 </body>
