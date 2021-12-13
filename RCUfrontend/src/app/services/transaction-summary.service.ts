@@ -14,11 +14,6 @@ export class TransactonSummaryService {
 
   }
 
-  //FIX THESE METHODS BELOW!
-
-  // let params = new HttpParams();
-  // params.append('id', this.tokenStorage.getUser().user_id)
-
   getDeposits() : Observable<Transaction[]> {
     return this.httpClient.get(environment.getDeposits, 
       { 
@@ -38,7 +33,7 @@ export class TransactonSummaryService {
   }
 
   getTransfers() : Observable<Transaction[]> {
-    return this.httpClient.get(environment.getWithdrawls,
+    return this.httpClient.get(environment.getTransfers,
       {
         params : {
         id : this.tokenStorage.getUser().user_id
