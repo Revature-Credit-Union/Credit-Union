@@ -68,20 +68,20 @@ public class UserController {
     @PutMapping(path = "/changePassword", consumes = MediaType.APPLICATION_JSON_VALUE)
     public boolean changePassword(@RequestBody ChangePasswordObject changePasswordObject)
     {
-        boolean success = false;
+    	boolean success = false;
 
-        User changeUser = this.userService.findByUsername(changePasswordObject.getUsername()).get();
-        System.out.println(changeUser.toString());
-        System.out.println(changePasswordObject.toString());
-        if (passwordEncoder.matches(changePasswordObject.getCurrentPassword(), changeUser.getPassword()) &&
-                changePasswordObject.getNewPassword().equals(changePasswordObject.getConfirmNewPassword()) )
-        {
-            changeUser.setPassword(passwordEncoder.encode(changePasswordObject.getNewPassword()));
-            this.userService.updateUser(changeUser);
-            success = true;
-        }
+    	User changeUser = this.userService.findByUsername(changePasswordObject.getUsername()).get();
+    	if (passwordEncoder.matches(changePasswordObject.getCurrentPassword(), changeUser.getPassword()) && 
+    	changePasswordObject.getNewPassword().equals(changePasswordObject.getConfirmNewPassword()) )
+    	{
+    		changeUser.setPassword(passwordEncoder.encode(changePasswordObject.getNewPassword()));
+    		this.userService.updateUser(changeUser);
+    		success = true;
+    	}
+    	System.out.println(changeUser);
+    	
+    	return success;
 
-        return success;
     }
 
     @PostMapping(path = "/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE)
