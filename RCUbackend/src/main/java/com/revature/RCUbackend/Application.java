@@ -20,7 +20,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-	}
+		}
 
 	/**
 	 * CorsFilter method. Filter to handle CORS pre-flight requests and intercept CORS simple and actual
