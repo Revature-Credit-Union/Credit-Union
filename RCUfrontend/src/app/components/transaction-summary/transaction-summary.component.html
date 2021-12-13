@@ -1,34 +1,42 @@
 <div class = transactions>
-    <!-- The idea is that on window load, several HTTP requests to the backend will
-    be called, these are simply "get Transactions by User ID type" requests, and
-    then ideally the results would be put into these tables, right now I'm trying
-    to figure out how that's done -->
     <div id = "depositsTable">
-        <table>
-            <tr>
-                <th>TransactionID</th>
-                <th>Account</th>
-                <th>Amount</th>
+        <table class = "deposits">
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Date</th>
+
+            <tr *ngFor="let deposit of deposits">
+                <td>{{deposit.accountID}}</td>
+                <td>{{deposit.amount}}</td>
+                <td>{{deposit.date}}</td>
             </tr>
         </table>
     </div>
     
     <div id = "withdrawalsTable">
-        <table>
-            <tr>
-                <th>TransactionID</th>
-                <th>Account</th>
-                <th>Amount</th>
+        <table class = "withdrawals">
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Date</th>
+
+            <tr *ngFor="let withdrawal of withdrawals">
+                <td>{{withdrawal.accountID}}</td>
+                <td>{{withdrawal.amount}}</td>
+                <td>{{withdrawal.date}}</td>
             </tr>
         </table>
     </div>
     
     <div id = "transfersTable">
-        <table>
-            <tr>
-                <th>TransactionID</th>
-                <th>Account</th>
-                <th>Amount</th>
+        <table class = "transfers">
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Date</th>
+
+            <tr *ngFor="let transfer of transfers">
+                <td>{{transfer.accountID}}</td>
+                <td>{{transfer.amount}}</td>
+                <td>{{transfer.date}}</td>
             </tr>
         </table>
     </div>
