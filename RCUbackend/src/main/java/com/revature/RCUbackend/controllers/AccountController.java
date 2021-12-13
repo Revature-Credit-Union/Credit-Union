@@ -20,9 +20,9 @@ public class AccountController {
 	public AccountController(AccountService accountService) {
 		this.accountService = accountService;
 	}
-
+	
 	//any of these mappings are subject to change depending on HTTP requests from frontend
-
+	
 	@GetMapping(path = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Account>> findAll(){
 		List<Account> accounts = this.accountService.findAll();
@@ -39,12 +39,12 @@ public class AccountController {
 	public void deposit(@RequestParam int amount, @RequestBody Account account) {
 		this.accountService.deposit(amount, account);
 	}
-
+	
 	@PostMapping(path = "/withdraw", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void withdraw(@RequestParam int amount, @RequestBody Account account) {
 		this.accountService.withdraw(amount, account);
 	}
-
+	
 	@PostMapping(path = "/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void transfer(@RequestParam int amount, @RequestBody Account fromAccount, @RequestBody Account toAccount) {
 		this.accountService.withdraw(amount, fromAccount);
