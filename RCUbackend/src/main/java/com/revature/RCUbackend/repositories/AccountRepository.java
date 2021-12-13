@@ -13,7 +13,7 @@ import java.util.List;
 public interface AccountRepository extends JpaRepository<Account, Integer>{
 	public List<Account> findAll();
 
-	@Query("select * WHERE userId = ?1")
+
 	public List<Account> getById(int userId);
 
 	@Modifying
