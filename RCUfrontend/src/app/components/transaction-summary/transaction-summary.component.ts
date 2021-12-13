@@ -49,7 +49,6 @@ export class TransactionSummaryComponent implements OnInit {
 
     )
   }
-  //FIX THESE AFTER SERVICE METHODS ARE FIXED 
 
 }
 
