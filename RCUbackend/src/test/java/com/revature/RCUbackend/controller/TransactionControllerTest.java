@@ -1,10 +1,21 @@
 package com.revature.RCUbackend.controller;
 
+
 import com.revature.RCUbackend.controllers.TransactionController;
 import com.revature.RCUbackend.services.TransactionService;
+
+
+
+import com.revature.RCUbackend.service.*;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+
+import static org.junit.Assert.assertNotNull;
 
 public class TransactionControllerTest {
 
@@ -13,28 +24,48 @@ public class TransactionControllerTest {
     @Mock
     TransactionService transactionService;
 
+    @Mock
+    TransactionService t1;
+
+    @Mock
+    TransactionService t2;
+
     @BeforeEach
     void setUp(){
+
         this.transactionController = new TransactionController(transactionService);
+
     }
 
     @Test
-    void allTransactionsTest(){}
+    void allTransactionsTest(){
+        //transactionController.allTransactions();
+    }
 
     @Test
-    void saveTransactionTest(){}
+    void saveTransactionTest(){
+        //transactionController.saveTransaction();
+    }
 
     @Test
-    void getallTest(){}
+    void getallTest(){
+        assertNotNull(transactionController.getall());
+    }
 
     @Test
-    void findByUserTest(){}
+    void findByUserTest(){
+        //transactionController.findbyUser();
+    }
 
     @Test
-    void findByAccountTest(){}
+    void findByAccountTest(){
+        //transactionController.findbyAccount()
+    }
 
     @Test
-    void findDepositsTest(){}
+    void findDepositsTest(){
+        //transactionController.findDeposits()
+    }
 
     @Test
     void findWithdrawalsTest(){}

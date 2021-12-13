@@ -16,6 +16,9 @@ import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
+
+import { ProfileModule } from './modules/profile/profile.module';
+
 import { TransferComponent } from './components/transfer/transfer.component';
 
 
@@ -29,13 +32,16 @@ import { TransferComponent } from './components/transfer/transfer.component';
     SecurityProfileComponent,
     TransferComponent
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+
 package com.revature.RCUbackend.controllers;
 
 import com.revature.RCUbackend.models.User;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
+
 
 @RestController
 @RequestMapping(path="/users")
@@ -60,3 +62,5 @@ public class UserController {
 
 
 }
+
+

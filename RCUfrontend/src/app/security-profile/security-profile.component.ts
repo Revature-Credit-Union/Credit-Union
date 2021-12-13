@@ -7,6 +7,7 @@ import { UserService } from '../services/user.service';
 
 
 
+
 @Component({
   selector: 'app-security-profile',
   templateUrl: './security-profile.component.html',
@@ -14,6 +15,9 @@ import { UserService } from '../services/user.service';
 })
 export class SecurityProfileComponent implements OnInit {
 
+
+  users: User[] = [];
+  
   
   userID = null;
   username = "";
@@ -24,22 +28,29 @@ export class SecurityProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    document.getElementById("edit-Info")!.style.display = "none";
-  }
+    
+    
 
-   getusers(): void{
-   this.userService.updateUserInfo(this.username, this.password).subscribe( resp => {this.userID = resp;} 
-    )
+
+    document.getElementById("editInfo")!.style.display = "none";
+ //f45939eebffd34500feec9cf7abd74c83e5b85c4
+  }
+  
+
+  updateUserInfo(_userID: any, users: User){
+    
+  //  this.userService.updateUserInfo(_userID,this.users).subscribe( resp => {this.users = resp;} 
+  //   )
   }
 
 
   edit(){
-    document.getElementById("edit-Info")!.style.display = "block";
+    document.getElementById("editInfo")!.style.display = "block";
     document.getElementById("myInfo")!.style.filter = "blur(4px)"; //blur will blur the background content to make it look nicer
   }
  
   close(){
-    document.getElementById("edit-Info")!.style.display = "close";
+    document.getElementById("editInfo")!.style.display = "close";
   }
 
 
