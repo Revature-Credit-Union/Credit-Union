@@ -15,12 +15,12 @@ public class EmailController {
 	@GetMapping("/forgotPass")
 	public  void resetPass(int id)
 	{
-		email.resetPass(id);
+		//email.resetPass(id);
 	}
 	@GetMapping("/Alert")
 	public void alert(@RequestParam("id")int id)
 	{
-		email.alert(id);
+	//	email.alert(id);
 	}
 	
 }
