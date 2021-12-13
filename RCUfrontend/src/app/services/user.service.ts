@@ -60,5 +60,39 @@ export class UserService {
     }, httpOptions);
   }
 
+
+  changeUsername(username: string): Observable<any> {
+
+    console.log(this.tokenStorageService.getToken);
+    console.log(this.tokenStorageService.getUser);
+    username = this.tokenStorageService.getUser().username
+
+
+    return this.http.put(API_URL + '/changeUsername',
+    {
+      username
+
+    }, httpOptions);
+  }
+
+
+  changeProfileSettings(firstname: string, lastname: string, email: string, username?: string): Observable<any> {
+
+    console.log(this.tokenStorageService.getToken);
+    console.log(this.tokenStorageService.getUser);
+    username = this.tokenStorageService.getUser().username
+
+    return this.http.put(API_URL + '/changeProfileSettings',
+    {
+      firstname,
+      lastname,
+      email
+    },httpOptions);
+  
+
+  }
+
+
+
 }
 

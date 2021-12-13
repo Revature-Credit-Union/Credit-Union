@@ -19,10 +19,11 @@ export class UserProfileComponent implements OnInit {
     first_name: null,
     last_name: null
   }
-  // Placeholders for myInfo variables, to be swapped out for database references
-  firstName: string = "Charles";
-  lastName: string = "Dickens";
-  email: string = "dude@myguy.org";
+  
+  isSuccessful = false;
+  usernameChangeFailed = false;
+  errorMessage = '';
+
 
   constructor(private userService: UserService) { }
 

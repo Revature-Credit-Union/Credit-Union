@@ -71,7 +71,7 @@ public class UserController {
     	boolean success = false;
 
     	User changeUser = this.userService.findByUsername(changePasswordObject.getUsername()).get();
-    	if (passwordEncoder.matches(changePasswordObject.getCurrentPassword(), changeUser.getPassword()) && 
+    	if (passwordEncoder.matches(changePasswordObject.getCurrentPassword(), changeUser.getPassword()) &&
     	changePasswordObject.getNewPassword().equals(changePasswordObject.getConfirmNewPassword()) )
     	{
     		changeUser.setPassword(passwordEncoder.encode(changePasswordObject.getNewPassword()));
@@ -81,6 +81,24 @@ public class UserController {
     	System.out.println(changeUser);
     	
     	return success;
+
+    }
+
+    @PutMapping(path = "/changeUsername", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean changeUsername(@RequestBody ChangePasswordObject changeUsername)
+    {
+        boolean success = false;
+
+        User changeUser = this.userService.findByUsername(changeUsername.getUsername()).get();
+        if (passwordEncoder.matches(changeUsername.getCurrentPassword(), changeUser.getUsername()) )
+        {
+            changeUser.setUsername(passwordEncoder.encode(changeUsername.getUsername()));
+            this.userService.updateUser(changeUser);
+            success = true;
+        }
+        System.out.println(changeUser);
+
+        return success;
 
     }
 
