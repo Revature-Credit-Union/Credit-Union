@@ -84,34 +84,34 @@ public class UserController {
 
     }
 
-    @PostMapping(path = "/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public boolean resetPassword(@RequestBody User resetUser) {
-
-        resetUser = this.userService.findByEmail(resetUser.getEmail()).get();
-        Random r = new Random();
-        String tempPassword = "";
-
-        for (int count = 0; count < 16; count++)
-        {
-            tempPassword = tempPassword + (char)(r.nextInt(26) + 'a');
-        }
-
-        resetUser.setPassword(tempPassword);
-        this.userService.updateUser(resetUser);
-
-        SimpleMailMessage temporaryPasswordMessage = new SimpleMailMessage();
-        temporaryPasswordMessage.setFrom("RCU_test@hotmail.com");
-        temporaryPasswordMessage.setTo(resetUser.getEmail());
-
-        String mailSubject ="Password Reset";
-        String mailContent = "You requested a new password: " + resetUser.getPassword()+ "\nPlease change this password upon login.";
-        temporaryPasswordMessage.setSubject(mailSubject);
-        temporaryPasswordMessage.setText(mailContent);
-
-        javaMailSender.send(temporaryPasswordMessage);
-
-        return true;
-    }
+//    @PostMapping(path = "/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public boolean resetPassword(@RequestBody User resetUser) {
+//
+//        resetUser = this.userService.findByEmail(resetUser.getEmail()).get();
+//        Random r = new Random();
+//        String tempPassword = "";
+//
+//        for (int count = 0; count < 16; count++)
+//        {
+//            tempPassword = tempPassword + (char)(r.nextInt(26) + 'a');
+//        }
+//
+//        resetUser.setPassword(tempPassword);
+//        this.userService.updateUser(resetUser);
+//
+//        SimpleMailMessage temporaryPasswordMessage = new SimpleMailMessage();
+//        temporaryPasswordMessage.setFrom("RCU_test@hotmail.com");
+//        temporaryPasswordMessage.setTo(resetUser.getEmail());
+//
+//        String mailSubject ="Password Reset";
+//        String mailContent = "You requested a new password: " + resetUser.getPassword()+ "\nPlease change this password upon login.";
+//        temporaryPasswordMessage.setSubject(mailSubject);
+//        temporaryPasswordMessage.setText(mailContent);
+//
+//        javaMailSender.send(temporaryPasswordMessage);
+//
+//        return true;
+//    }
 
 
 

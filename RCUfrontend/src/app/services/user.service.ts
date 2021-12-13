@@ -4,7 +4,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { User } from '../models/userModel';
 import { EmailValidator } from '@angular/forms';
-
+import { TokenStorageService } from './token-storage.service';
 
 //const API_URL = 'http://ec2-54-89-183-177.compute-1.amazonaws.com:8080/revcare/api/test/';
 const API_URL =  'http://localhost:8080/users/'
@@ -20,7 +20,7 @@ export class UserService {
 
   // private springServerUrl= environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) { }
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
   }
@@ -41,6 +41,23 @@ export class UserService {
 
     return this.http.put(API_URL + 'update_this', { email,first_name, last_name }, httpOptions);
     
+  }
+
+
+
+  changePassword(currentPassword: string, newPassword: string, confirmNewPassword: string, username?: string): Observable<any> {
+
+    console.log(this.tokenStorageService.getToken);
+    console.log(this.tokenStorageService.getUser);
+    username = this.tokenStorageService.getUser().username;
+
+    return this.http.put(API_URL + '/changePassword',
+    {
+      currentPassword,
+      newPassword,
+      confirmNewPassword,
+      username
+    }, httpOptions);
   }
 
 }
