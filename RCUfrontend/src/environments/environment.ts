@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  getDeposits : "localhost:8080/transactions/findDeposits",
+  getWithdrawls : "localhost:8080/transactions/findWithdrawls",
+  getTransfers : "localhost:8080/transactions/findWithdrawls",
+  deposit : "localhost:8080/account/deposit",
+  withdraw : "llocalhost:8080/account/withdraw"
 };
 
 /*

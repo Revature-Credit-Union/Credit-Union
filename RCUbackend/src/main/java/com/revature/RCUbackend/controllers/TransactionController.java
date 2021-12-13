@@ -1,6 +1,6 @@
+
 package com.revature.RCUbackend.controllers;
 
-import com.revature.RCUbackend.models.Response;
 import com.revature.RCUbackend.models.Transaction;
 import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.services.TransactionService;
@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @RestController("transactionController")
 @RequestMapping("/transaction") //this can be changed depending on frontend
@@ -73,3 +75,7 @@ public class TransactionController {
 		return this.transactionService.findByUserTransactionTypeAndAccountID(2, id);
 	}
 }
+
+	
+
+

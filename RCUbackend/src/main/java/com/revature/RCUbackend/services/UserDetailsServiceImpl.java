@@ -1,3 +1,4 @@
+
 package com.revature.RCUbackend.services;
 
 import com.revature.RCUbackend.models.User;
@@ -40,4 +41,3 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
 }
-

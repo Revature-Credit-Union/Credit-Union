@@ -1,17 +1,14 @@
 package com.revature.RCUbackend.controllers;
 
-import com.revature.RCUbackend.models.ERole;
-import com.revature.RCUbackend.models.Role;
-import com.revature.RCUbackend.models.User;
-import com.revature.RCUbackend.payload.request.LoginRequest;
-import com.revature.RCUbackend.payload.request.SignupRequest;
-import com.revature.RCUbackend.payload.response.JwtResponse;
-import com.revature.RCUbackend.payload.response.MessageResponse;
-import com.revature.RCUbackend.repositories.RoleRepo;
-import com.revature.RCUbackend.repositories.UserRepo;
-import com.revature.RCUbackend.security.JwtUtils;
-import com.revature.RCUbackend.services.EmailService;
-import com.revature.RCUbackend.services.UserDetailsImpl;
+
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import javax.validation.Valid;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,17 +21,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import com.revature.RCUbackend.models.ERole;
+import com.revature.RCUbackend.models.Role;
+import com.revature.RCUbackend.models.User;
+import com.revature.RCUbackend.payload.request.LoginRequest;
+import com.revature.RCUbackend.payload.request.SignupRequest;
+import com.revature.RCUbackend.payload.response.JwtResponse;
+import com.revature.RCUbackend.payload.response.MessageResponse;
+import com.revature.RCUbackend.repositories.RoleRepo;
+import com.revature.RCUbackend.repositories.UserRepo;
+import com.revature.RCUbackend.security.JwtUtils;
+import com.revature.RCUbackend.services.UserDetailsImpl;
 
 @RestController
 @RequestMapping("/api/auth")
 public class LoginController {
-    @Autowired
-    EmailService email;
     @Autowired
     AuthenticationManager authenticationManager;
 
@@ -126,8 +127,6 @@ public class LoginController {
 
         user.setRoles(roles);
         userRepo.save(user);
-
-        email.alert( user.getUserID(), "Revature Credit Union Registration Successful" , "<html><body><p>Thank You for creating a User account</p></body></html>");
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
