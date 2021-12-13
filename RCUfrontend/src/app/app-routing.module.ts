@@ -13,6 +13,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
 import { TransactionSummaryComponent } from './components/transaction-summary/transaction-summary.component';
+import { DepositWithdrawComponent } from './components/deposit-withdraw/deposit-withdraw.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/front-door', pathMatch: 'full'},
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'security-profile', component: SecurityProfileComponent},
   { path: 'settings', component: AccountSettingsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: "summary", component: TransactionSummaryComponent}
+  { path: "summary", component: TransactionSummaryComponent},
+  { path: "deposit-withdraw", component: DepositWithdrawComponent}
 
 ];
 
