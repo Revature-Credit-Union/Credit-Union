@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
+
+import { ProfileModule } from './modules/profile/profile.module';
+
+import { TransferComponent } from './components/transfer/transfer.component';
 
 
 @NgModule({
@@ -27,7 +32,11 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     HeaderComponent,
     FooterComponent,
     SecurityProfileComponent,
+
+    TransferComponent
+
     ChangePasswordComponent
+
 
   ],
   imports: [
@@ -35,9 +44,13 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+
+    ProfileModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

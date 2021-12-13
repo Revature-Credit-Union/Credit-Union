@@ -14,6 +14,11 @@ import { AccountSettingsComponent } from './components/account-settings/account-
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
+import { ProfileComponent } from './components/profile/profile.component';
+
+import { TransferComponent } from './components/transfer/transfer.component';
+
+
 const routes: Routes = [
   {path: '', redirectTo: '/front-door', pathMatch: 'full'},
     //{ path: 'home', component: HomeComponent },
@@ -27,6 +32,8 @@ const routes: Routes = [
   {path: 'change-password', component: ChangePasswordComponent},
   {path: 'security-profile', component: SecurityProfileComponent},
   { path: 'settings', component: AccountSettingsComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'transfer', component:TransferComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 
