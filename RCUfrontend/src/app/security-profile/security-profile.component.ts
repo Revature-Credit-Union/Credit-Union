@@ -29,13 +29,11 @@ export class SecurityProfileComponent implements OnInit {
   ngOnInit(): void {
 
     
+    
+
 
     document.getElementById("editInfo")!.style.display = "none";
  //f45939eebffd34500feec9cf7abd74c83e5b85c4
-  }
-
-  getUsers() {
-    this.userService.getallusers().subscribe( resp => this.users =resp)
   }
   
 

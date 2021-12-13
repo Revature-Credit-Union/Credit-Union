@@ -12,7 +12,6 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 import { ProfileComponent } from './components/profile/profile.component';
 
@@ -29,7 +28,6 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   {path: 'user-profile', component: UserProfileComponent},
-  {path: 'change-password', component: ChangePasswordComponent},
   {path: 'security-profile', component: SecurityProfileComponent},
   { path: 'settings', component: AccountSettingsComponent },
   { path: 'profile', component: ProfileComponent },
