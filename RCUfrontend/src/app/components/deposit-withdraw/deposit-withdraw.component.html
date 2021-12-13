@@ -1,12 +1,22 @@
 <div class = "TransactionForm">
     <form (submit) = "enactTransaction()">
-        <!-- The idea here is simple, on window load, a form that has buttons, or 
-        some such, containing the user's accounts that can be clicked (only one 
-        out of them can be clicked), as well as some other form information 
-        such as transaction type and amonnt, and the user can click sumbit 
-        afterwards, and the info would be sent to the backend -->
         <p>Please select your account.</p>
-        <!-- A List showing accounts that the user can click goes here. -->
+        <table class = "accounts">
+            <thead>
+                <th></th>
+                <th>Account ID</th>
+                <th>Balance</th>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let account of accounts"></tr>
+                <td>
+                    <input type = "radio" (change) = "changeAccount(account)">
+                </td>
+                <td>{{account.accountId}}</td>
+                <td>{{account.balance}}</td>
+            </tbody>
+        </table>
         <br>
 
         <p>Please select your type of transaction.</p>
