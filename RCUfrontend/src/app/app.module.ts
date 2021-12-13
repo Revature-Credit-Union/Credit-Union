@@ -15,7 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SecurityProfileComponent } from './security-profile/security-profile.component';
+
 
 import { ProfileModule } from './modules/profile/profile.module';
 
@@ -29,7 +29,6 @@ import { TransferComponent } from './components/transfer/transfer.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    SecurityProfileComponent,
     TransferComponent
 
 
