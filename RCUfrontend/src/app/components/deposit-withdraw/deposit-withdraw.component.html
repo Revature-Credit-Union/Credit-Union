@@ -1,5 +1,5 @@
 <div class = "TransactionForm">
-    <form>
+    <form (submit) = "enactTransaction()">
         <!-- The idea here is simple, on window load, a form that has buttons, or 
         some such, containing the user's accounts that can be clicked (only one 
         out of them can be clicked), as well as some other form information 
@@ -10,9 +10,11 @@
         <br>
 
         <p>Please select your type of transaction.</p>
-        <input type = "radio" id = "deposit">
+        <input type = "radio" id = "deposit" name = "transaction" required
+        (change) = "changeTransaction(1)">
         <label for = "deposit">Deposit</label><br>
-        <input type = "radio" id = "withdrawal">
+        <input type = "radio" id = "withdrawal" name = "transaction"
+        (change) = "changeTransaction(2)">
         <label for = "withdrawal">Withdraw</label><br>
         
         <br>
@@ -21,6 +23,6 @@
         <label>Amount: </label>
         <input type = "text">
 
-        <button>Submit</button>
+        <input type = "submit">
     </form>
 </div>
