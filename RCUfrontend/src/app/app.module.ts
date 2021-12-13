@@ -18,6 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
+import { ProfileModule } from './modules/profile/profile.module';
+import { TransferComponent } from './components/transfer/transfer.component';
 
 
 @NgModule({
@@ -28,7 +30,11 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
     HeaderComponent,
     FooterComponent,
     SecurityProfileComponent,
+
+    TransferComponent
+
     ChangePasswordComponent
+
 
   ],
   imports: [
@@ -36,7 +42,9 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+
+    ProfileModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

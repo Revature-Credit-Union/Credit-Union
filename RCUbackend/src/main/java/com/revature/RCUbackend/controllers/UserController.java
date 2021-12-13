@@ -71,8 +71,6 @@ public class UserController {
     	boolean success = false;
 
     	User changeUser = this.userService.findByUsername(changePasswordObject.getUsername()).get();
-    	System.out.println(changeUser.toString());
-    	System.out.println(changePasswordObject.toString());
     	if (passwordEncoder.matches(changePasswordObject.getCurrentPassword(), changeUser.getPassword()) && 
     	changePasswordObject.getNewPassword().equals(changePasswordObject.getConfirmNewPassword()) )
     	{
@@ -80,6 +78,7 @@ public class UserController {
     		this.userService.updateUser(changeUser);
     		success = true;
     	}
+    	System.out.println(changeUser);
     	
     	return success;
     }
