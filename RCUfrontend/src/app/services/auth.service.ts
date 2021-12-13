@@ -32,4 +32,5 @@ export class AuthService {
       phone_number
     }, httpOptions);
   }
+  
 }

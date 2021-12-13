@@ -1,19 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
-import { User} from 'src/app/models/userModel';
-import { Account} from 'src/app/models/Account';
-import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-transfer',
   templateUrl: './transfer.component.html',
   styleUrls: ['./transfer.component.css']
 })
+
+
 export class TransferComponent implements OnInit {
- 
-  constructor(private userService:UserService) {}
+  form: any = {
+    amount: null,
+    toAccount: null,
+    fromAccount: null
+
+
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
   content?: string;
-  private accounts: Account[] = [];
+
+  constructor(private authService: AuthService, private userService: UserService) { }
+
+
   ngOnInit(): void {
     this.userService.getPublicContent().subscribe(
       data => {
@@ -23,7 +34,21 @@ export class TransferComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     );
-
   }
 
+  onSubmit(): void {
+    const { amount, toAccount, fromAccount } = this.form;
+
+    this.authService.transfer(amount, toAccount, fromAccount).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        
+      }
+    );
+  }
 }
