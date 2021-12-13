@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TransactonSummaryService } from './transacton-summary.service';
+import { TransactonSummaryService } from './transaction-summary.service';
 
 describe('TransactonSummaryService', () => {
   let service: TransactonSummaryService;
