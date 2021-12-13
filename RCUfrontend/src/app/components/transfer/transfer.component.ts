@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User} from 'src/app/models/userModel';
 import { Account} from 'src/app/models/Account';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-transfer',
@@ -24,7 +25,5 @@ export class TransferComponent implements OnInit {
     );
 
   }
-
-  
 
 }
