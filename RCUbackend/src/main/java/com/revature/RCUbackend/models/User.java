@@ -1,4 +1,3 @@
-
 package com.revature.RCUbackend.models;
 
 import java.util.HashSet;
@@ -200,5 +199,3 @@ public class User {
 // 	}
 //
 // }
-
-

@@ -1,4 +1,3 @@
-
 package com.revature.RCUbackend.controllers;
 
 import java.util.List;
@@ -74,7 +73,3 @@ public class TransactionController {
 		return this.transactionService.findByTransactionTypeAndAccountID(2, id);
 	}
 }
-
-	
-
-

@@ -1,1 +1,48 @@
-<p>transfer works!</p>
+<div>
+    <p>
+        
+        Transfer Money 
+    </p>
+    
+    </div>
+
+
+        <form
+            name="form1"
+            (click)="onSubmit()"
+            > 
+           
+    <div>
+          
+            
+            
+          <br>
+          <br>
+          <p>
+            <label>From Account:</label>
+            <select class ="account1" >
+              <option *ngFor=""></option>
+            </select>  
+        </p>
+    </div>
+
+    <div>
+        <p>
+            <label>To Account:</label>
+            <select>
+                 <option class="account2" ng-options="x for x in accounts">
+
+            </select>
+        </p>
+    </div>
+    
+    <div>
+        <p>
+             <label>Amount:</label><input class="amount" id="amount" type="text" name="amount">
+           
+        </p>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Transfer</button>
+    </div>
+    </form>

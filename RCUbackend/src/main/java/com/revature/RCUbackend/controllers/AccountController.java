@@ -1,4 +1,3 @@
-
 package com.revature.RCUbackend.controllers;
 
 import java.util.List;
@@ -57,8 +56,3 @@ public class AccountController {
 		this.accountService.deposit(amount, toAccount);
 	}
 }
-
-	
-
-	
-
