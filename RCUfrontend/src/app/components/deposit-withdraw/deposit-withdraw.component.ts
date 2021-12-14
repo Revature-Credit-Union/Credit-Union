@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DepositWithdrawService } from 'src/app/services/deposit-withdraw.service';
 import { Account } from 'src/app/models/Account';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-deposit-withdraw',
@@ -9,15 +10,17 @@ import { Account } from 'src/app/models/Account';
 })
 export class DepositWithdrawComponent implements OnInit {
 
-  constructor(private depositWithdrawService : DepositWithdrawService) { 
+  constructor(private depositWithdrawService : DepositWithdrawService, private tokenStorage : TokenStorageService) { 
 
   }
 
   ngOnInit(): void {
+    console.log(this.tokenStorage.getUser().user_id)
+    this.getUserAccounts();
   }
 
   amount = 0;
-  account = new Account(0, 0, 0);
+  selectedAccount = new Account(0, 0, 0);
   transaction = 0;
   accounts : Account[] = [];
   
@@ -27,7 +30,7 @@ export class DepositWithdrawComponent implements OnInit {
 
 
   changeAccount(account : Account){
-    this.account = account;
+    this.selectedAccount = account;
   }
 
   enactTransaction() {
@@ -40,15 +43,13 @@ export class DepositWithdrawComponent implements OnInit {
     }
   }
 
-  //FIX THESE METHODS AFTER SERVICE METHODS ARE FIXED!
-
   deposit(){
-    this.depositWithdrawService.deposit(this.amount, this.account).subscribe();
+    this.depositWithdrawService.deposit(this.amount, this.selectedAccount).subscribe();
     //add router navigation code here
   }
 
   withdraw(){
-    this.depositWithdrawService.withdraw(this.amount, this.account).subscribe();
+    this.depositWithdrawService.withdraw(this.amount, this.selectedAccount).subscribe();
     //add router navigation code here
   }
 
