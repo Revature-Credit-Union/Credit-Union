@@ -15,7 +15,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.assertj.core.util.Lists;
@@ -24,7 +23,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -78,7 +76,6 @@ public class UserControllerTest {
 				.content(new ObjectMapper().writeValueAsString(user1))).andExpect(status().isOk());
 
 		verify(userService, times(1)).addUser(user1);
-
 	}
 
 	@Test
@@ -98,7 +95,6 @@ public class UserControllerTest {
 				.andExpect(MockMvcResultMatchers.jsonPath("$[1].username").value("username2"));
 
 		verify(userService, times(1)).getAllUsers();
-
 	}
 
 	@Test
@@ -114,5 +110,4 @@ public class UserControllerTest {
 
 		verify(userService, times(1)).getUser(1);
 	}
-
 }
