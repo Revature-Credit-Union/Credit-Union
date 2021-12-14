@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/userModel';
 import { AuthService } from 'src/app/services/auth.service';
 import { DepositWithdrawService } from 'src/app/services/deposit-withdraw.service';
 import { UserService } from 'src/app/services/user.service';
@@ -21,7 +22,7 @@ export class TransferComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-  content!: string;
+  content!: User;
   accounts!: any[];
   constructor(private authService: AuthService, private userService: UserService, private moneyService: DepositWithdrawService) { }
 
@@ -39,8 +40,7 @@ export class TransferComponent implements OnInit {
 
   onSubmit(): void {
     const { amount, toAccount, fromAccount } = this.form;
-
-    this.moneyService.transfer(amount, toAccount, fromAccount).subscribe(
+    this.moneyService.transfer(this.content.user_id , amount, toAccount, fromAccount).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;

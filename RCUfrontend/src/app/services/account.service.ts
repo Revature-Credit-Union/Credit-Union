@@ -19,9 +19,14 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
   getAllAccounts(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
+    return this.http.get(API_URL + '/getAll', { responseType: 'text' });
   }
-
+  getAccountsById():Observable<any>{
+    return this.http.get(API_URL + '/getById', { responseType: 'json' });
+  }
+  createAccount():Observable<any>{
+    return this.http.put(API_URL + '/createAccount' , { responseType: 'text' });
+  }
   
 }
 

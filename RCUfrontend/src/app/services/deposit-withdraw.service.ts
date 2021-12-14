@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Account } from '../models/Account';
 
 
-const url = 'http://localhost:8080/api/';
+const url = 'http://localhost:8080/api/account/';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -13,6 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DepositWithdrawService {
+  [x: string]: any;
 
   constructor(private httpClient: HttpClient) { 
 
@@ -43,9 +44,9 @@ export class DepositWithdrawService {
   // }
 
 
-  transfer(amount: number, toAccount: string, fromAccount: string): Observable<any> {
+  transfer(user_id: number , amount: number, toAccount: string, fromAccount: string): Observable<any> {
     return this.httpClient.post(url+ 'transfer', {
-     amount, toAccount, fromAccount
+     user_id , amount, toAccount, fromAccount
     }, httpOptions);
   }
 }
