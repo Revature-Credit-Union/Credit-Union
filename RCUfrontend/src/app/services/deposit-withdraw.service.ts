@@ -28,13 +28,14 @@ export class DepositWithdrawService {
     params.append("amount", amountInput);
     return this.httpClient.post(environment.withdraw, body, {params : params}) as Observable<Object>
   }
-
+  
   getUserAccounts() : Observable<Account[]>{
-    return this.httpClient.post(environment.getUserAccounts, 
+    return this.httpClient.get(environment.getUserAccounts, 
     {
       params : {
       id : this.tokenStorage.getUser().user_id
     }
   }) as Observable<Account[]>;
   }
+
 }
