@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Account } from '../models/Account';
+
 import { Transaction } from '../models/Transaction';
 import { TokenStorageService } from './token-storage.service';
 
@@ -37,4 +38,4 @@ export class DepositWithdrawService {
     }
   }) as Observable<Account[]>;
   }
-
+}
