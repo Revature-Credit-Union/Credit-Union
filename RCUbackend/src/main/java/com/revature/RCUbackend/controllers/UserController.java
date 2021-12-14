@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Objects;
 
@@ -79,7 +80,7 @@ public class UserController {
     		success = true;
     	}
     	System.out.println(changeUser);
-    	
+
     	return success;
 
     }
@@ -100,6 +101,21 @@ public class UserController {
 
         return success;
 
+    }
+    @PutMapping(path ="/changeProfileSettings", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean updateUserInfo (@RequestBody User user){
+
+        boolean success = false;
+//        User changeUser = this.userService.findByUsername(user.getUsername()).get();
+//        if(passwordEncoder.matches(user.getPassword(), changeUser.getUsername())){}
+
+//        System.out.println(changeUser);
+//        System.out.println(user);
+//        if (Objects.equals(user_id, user.getUserID())){ // compare the 2 user IDs
+//            userService.updateUser(user);
+//            success = true;
+//        }
+    return success;
     }
 
 //    @PostMapping(path = "/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE)

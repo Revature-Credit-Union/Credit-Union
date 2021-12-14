@@ -16,8 +16,8 @@ export class UserProfileComponent implements OnInit {
 
   form: any = {
     email:null,
-    first_name: null,
-    last_name: null
+    firstName: null,
+    lastName: null
   }
   
   isSuccessful = false;
@@ -49,8 +49,8 @@ this.router.navigateByUrl('/transfer');
   }
 
   updateInfo(){
-    const{first_name, last_name, email} = this.form;
-    this.userService.updateUserInfo(email, first_name, last_name).subscribe(
+    const{firstName, lastName, email} = this.form;
+    this.userService.changeProfileSettings(email, firstName, lastName).subscribe(
       data => {
         this.content = data;
       },
