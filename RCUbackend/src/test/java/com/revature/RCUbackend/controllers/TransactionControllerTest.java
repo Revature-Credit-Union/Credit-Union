@@ -1,7 +1,6 @@
-package com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controllers;
 
 
-import com.revature.RCUbackend.controllers.TransactionController;
 import com.revature.RCUbackend.services.TransactionService;
 
 
@@ -9,11 +8,8 @@ import com.revature.RCUbackend.services.TransactionService;
 import com.revature.RCUbackend.service.*;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
 import static org.junit.Assert.assertNotNull;
 

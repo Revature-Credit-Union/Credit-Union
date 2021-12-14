@@ -1,19 +1,14 @@
-package com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controllers;
 
 
-import com.revature.RCUbackend.controllers.AccountController;
 import com.revature.RCUbackend.services.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import com.revature.RCUbackend.models.Account;
-import com.revature.RCUbackend.repository.AccountRepository;
-import com.revature.RCUbackend.service.*;
-import org.junit.Test;
-import org.mockito.Mock;
-import org.junit.jupiter.api.BeforeEach;
-import org.mockito.Mockito;
+import com.revature.RCUbackend.repositories.AccountRepository;
+import com.revature.RCUbackend.services.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

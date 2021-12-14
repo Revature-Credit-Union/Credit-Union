@@ -1,4 +1,4 @@
-package com.revature.RCUbackend.service;
+package com.revature.RCUbackend.services;
 
 import org.junit.jupiter.api.Test;
 
