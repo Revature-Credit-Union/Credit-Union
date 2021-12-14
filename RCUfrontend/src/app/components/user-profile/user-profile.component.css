@@ -48,12 +48,13 @@ input.inputs{
     border-style: none;
     border-color: orange;
     margin: auto;
+    margin-top: 3px;
     width: 400px;
 }
 
 .editbtn:hover{
     background-color: var(--orange);
-    color: black;
+    color: white;
 }
 
 .editbtn span::after{
@@ -63,6 +64,30 @@ input.inputs{
   top: 0;
   right: -5px;
 }
+
+.transferbtn{
+    color: white;
+    background-color: gray;
+    border-style: none;
+    border-color: orange;
+    margin: auto;
+    margin-top: 3px;  
+    width: 400px;
+}
+
+.transferbtn:hover{
+    background-color: var(--orange);
+    color: white;
+}
+
+.transferbtn span::after{
+  content: '\270E';
+  position: relative;
+  opacity: 1;
+  top: 0;
+  right: -5px;
+}
+
 
 .profile-img-card {
     width: 96px;
