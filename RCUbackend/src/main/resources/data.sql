@@ -1,6 +1,6 @@
-INSERT INTO user (username, password, firstName, lastName, email) VALUES ('user1', 'password1', 'Kev', 'C', 'user1@email.com');
+INSERT INTO user (username, password, firstName, lastName, email, phoneNumber) VALUES ('user1', 'password1', 'Kev', 'C', 'user1@email.com', '999-999-9999');
 
-INSERT INTO user (username, password, firstName, lastName, email) VALUES ('user2', 'password2', 'Vek', 'K', 'user2@email.com');
+INSERT INTO user (username, password, firstName, lastName, email, phoneNumber) VALUES ('user2', 'password2', 'Vek', 'K', 'user2@email.com', '999-999-9999');
 
 INSERT INTO account (userID, accountType, balance) VALUES (1, 0, 400.00);
 

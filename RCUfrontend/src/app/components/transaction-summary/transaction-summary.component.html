@@ -1,0 +1,43 @@
+<div class = transactions>
+    <div id = "depositsTable">
+        <table class = "deposits">
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Date</th>
+
+            <tr *ngFor="let deposit of deposits">
+                <td>{{deposit.accountID}}</td>
+                <td>{{deposit.amount}}</td>
+                <td>{{deposit.date}}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id = "withdrawalsTable">
+        <table class = "withdrawals">
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Date</th>
+
+            <tr *ngFor="let withdrawal of withdrawals">
+                <td>{{withdrawal.accountID}}</td>
+                <td>{{withdrawal.amount}}</td>
+                <td>{{withdrawal.date}}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id = "transfersTable">
+        <table class = "transfers">
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Date</th>
+
+            <tr *ngFor="let transfer of transfers">
+                <td>{{transfer.accountID}}</td>
+                <td>{{transfer.amount}}</td>
+                <td>{{transfer.date}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
