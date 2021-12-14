@@ -1,16 +1,19 @@
-
 package com.revature.RCUbackend.controllers;
 
-import com.revature.RCUbackend.models.Transaction;
-import com.revature.RCUbackend.models.User;
-import com.revature.RCUbackend.services.TransactionService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-//import javax.xml.ws.Response;
-import java.util.ArrayList;
-import java.util.List;
+import com.revature.RCUbackend.models.Transaction;
+import com.revature.RCUbackend.services.TransactionService;
 
 
 @RestController("transactionController")
@@ -50,11 +53,6 @@ public class TransactionController {
 		return this.transactionService.findAll();
 	}
 	
-	@GetMapping(path = "/findbyUser", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Transaction> findbyUser(@RequestParam int id) {
-		return this.transactionService.findByUserId(id);
-	}
-	
 	@GetMapping(path = "/findbyAccount", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findbyAccount(@RequestParam int id) {
 		return this.transactionService.findByAccountID(id);
@@ -62,20 +60,16 @@ public class TransactionController {
 	
 	@GetMapping(path = "/findDeposits", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findDeposits(@RequestParam int id) {
-		return this.transactionService.findByUserTransactionTypeAndAccountID(0, id);
+		return this.transactionService.findByTransactionTypeAndAccountID(0, id);
 	}
 	
 	@GetMapping(path = "/findWithdrawls", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findWithdrawls(@RequestParam int id) {
-		return this.transactionService.findByUserTransactionTypeAndAccountID(1, id);
+		return this.transactionService.findByTransactionTypeAndAccountID(1, id);
 	}
 	
 	@GetMapping(path = "/findTransfers", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public List<Transaction> findTransfers(@RequestParam int id) {
-		return this.transactionService.findByUserTransactionTypeAndAccountID(2, id);
+		return this.transactionService.findByTransactionTypeAndAccountID(2, id);
 	}
 }
-
-	
-
-

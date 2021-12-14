@@ -1,4 +1,4 @@
-package com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controllers;
 
 public class LoginControllerTest {
 

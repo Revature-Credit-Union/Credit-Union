@@ -1,7 +1,6 @@
-package com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controllers;
 
 
-import com.revature.RCUbackend.controllers.AccountController;
 import com.revature.RCUbackend.services.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
+import com.revature.RCUbackend.services.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -51,17 +51,19 @@ public class AccountControllerTest {
 
             @Override
             public List<Account> getById(int userId) {
+                List<Account> toReturn = new ArrayList<>();
+
                 for(int i = 0; i < testList.size(); i++)
                     if(testList.get(i).getAccountId() == userId)
-                        return testList.get(i);
+                        toReturn.add(testList.get(i));
 
-                    return null;
+                return toReturn;
 
             }
 
             @Override
             public void depositAccount(int amount, int accountID) {
-                for(int i = 0; i<testList.size(); i++)
+                //for(int i = 0; i<testList.size(); i++)
 
             }
 
@@ -215,8 +217,8 @@ public class AccountControllerTest {
         testUser1 = new Account();
         testUser2 = new Account();
 
-        testUser1.setUserId("test1");
-        testUser2.setUserId("test2");
+        testUser1.setUserId(1);
+        testUser2.setUserId(2);
 
 
         testUser1.setBalance(200);

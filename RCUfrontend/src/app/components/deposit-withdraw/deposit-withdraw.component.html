@@ -1,22 +1,12 @@
+<br>
+<br>
+<br>
 <div class = "TransactionForm">
     <form (submit) = "enactTransaction()">
         <p>Please select your account.</p>
-        <table class = "accounts">
-            <thead>
-                <th></th>
-                <th>Account ID</th>
-                <th>Balance</th>
-            </thead>
-
-            <tbody>
-                <tr *ngFor="let account of accounts"></tr>
-                <td>
-                    <input type = "radio" (change) = "changeAccount(account)">
-                </td>
-                <td>{{account.accountId}}</td>
-                <td>{{account.balance}}</td>
-            </tbody>
-        </table>
+            <select multiple formControlName = "selectedAccount">
+                <option *ngFor = "let account of accounts" (change) = "changeAccount(account)">{{account.accountID}} = {{account.balance}}</option>
+            </select>
         <br>
 
         <p>Please select your type of transaction.</p>
