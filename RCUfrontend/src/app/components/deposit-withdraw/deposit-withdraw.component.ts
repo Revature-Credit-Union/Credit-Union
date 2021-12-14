@@ -53,7 +53,7 @@ export class DepositWithdrawComponent implements OnInit {
   }
 
   getUserAccounts(){
-    return this.depositWithdrawService.getUserAccounts().subscribe((data) => 
+    return this.depositWithdrawService.getUserAccounts().subscribe((data: Account[]) => 
     {
       console.log(data);
       this.accounts = data
