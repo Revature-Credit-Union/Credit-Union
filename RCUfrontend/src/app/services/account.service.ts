@@ -21,11 +21,11 @@ export class AccountService {
   getAllAccounts(): Observable<any> {
     return this.http.get(API_URL + '/getAll', { responseType: 'text' });
   }
-  getAccountsById():Observable<any>{
-    return this.http.get(API_URL + '/getById', { responseType: 'json' });
+  getAccountsById(id:number):Observable<any>{
+    return this.http.get('http://localhost:8080/account/getById/', { responseType: 'json' });
   }
-  createAccount():Observable<any>{
-    return this.http.put(API_URL + '/createAccount' , { responseType: 'text' });
+  createAccount(id:number):Observable<any>{
+    return this.http.put(API_URL + '/createAccount/'+id , { responseType: 'text' });
   }
   
 }
