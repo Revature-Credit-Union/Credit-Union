@@ -57,7 +57,9 @@
   }
 
 .nav-link{
+  font-family: "Futura";
     color: var(--white);
+    font-weight: bolder;
     margin: 5px;
     padding: 5px;
   }
