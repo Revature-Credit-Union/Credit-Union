@@ -2,6 +2,7 @@
 package com.revature.RCUbackend.controllers;
 
 import com.revature.RCUbackend.models.ChangePasswordObject;
+import com.revature.RCUbackend.models.ChangeUserInfo;
 import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,14 +104,14 @@ public class UserController {
 
     }
     @PutMapping(path ="/changeProfileSettings", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public boolean updateUserInfo (@RequestBody User user){
+    public boolean updateUserInfo (@RequestBody ChangeUserInfo user){
 
         boolean success = false;
-//        User changeUser = this.userService.findByUsername(user.getUsername()).get();
+        User changeUser = this.userService.findByUsername(user.getUsername()).get();
 //        if(passwordEncoder.matches(user.getPassword(), changeUser.getUsername())){}
 
-//        System.out.println(changeUser);
-//        System.out.println(user);
+        System.out.println(changeUser);
+        System.out.println(user);
 //        if (Objects.equals(user_id, user.getUserID())){ // compare the 2 user IDs
 //            userService.updateUser(user);
 //            success = true;
