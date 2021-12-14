@@ -9,6 +9,7 @@ import com.revature.RCUbackend.services.TransactionService;
 
 
 //import com.revature.RCUbackend.services.*;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
@@ -20,6 +21,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -44,43 +46,75 @@ public class TransactionControllerTest {
 
     @BeforeEach
     void setUp(){
-        testRepo = new TransactionRepository() {
+        this.testRepo = new TransactionRepository() {
+
+            List<Transaction> testList = new ArrayList<>();
+
             @Override
             public List<Transaction> findAll() {
-                return null;
+                return this.testList;
             }
 
             @Override
             public Transaction findByTransactionID(int id) {
+                for(int i = 0; i < testList.size(); i++)
+                    if(testList.get(i).getTransactionID() == id)
+                        return testList.get(i);
+
                 return null;
             }
 
             @Override
             public List<Transaction> findByUserID(int id) {
-                return null;
+                ArrayList<Transaction> userT = new ArrayList<>();
+
+                for(int i = 0; i < testList.size(); i++)
+                    if(testList.get(i).getUserID() == id)
+                        userT.add(testList.get(i));
+
+                return userT;
             }
 
             @Override
             public List<Transaction> findByAccountID(int id) {
-                return null;
+                ArrayList<Transaction> accountT = new ArrayList<>();
+
+                for(int i = 0; i < testList.size(); i++)
+                    if(testList.get(i).getUserID() == id)
+                        accountT.add(testList.get(i));
+
+                return accountT;
             }
 
             @Override
             public List<Transaction> findByTransactionTypeAndUserID(int type, int id) {
-                return null;
+                List<Transaction> userT = findByUserID(id);
+                List<Transaction> both = new ArrayList<>();
+                for(int i = 0; i < userT.size(); i++)
+                    if(userT.get(i).getTransactionType() == type)
+                        both.add(userT.get(i));
+
+                return both;
+
             }
 
             @Override
             public List<Transaction> findByTransactionTypeAndAccountID(int type, int id) {
-                return null;
+                List<Transaction> accountT = findByAccountID(id);
+                List<Transaction> both = new ArrayList<>();
+                for(int i = 0; i < accountT.size(); i++)
+                    if(accountT.get(i).getTransactionType() == type)
+                        both.add(accountT.get(i));
+
+                return both;
             }
 
             @Override
             public List<Transaction> findAll(Sort sort) {
-                return null;
+                return testList;
             }
 
-            @Override
+            @Override //Not sure how this one is supposed to work
             public List<Transaction> findAllById(Iterable<Integer> iterable) {
                 return null;
             }
@@ -92,7 +126,7 @@ public class TransactionControllerTest {
 
             @Override
             public void flush() {
-
+                this.testList = new ArrayList<>();
             }
 
             @Override
@@ -122,12 +156,12 @@ public class TransactionControllerTest {
 
             @Override
             public Transaction getOne(Integer integer) {
-                return null;
+                return findByTransactionID(integer);
             }
 
             @Override
             public Transaction getById(Integer integer) {
-                return null;
+                return findByTransactionID(integer);
             }
 
             @Override
@@ -162,7 +196,7 @@ public class TransactionControllerTest {
 
             @Override
             public long count() {
-                return 0;
+                return testList.size();
             }
 
             @Override
@@ -218,24 +252,30 @@ public class TransactionControllerTest {
         this.transactionService = new TransactionService(testRepo);
         this.transactionController = new TransactionController(transactionService);
         t1 = new Transaction();
-        t1.setAccountID(0);
-        t1.setAmount(0);
-        t1.setTransactionID(0);
+        t1.setAccountID(1);
+        t1.setAmount(20);
+        t1.setTransactionID(1);
 
         t2 = new Transaction();
-        t1.setAccountID(9999999);
-        t1.setAmount(0);
-        t1.setTransactionID(9999999);
+        t2.setAccountID(2);
+        t2.setAmount(20);
+        t2.setTransactionID(2);
+
+        testRepo.saveTransaction(t1);
+        testRepo.saveTransaction(t2);
     }
 
     @Test
     public void saveTransactionTest(){
-        transactionController.saveTransaction(t1);
+        Transaction t3 = new Transaction();
+        t3.setTransactionID(3);
+        transactionController.saveTransaction(t3);
+        assertNotNull(testRepo.findByTransactionID(3));
     }
 
     @Test
     public void getallTest(){
-        assertNotNull(transactionController.getall());
+        //assertNotNull(transactionController.getall());
     }
 
     @Test
