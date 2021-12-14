@@ -34,5 +34,12 @@ public class AccountService {
 	public void withdraw(int amount, Account account) {
 		this.accountRepository.withdrawAccount(amount, account.getAccountId());
 	}
+	
+	public boolean create(int id) {
+		Account account = new Account();
+		account.setUserId(String.valueOf(id));
+		return this.accountRepository.create(account);
+	}
+	
 }
 

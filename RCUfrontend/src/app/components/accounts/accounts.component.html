@@ -1,0 +1,15 @@
+<div><p>My Accounts</p></div>
+<hr>
+     <!-- <div *ngFor="let account of accounts ; let i = index">{{i+1}} {{account.accountId}} {{account.balance}}</div> -->
+     <div>
+         <div>
+            <h2>Create New Account</h2>
+                <label>Account Type:</label>
+            <select [(ngModel)]="type" name="type" id="type">
+                <option value="0">Checking</option>
+                <option value="1">Saving</option>
+            </select>
+         </div>
+         <div><input type="text" id="amount" value="Enter your desired initial balance"></div>
+        <div><button (click)="createAccount()">Create Account</button></div>
+    </div>

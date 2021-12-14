@@ -23,6 +23,7 @@ import { ProfileModule } from './modules/profile/profile.module';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { AccountsComponent } from './components/accounts/accounts.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     FooterComponent,
     TransferComponent,
     ChangePasswordComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    AccountsComponent
 
 
   ],

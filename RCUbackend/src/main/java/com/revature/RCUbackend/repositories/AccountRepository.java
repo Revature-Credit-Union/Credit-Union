@@ -13,6 +13,9 @@ import java.util.List;
 public interface AccountRepository extends JpaRepository<Account, Integer>{
 	public List<Account> findAll();
 
+	//@Modifying
+	//@Query("INSERT INTO Account (ACCOUNT_ID, ACCOUNT_TYPE, BALANCE, userID) VALUES (DEFAULT, Account.type, 0, ...)")
+	public boolean create(Account account);
 
 	public List<Account> getById(int userId);
 

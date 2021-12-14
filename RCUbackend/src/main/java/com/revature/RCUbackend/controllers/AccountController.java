@@ -40,6 +40,11 @@ public class AccountController {
 		this.accountService.deposit(amount, account);
 	}
 	
+	@PostMapping(path = "/createAccount", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean createAccount(@RequestParam int id) {
+        return this.accountService.create(id);
+    }
+	
 	@PostMapping(path = "/withdraw", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void withdraw(@RequestParam int amount, @RequestBody Account account) {
 		this.accountService.withdraw(amount, account);

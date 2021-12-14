@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import {CreateAccountComponent} from './components/create-account/create-account.component';
 //import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
@@ -17,7 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { TransactionSummaryComponent } from './components/transaction-summary/transaction-summary.component';
 import { DepositWithdrawComponent } from './components/deposit-withdraw/deposit-withdraw.component';
-
+import { AccountsComponent } from './components/accounts/accounts.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/front-door', pathMatch: 'full'},
@@ -34,7 +33,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: "summary", component: TransactionSummaryComponent},
   { path: "deposit-withdraw", component: DepositWithdrawComponent},
-  { path: "create-account", component: CreateAccountComponent}
+  { path: "accounts", component: AccountsComponent}
 ];
 
 @NgModule({

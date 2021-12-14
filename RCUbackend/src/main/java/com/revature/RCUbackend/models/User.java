@@ -37,10 +37,10 @@ public class User {
 	@Column(name = "phoneNumber")
 	String phoneNumber;
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name="accountID")
+	@JoinColumn(name="userID")
 	private List<Account> accounts;
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name="transactionID")
+	@JoinColumn(name="accountID")
 	private List<Transaction> transactions;
 
 	@ManyToMany(fetch = FetchType.LAZY)
