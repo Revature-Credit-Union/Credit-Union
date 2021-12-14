@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import static org.junit.Assert.assertNotNull;
+
 public class TransactionServiceTest {
 
     TransactionService transactionService;
@@ -198,7 +200,11 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void findAllTest(){}
+    void findAllTest(){
+        Transaction test = new Transaction();
+        assertNotNull(transactionService.findAll());
+        //Okay this returns null because it's defined as doing so in the testRepo object
+    }
 
     @Test
     void findByTransactionIDTest(){}
