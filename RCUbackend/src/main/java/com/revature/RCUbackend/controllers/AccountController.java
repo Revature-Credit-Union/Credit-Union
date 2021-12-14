@@ -1,15 +1,22 @@
 
 package com.revature.RCUbackend.controllers;
 
-import com.revature.RCUbackend.models.Account;
-import com.revature.RCUbackend.services.AccountService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.revature.RCUbackend.models.Account;
+import com.revature.RCUbackend.services.AccountService;
 
 @RestController("accountController")
 @RequestMapping("/account") //this can be changed depending on frontend
@@ -27,6 +34,11 @@ public class AccountController {
 	public ResponseEntity<List<Account>> findAll(){
 		List<Account> accounts = this.accountService.findAll();
 		return new ResponseEntity<>(accounts, HttpStatus.OK);
+	}
+	
+	@GetMapping(path = "/findByUser", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Account> findByUser(@RequestParam int id){
+		return this.accountService.findByUserId(id);
 	}
 	
 	@PostMapping(path = "/deposit", consumes = MediaType.APPLICATION_JSON_VALUE)
