@@ -1,6 +1,5 @@
-package com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controllers;
 
-import com.revature.RCUbackend.controllers.UserController;
 import com.revature.RCUbackend.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;

@@ -1,10 +1,15 @@
 package com.revature.RCUbackend.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -23,10 +28,13 @@ public class Account {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int accountId;
 	@Column(name = "userID")
-	String userId;
+	int userId;
 	@Column(name = "accountType")
 	int accountType; //0 = checking, 1 = savings
 	@Column(name = "balance")
 	int balance;
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name="accountID")
+	private List<Transaction> transactions;
 }
 

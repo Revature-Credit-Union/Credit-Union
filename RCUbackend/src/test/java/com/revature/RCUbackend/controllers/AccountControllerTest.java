@@ -1,7 +1,6 @@
-package com.revature.RCUbackend.controller;
+package com.revature.RCUbackend.controllers;
 
 
-import com.revature.RCUbackend.controllers.AccountController;
 import com.revature.RCUbackend.services.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,16 +8,7 @@ import org.mockito.Mock;
 
 import com.revature.RCUbackend.models.Account;
 import com.revature.RCUbackend.repositories.AccountRepository;
-//import org.junit.Test;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
+import com.revature.RCUbackend.services.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

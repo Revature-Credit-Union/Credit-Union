@@ -25,8 +25,6 @@ public class Transaction {
 	@Column(name = "transactionID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int transactionID;
-	@Column(name = "userID")
-	int userID;
 	@Column(name = "accountID")
 	int accountID;
 	@Column(name = "transactionType")
