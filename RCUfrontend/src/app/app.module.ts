@@ -22,6 +22,7 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
 import { ProfileModule } from './modules/profile/profile.module';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     HeaderComponent,
     FooterComponent,
     TransferComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CreateAccountComponent
 
 
   ],

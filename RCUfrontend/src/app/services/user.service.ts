@@ -7,7 +7,7 @@ import { EmailValidator } from '@angular/forms';
 import { TokenStorageService } from './token-storage.service';
 
 //const API_URL = 'http://ec2-54-89-183-177.compute-1.amazonaws.com:8080/revcare/api/test/';
-const API_URL =  'http://localhost:8080/users/'
+const API_URL =  'http://localhost:8080/api/users'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

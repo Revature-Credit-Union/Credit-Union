@@ -7,12 +7,11 @@
     </div>
 
 
-    <!-- <form> --> <form
-            *ngIf="!isSuccessful"
+        <form
             name="form1"
-            (ngSubmit)="onSubmit()"
+            (click)="onSubmit()"
             > 
-            <!-- novalidatef.form.valid && #f="ngForm" -->
+           
     <div>
           
             
@@ -21,36 +20,17 @@
           <br>
           <p>
             <label>From Account:</label>
-            <select ng-model="selectedName" ng-options="x for x in names">
-         <!-- </select>
-              <select> -->
-                
-                 <option value="test1">test 1</option>
-                     
-                    <option value="test2">test 2
-                </option> 
+            <select class ="account1" >
+              <option *ngFor=""></option>
             </select>  
         </p>
     </div>
 
-
-<!-- <h4>Basic native select</h4>
-<mat-form-field appearance="fill">
-  <mat-label>Cars</mat-label>
-  <select matNativeControl required>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
-</mat-form-field> -->
     <div>
         <p>
             <label>To Account:</label>
             <select>
-                 <option value="test3">test 3</option>
-                  
-                    <option value="test4">test 4</option> 
+                 <option class="account2" ng-options="x for x in accounts">
 
             </select>
         </p>
@@ -58,149 +38,11 @@
     
     <div>
         <p>
-             <label>Amount:</label><input id="amount" type="text" name="amount">
-            <!-- [(ngModel)]="form.amount"> -->
+             <label>Amount:</label><input class="amount" id="amount" type="text" name="amount">
+           
         </p>
     </div>
     <div>
         <button type="submit" class="btn btn-primary">Transfer</button>
     </div>
     </form>
-<!-- 
-<div class="col-md-12">
-    <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
-      <form
-        *ngIf="!isSuccessful"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate
-      >
-        <div class="form-group">
-          <label for="amount">Amount to Transfer: </label>
-          <input
-            type="text"
-            class="form-control"
-            name="amount"
-            [(ngModel)]="form.amount"
-            required
-            minlength="3"
-            maxlength="20"
-            #username="ngModel"
-          />
-          <div class="alert-danger" *ngIf="username.errors && f.submitted">
-            <div *ngIf="username.errors.required">Username is required</div>
-            <div *ngIf="username.errors.minlength">
-              Username must be at least 3 characters
-            </div>
-            <div *ngIf="username.errors.maxlength">
-              Username must be at most 20 characters
-            </div>
-          </div>
-        </div>
-  
-  
-  
-  
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            [(ngModel)]="form.email"
-            required
-            email
-            #email="ngModel"
-          />
-          <div class="alert-danger" *ngIf="email.errors && f.submitted">
-            <div *ngIf="email.errors.required">Email is required</div>
-            <div *ngIf="email.errors.email">
-              Email must be a valid email address
-            </div>
-          </div>
-        </div>
-  
-  
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            [(ngModel)]="form.password"
-            required
-            minlength="6"
-            #password="ngModel"
-          />
-          <div class="alert-danger" *ngIf="password.errors && f.submitted">
-            <div *ngIf="password.errors.required">Password is required</div>
-            <div *ngIf="password.errors.minlength">
-              Password must be at least 6 characters
-            </div>
-          </div>
-        </div>
-  
-        <div class="form-group">
-            <label for="first_name">First Name</label>
-            <input
-              type="text"
-              class="form-control"
-              name="first_name"
-              [(ngModel)]="form.first_name"
-              required
-              #first_name="ngModel"
-            />
-            <div class="alert-danger" *ngIf="first_name.errors && f.submitted">
-              <div *ngIf="first_name.errors.required">First Name is required</div>
-            </div>
-        </div>
-  
-        <div class="form-group">
-            <label for="last_name">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              name="last_name"
-              [(ngModel)]="form.last_name"
-              required
-              #last_name="ngModel"
-            />
-            <div class="alert-danger" *ngIf="last_name.errors && f.submitted">
-              <div *ngIf="last_name.errors.required">Last Name is required</div>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label for="phone_number">Phone Number</label>
-            <input
-              type="text"
-              class="form-control"
-              name="phone_number"
-              [(ngModel)]="form.phone_number"
-              required
-              #phone_number="ngModel"
-            />
-            <div class="alert-danger" *ngIf="phone_number.errors && f.submitted">
-              <div *ngIf="phone_number.errors.required">Phone Number is required</div>
-            </div>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary btn-block">Sign Up</button>
-        </div>
-  
-        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-          Signup failed!<br />{{ errorMessage }}
-        </div>
-      </form>
-  
-      <div class="alert alert-success" *ngIf="isSuccessful">
-        Your registration is successful!
-      </div>
-    </div>
-  </div> -->

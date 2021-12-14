@@ -22,7 +22,11 @@ public class AccountService {
 	public List<Account> findAll() {
 		return this.accountRepository.findAll();
 	}
-	
+
+	public List<Account> getById(int id) {
+		return this.accountRepository.getById(id);
+	}
+
 	public void deposit(int amount, Account account) {
 		this.accountRepository.depositAccount(amount, account.getAccountId());
 	}

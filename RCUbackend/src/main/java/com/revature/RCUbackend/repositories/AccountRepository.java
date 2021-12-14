@@ -12,7 +12,10 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer>{
 	public List<Account> findAll();
-	
+
+
+	public List<Account> getById(int userId);
+
 	@Modifying
 	@Query("update Account a SET a.balance = a.balance + ?1 WHERE a.accountId = ?2")
 	public void depositAccount(int amount, int accountID);
