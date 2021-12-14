@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -41,18 +42,26 @@ public class AccountControllerTest {
     @BeforeEach
     void setUp(){
         testRepo = new AccountRepository() {
+            List<Account> testList = new ArrayList<>();
+
             @Override
             public List<Account> findAll() {
-                return null;
+                return testList;
             }
 
             @Override
             public List<Account> getById(int userId) {
-                return null;
+                for(int i = 0; i < testList.size(); i++)
+                    if(testList.get(i).getAccountId() == userId)
+                        return testList.get(i);
+
+                    return null;
+
             }
 
             @Override
             public void depositAccount(int amount, int accountID) {
+                for(int i = 0; i<testList.size(); i++)
 
             }
 
