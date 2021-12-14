@@ -37,4 +37,4 @@ export class DepositWithdrawService {
     }
   }) as Observable<Account[]>;
   }
-
+}
