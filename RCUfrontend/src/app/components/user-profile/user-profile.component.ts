@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,13 +12,15 @@ import { Router } from '@angular/router';
 
 
 export class UserProfileComponent implements OnInit {
-
+  email = this.tokenService.getUser().email;
+  firstName = this.tokenService.getUser().first_name;
+  lastName = this.tokenService.getUser().last;
   content?:string;
 
   form: any = {
-    email:null,
-    first_name: null,
-    last_name: null
+    email:this.email,
+    firstName: this.firstName,
+    lastName: this.lastName
   }
   
   isSuccessful = false;
@@ -25,10 +28,11 @@ export class UserProfileComponent implements OnInit {
   errorMessage = '';
 
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private tokenService: TokenStorageService) { }
 
   ngOnInit(): void {
     document.getElementById("edit-Info")!.style.display = "none";
+    console.log(this.form);
   }
 
   
@@ -38,7 +42,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   transfer(){
-this.router.navigateByUrl('/transfer');
+  this.router.navigateByUrl('/transfer');
   }
 
  
@@ -49,13 +53,15 @@ this.router.navigateByUrl('/transfer');
   }
 
   updateInfo(){
-    const{first_name, last_name, email} = this.form;
-    this.userService.updateUserInfo(email, first_name, last_name).subscribe(
+    const{firstName, lastName, email} = this.form;
+    this.userService.changeProfileSettings(email, firstName, lastName).subscribe(
       data => {
         this.content = data;
+        console.log(data);
       },
       err => {
         this.content = JSON.parse(err.error).message;
+        
       }
     );
   }
