@@ -5,6 +5,7 @@ import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.repositories.UserRepo;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -74,5 +75,23 @@ public class UserServiceTest {
 	public void getUserNotFoundTest() {
 		when(userRepo.findById(3)).thenReturn(Optional.empty());
 		assertEquals(userService.getUser(3), null);
+	}
+	
+	@Test
+	/* Test to make sure that the repo layer is called when updating */
+	void updateUserTest() {
+		
+		when(userRepo.save(user1)).thenReturn(user1);
+		userService.updateUser(user1);
+		verify(userRepo, times(1)).save(user1);
+	}
+	
+	@Test
+	/* Test to make sure that the repo layer is called when deleting */
+	void deleteUserTest() {
+		
+		doNothing().when(userRepo).delete(user1);
+		userService.deleteUser(user1);
+		verify(userRepo, times(1)).delete(user1);
 	}
 }
