@@ -4,9 +4,12 @@
 <div class = "TransactionForm">
     <form (submit) = "enactTransaction()">
         <p>Please select your account.</p>
-            <select multiple formControlName = "selectedAccount">
-                <option *ngFor = "let account of accounts" (change) = "changeAccount(account)">{{account.accountID}} = {{account.balance}}</option>
+        <div [formGroup] = "accountGroup">
+            <select formControlName = "selectedAccount" [(ngModel)]="selectedAccount">
+                <option *ngFor = "let account of accounts" [ngValue]="account" (change) = "changeAccount(account)">
+                    {{account.accountId}} {{account.balance}}</option>
             </select>
+        </div>
         <br>
 
         <p>Please select your type of transaction.</p>
@@ -21,7 +24,7 @@
 
         <p>Please select your amount.</p>
         <label>Amount: </label>
-        <input type = "text">
+        <input type = "text" [(ngModel)] = "amount" name = "amount">
 
         <input type = "submit">
     </form>
