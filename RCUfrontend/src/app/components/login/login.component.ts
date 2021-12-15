@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     const { username, password } = this.form;
 
-    this.authService.login(username, npm ).subscribe(
+    this.authService.login(username, password ).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
