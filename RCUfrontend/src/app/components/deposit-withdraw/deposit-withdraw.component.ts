@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DepositWithdrawService } from 'src/app/services/deposit-withdraw.service';
 import { Account } from 'src/app/models/Account';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Transaction } from 'src/app/models/Transaction';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-deposit-withdraw',
@@ -10,19 +13,18 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 })
 export class DepositWithdrawComponent implements OnInit {
 
-  constructor(private depositWithdrawService : DepositWithdrawService, private tokenStorage : TokenStorageService) { 
-
+  constructor(private depositWithdrawService : DepositWithdrawService, private router : Router) { 
+    this.getUserAccounts();
   }
 
   ngOnInit(): void {
-    console.log(this.tokenStorage.getUser().user_id)
-    this.getUserAccounts();
   }
 
   amount = 0;
   selectedAccount = new Account(0, 0, 0);
   transaction = 0;
   accounts : Account[] = [];
+  accountGroup = new FormGroup({selectedAccount : new FormControl})
   
   changeTransaction(entry : number){
     this.transaction = entry;
@@ -45,12 +47,18 @@ export class DepositWithdrawComponent implements OnInit {
 
   deposit(){
     this.depositWithdrawService.deposit(this.amount, this.selectedAccount).subscribe();
-    //add router navigation code here
+    this.router.navigateByUrl("/summary");
   }
 
   withdraw(){
-    this.depositWithdrawService.withdraw(this.amount, this.selectedAccount).subscribe();
-    //add router navigation code here
+    if (this.amount > this.selectedAccount.balance) {
+      this.depositWithdrawService.withdraw(this.amount, this.selectedAccount).subscribe();
+      this.router.navigateByUrl("/summary");
+    }
+
+    else {
+      //some pop-up here would be cool
+    }
   }
 
   getUserAccounts(){

@@ -1,3 +1,4 @@
+
 package com.revature.RCUbackend.services;
 
 import java.util.List;
@@ -28,11 +29,12 @@ public class AccountService {
 		return this.accountRepository.findByUserId(id);
 	}
 	
-	public void deposit(int amount, Account account) {
-		this.accountRepository.depositAccount(amount, account.getAccountId());
+	public void deposit(int amount, int accountID) {
+		this.accountRepository.depositAccount(amount, accountID);
 	}
 	
-	public void withdraw(int amount, Account account) {
-		this.accountRepository.withdrawAccount(amount, account.getAccountId());
+	public void withdraw(int amount, int accountID) {
+		this.accountRepository.withdrawAccount(amount, accountID);
 	}
 }
+

@@ -1,3 +1,4 @@
+
 package com.revature.RCUbackend.controllers;
 
 import java.util.List;
@@ -9,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +18,7 @@ import com.revature.RCUbackend.models.Account;
 import com.revature.RCUbackend.services.AccountService;
 
 @RestController("accountController")
-@RequestMapping("/account") //this can be changed depending on frontend
+@RequestMapping("/account") 
 @CrossOrigin(origins="*")
 public class AccountController {
 	private AccountService accountService;
@@ -26,8 +26,6 @@ public class AccountController {
 	public AccountController(AccountService accountService) {
 		this.accountService = accountService;
 	}
-	
-	//any of these mappings are subject to change depending on HTTP requests from frontend
 	
 	@GetMapping(path = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Account>> findAll(){
@@ -41,18 +39,23 @@ public class AccountController {
 	}
 	
 	@PostMapping(path = "/deposit", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public void deposit(@RequestParam int amount, @RequestBody Account account) {
-		this.accountService.deposit(amount, account);
+	public void deposit(@RequestParam int amount, @RequestParam int accountID) {
+		this.accountService.deposit(amount, accountID);
 	}
 	
 	@PostMapping(path = "/withdraw", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public void withdraw(@RequestParam int amount, @RequestBody Account account) {
-		this.accountService.withdraw(amount, account);
+	public void withdraw(@RequestParam int amount, @RequestParam int accountID) {
+		this.accountService.withdraw(amount, accountID);
 	}
 	
-	@PostMapping(path = "/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public void transfer(@RequestParam int amount, @RequestBody Account fromAccount, @RequestBody Account toAccount) {
-		this.accountService.withdraw(amount, fromAccount);
-		this.accountService.deposit(amount, toAccount);
-	}
+//	@PostMapping(path = "/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
+//	public void transfer(@RequestParam int amount, @RequestBody Account fromAccount, @RequestBody Account toAccount) {
+//		this.accountService.withdraw(amount, fromAccount);
+//		this.accountService.deposit(amount, toAccount);
+//	}
 }
+
+	
+
+	
+
