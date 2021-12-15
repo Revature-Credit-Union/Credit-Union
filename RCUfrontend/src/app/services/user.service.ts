@@ -63,7 +63,7 @@ export class UserService {
     username = this.tokenStorageService.getUser().username
 
 
-    return this.http.put(API_URL + '/changeUsername',
+    return this.http.put(API_URL + 'changeUsername',
     {
       username
 
@@ -77,7 +77,7 @@ export class UserService {
     console.log(this.tokenStorageService.getUser());
     username = this.tokenStorageService.getUser().username
 
-    return this.http.put(API_URL + '/changeProfileSettings',
+    return this.http.put(API_URL + 'changeProfileSettings',
     {
       firstName,
       lastName,
