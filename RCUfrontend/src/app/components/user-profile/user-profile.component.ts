@@ -22,10 +22,10 @@ export class UserProfileComponent implements OnInit {
     firstName: this.firstName,
     lastName: this.lastName
   }
-  
-  isSuccessful = false;
-  usernameChangeFailed = false;
-  errorMessage = '';
+  // Placeholders for myInfo variables, to be swapped out for database references
+  firstName: string = "Charles";
+  lastName: string = "Dickens";
+  email: string = "dude@myguy.org";
 
 
   constructor(private userService: UserService, private router: Router, private tokenService: TokenStorageService) { }

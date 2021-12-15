@@ -13,31 +13,25 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import com.revature.RCUbackend.models.User;
-import com.revature.RCUbackend.repositories.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
+@Component
 public class EmailService {
-    @Autowired
-	UserService Uservice;
-	@Autowired
-	private Environment env;
 
-	private String smtpName = "erickjohnson1980@gmail.com";
-	private String smtpPass = "Excaliber666";
+	private String username ="erickjohnson1980@gmail.com";
 
-	public EmailService() {
-	}
-
-
-	public void alert(int id , String subject , String msg)
+	private String password = "Excaliber420";
+	public void resetPass(int id)
 	{
-		User user = Uservice.getUser(id);
+		
+	}
+	
+	public void alert(int id)
+	{
+		System.out.println(username+" :  "+password );
 		Properties prop = new Properties();
 		prop.put("mail.smtp.auth", true);
 		prop.put("mail.smtp.starttls.enable", "true");
@@ -49,15 +43,17 @@ public class EmailService {
 		    @Override
 		    protected PasswordAuthentication getPasswordAuthentication() {
 		    	
-		        return new PasswordAuthentication(smtpName, smtpPass);
+		        return new PasswordAuthentication(username, password);
 		    }
 		});
 		try {
 		Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress(smtpName));
+		message.setFrom(new InternetAddress("erickjohnson1980@gmail.com"));
 		message.setRecipients(
-		  Message.RecipientType.TO, InternetAddress.parse(user.getEmail()));
-		message.setSubject(subject);
+		  Message.RecipientType.TO, InternetAddress.parse("erick.johnson@revature.net"));
+		message.setSubject("Mail Subject");
+
+		String msg = "This is my first email using JavaMailer";
 
 		MimeBodyPart mimeBodyPart = new MimeBodyPart();
 		mimeBodyPart.setContent(msg, "text/html; charset=utf-8");

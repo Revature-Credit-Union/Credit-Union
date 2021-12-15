@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { catchError, retry } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { User } from '../models/userModel';
 import { EmailValidator } from '@angular/forms';
+
+import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
+
+
 
 //const API_URL = 'http://ec2-54-89-183-177.compute-1.amazonaws.com:8080/revcare/api/test/';
 
@@ -38,7 +43,6 @@ export class UserService {
   getAdminBoard(): Observable<any> {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
-
 
 
 

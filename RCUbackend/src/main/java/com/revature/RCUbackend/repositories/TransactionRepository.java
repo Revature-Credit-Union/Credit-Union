@@ -1,4 +1,3 @@
-
 package com.revature.RCUbackend.repositories;
 
 import com.revature.RCUbackend.models.Transaction;
@@ -25,4 +24,3 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
 	
 	public List<Transaction> findByTransactionTypeAndAccountID(int type, int id);
 }
-
