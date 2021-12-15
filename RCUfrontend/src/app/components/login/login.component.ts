@@ -62,4 +62,14 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
+
+
+  viewprofile() {
+
+    this.router.navigate(['profile']);
+  }
+
+  home() {
+    this.router.navigate(['home']);
+  }
 }
