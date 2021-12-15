@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,7 +23,8 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
 import { ProfileModule } from './modules/profile/profile.module';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { DepositWithdrawComponent } from './components/deposit-withdraw/deposit-withdraw.component';
+import { TransactionSummaryComponent } from './components/transaction-summary/transaction-summary.component';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     FooterComponent,
     TransferComponent,
     ChangePasswordComponent,
-    CreateAccountComponent
+    DepositWithdrawComponent,
+    TransactionSummaryComponent
 
 
   ],
@@ -44,8 +47,9 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     FormsModule,
     HttpClientModule,
     RouterModule,
-
-    ProfileModule
+    CommonModule,
+    ProfileModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
