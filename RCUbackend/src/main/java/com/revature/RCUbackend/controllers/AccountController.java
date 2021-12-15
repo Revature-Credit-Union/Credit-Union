@@ -1,4 +1,3 @@
-
 package com.revature.RCUbackend.controllers;
 
 import com.revature.RCUbackend.models.Account;
@@ -28,13 +27,7 @@ public class AccountController {
 		List<Account> accounts = this.accountService.findAll();
 		return new ResponseEntity<>(accounts, HttpStatus.OK);
 	}
-
-	@PostMapping(path = "/getById", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Account>> getById(@RequestBody int id){
-		List<Account> accounts = this.accountService.getById(id);
-		return new ResponseEntity<>(accounts, HttpStatus.OK);
-	}
-
+	
 	@PostMapping(path = "/deposit", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void deposit(@RequestParam int amount, @RequestBody Account account) {
 		this.accountService.deposit(amount, account);
@@ -51,8 +44,3 @@ public class AccountController {
 		this.accountService.deposit(amount, toAccount);
 	}
 }
-
-	
-
-	
-

@@ -1,33 +1,34 @@
-
 package com.revature.RCUbackend.controllers;
 
-import com.revature.RCUbackend.models.ChangePasswordObject;
 import com.revature.RCUbackend.models.User;
+import com.revature.RCUbackend.models.ChangePasswordObject;
 import com.revature.RCUbackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
-
+import java.util.Random;
 
 @RestController
 @RequestMapping(path="/users")
 public class UserController {
 
-    @Autowired
     private UserService userService;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    @Autowired PasswordEncoder passwordEncoder;
+    
+    @Autowired JavaMailSender javaMailSender;
 
     @Autowired
     public UserController(UserService userService){
         this.userService = userService;
     }
-//Create
+    //Create
     @PostMapping(path ="/addUser", consumes = "application/json", produces = "application/json")
     public void addUser(@RequestBody User user){
         userService.addUser(user);
@@ -63,16 +64,14 @@ public class UserController {
         User u = userService.getUser(user_id);
         userService.deleteUser(u);
     }
-
-
-
+    
     @PutMapping(path = "/changePassword", consumes = MediaType.APPLICATION_JSON_VALUE)
     public boolean changePassword(@RequestBody ChangePasswordObject changePasswordObject)
     {
     	boolean success = false;
 
     	User changeUser = this.userService.findByUsername(changePasswordObject.getUsername()).get();
-    	if (passwordEncoder.matches(changePasswordObject.getCurrentPassword(), changeUser.getPassword()) &&
+    	if (passwordEncoder.matches(changePasswordObject.getCurrentPassword(), changeUser.getPassword()) && 
     	changePasswordObject.getNewPassword().equals(changePasswordObject.getConfirmNewPassword()) )
     	{
     		changeUser.setPassword(passwordEncoder.encode(changePasswordObject.getNewPassword()));
@@ -82,60 +81,35 @@ public class UserController {
     	System.out.println(changeUser);
     	
     	return success;
-
     }
-
-    @PutMapping(path = "/changeUsername", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public boolean changeUsername(@RequestBody ChangePasswordObject changeUsername)
-    {
-        boolean success = false;
-
-        User changeUser = this.userService.findByUsername(changeUsername.getUsername()).get();
-        if (passwordEncoder.matches(changeUsername.getCurrentPassword(), changeUser.getUsername()) )
-        {
-            changeUser.setUsername(passwordEncoder.encode(changeUsername.getUsername()));
-            this.userService.updateUser(changeUser);
-            success = true;
-        }
-        System.out.println(changeUser);
-
-        return success;
-
+    
+    @PostMapping(path = "/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public boolean resetPassword(@RequestBody User resetUser) {
+    	
+    	resetUser = this.userService.findByEmail(resetUser.getEmail()).get();
+    	Random r = new Random();
+    	String tempPassword = "";
+    	
+    	for (int count = 0; count < 16; count++)
+    	{
+    		tempPassword = tempPassword + (char)(r.nextInt(26) + 'a');
+    	}
+    	
+    	resetUser.setPassword(tempPassword);
+    	this.userService.updateUser(resetUser);
+    	
+    	SimpleMailMessage temporaryPasswordMessage = new SimpleMailMessage();
+    	temporaryPasswordMessage.setFrom("RCU_test@hotmail.com");
+		temporaryPasswordMessage.setTo(resetUser.getEmail());
+		
+		String mailSubject ="Password Reset";
+		String mailContent = "You requested a new password: " + resetUser.getPassword()+ "\nPlease change this password upon login.";
+		temporaryPasswordMessage.setSubject(mailSubject);
+		temporaryPasswordMessage.setText(mailContent);
+    	
+    	javaMailSender.send(temporaryPasswordMessage);
+		
+    	return true;
     }
-
-//    @PostMapping(path = "/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE)
-//    public boolean resetPassword(@RequestBody User resetUser) {
-//
-//        resetUser = this.userService.findByEmail(resetUser.getEmail()).get();
-//        Random r = new Random();
-//        String tempPassword = "";
-//
-//        for (int count = 0; count < 16; count++)
-//        {
-//            tempPassword = tempPassword + (char)(r.nextInt(26) + 'a');
-//        }
-//
-//        resetUser.setPassword(tempPassword);
-//        this.userService.updateUser(resetUser);
-//
-//        SimpleMailMessage temporaryPasswordMessage = new SimpleMailMessage();
-//        temporaryPasswordMessage.setFrom("RCU_test@hotmail.com");
-//        temporaryPasswordMessage.setTo(resetUser.getEmail());
-//
-//        String mailSubject ="Password Reset";
-//        String mailContent = "You requested a new password: " + resetUser.getPassword()+ "\nPlease change this password upon login.";
-//        temporaryPasswordMessage.setSubject(mailSubject);
-//        temporaryPasswordMessage.setText(mailContent);
-//
-//        javaMailSender.send(temporaryPasswordMessage);
-//
-//        return true;
-//    }
-
-
-
-
 
 }
-
-

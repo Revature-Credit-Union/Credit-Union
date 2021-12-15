@@ -10,10 +10,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
-
-
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -51,16 +47,15 @@ public class User {
 	private Set<Role> roles = new HashSet<>();
 
 
+
+
+
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
-
 // some code is duplicate some is different... check what is needed and reformat
 
 
@@ -193,5 +188,4 @@ public class User {
 // 	}
 //
 // }
-
 

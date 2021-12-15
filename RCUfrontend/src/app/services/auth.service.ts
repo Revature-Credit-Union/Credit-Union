@@ -32,9 +32,4 @@ export class AuthService {
       phone_number
     }, httpOptions);
   }
-  transfer(amount: number, toAccount: string, fromAccount: string): Observable<any> {
-    return this.http.post(AUTH_API + 'transfer', {
-     amount, toAccount, fromAccount
-    }, httpOptions);
-  }
 }

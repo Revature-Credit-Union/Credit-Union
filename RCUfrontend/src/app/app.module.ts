@@ -15,14 +15,13 @@ import { LoginComponent } from './components/login/login.component';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
-//import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
+
 import { ProfileModule } from './modules/profile/profile.module';
+
 import { TransferComponent } from './components/transfer/transfer.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 
 @NgModule({
@@ -32,9 +31,11 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    TransferComponent,
-    ChangePasswordComponent,
-    CreateAccountComponent
+    SecurityProfileComponent,
+
+    TransferComponent
+
+    ChangePasswordComponent
 
 
   ],

@@ -1,4 +1,4 @@
-package com.revature.RCUbackend.models;
+package java.com.revature.RCUbackend.models;
 
 public class TransactionTest {
 }

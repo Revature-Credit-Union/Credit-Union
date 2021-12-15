@@ -41,28 +41,11 @@
 
 
 }
-
-.btnlinkcolor{
+.nav-link{
   color: var(--white);
-  background-color: var(--darkgray);
   margin: 5px;
   padding: 5px;
 }
-
-.btnsubmitcolor{
-    color: var(--white);
-    background-color: var(--orange);
-    margin: 5px;
-    padding: 5px;
-  }
-
-.nav-link{
-  font-family: "Futura";
-    color: var(--white);
-    font-weight: bolder;
-    margin: 5px;
-    padding: 5px;
-  }
 
 body {
   background-color: var(--lightgray);
@@ -72,4 +55,6 @@ body {
 
     font-family: "Futura";
     font-weight: bolder;
+
+
 }
