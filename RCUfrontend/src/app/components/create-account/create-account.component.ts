@@ -28,7 +28,7 @@ export class CreateAccountComponent implements OnInit {
 
   createAccount()
   {
-      this.accService.createAccount(this.content.user_id);
+      //this.accService.createAccount(this.content.user_id);
   }
   
 }

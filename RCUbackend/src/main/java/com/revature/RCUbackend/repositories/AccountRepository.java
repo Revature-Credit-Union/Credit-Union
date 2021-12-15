@@ -15,7 +15,7 @@ public interface AccountRepository extends JpaRepository<Account, Integer>{
 
 	//@Modifying
 	//@Query("INSERT INTO Account (ACCOUNT_ID, ACCOUNT_TYPE, BALANCE, userID) VALUES (DEFAULT, Account.type, 0, ...)")
-	public boolean create(Account account);
+	//public boolean create(Account account);
 
 	public List<Account> getById(int userId);
 

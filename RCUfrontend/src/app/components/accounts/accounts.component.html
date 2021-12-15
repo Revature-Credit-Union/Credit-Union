@@ -1,9 +1,14 @@
-<div><p>My Accounts</p></div>
+<!-- <div><p>My Accounts</p></div>
 <hr>
-     <!-- <div *ngFor="let account of accounts ; let i = index">{{i+1}} {{account.accountId}} {{account.balance}}</div> -->
+<form *ngIf="!isSuccessful"
+name="form"
+(ngSubmit)="f.form.valid && onSubmit()"
+#f="ngForm"
+novalidate>
+      <div *ngFor="let account of accounts ; let i = index">{{i+1}} {{account.accountId}} {{account.balance}}</div>
      <div>
          <div>
-            <h2>Create New Account</h2>
+            <h2>Create New Bank Account</h2>
                 <label>Account Type:</label>
             <select [(ngModel)]="type" name="type" id="type">
                 <option value="0">Checking</option>
@@ -13,3 +18,19 @@
          <div><input type="text" id="amount" value="Enter your desired initial balance"></div>
         <div><button (click)="createAccount()">Create Account</button></div>
     </div>
+</form> -->
+
+<form [formGroup]="accountForm" (ngSubmit)="createAccount()">
+    <div class="form-group">
+        <Label for="type">Account Type:</Label>
+        <input type="radio" value="0" formControlName="type" required> Checking
+        <input type="radio" value="1" formControlName="type" required> Savings
+    </div>
+    <div class="form-group">
+        <Label for="amount">Inital Deposit Amount</Label>
+        <input id="amount" type="text" formControlName="amount">
+    </div>
+    <div class="form-group">
+        <button class="btn btnsubmitcolor">Create Account</button>
+    </div>
+</form>

@@ -17,7 +17,7 @@ export class DepositWithdrawComponent implements OnInit {
   }
 
   amount = 0;
-  account = new Account(0, 0, 0);
+  account!:Account;// = new Account(0, 0, 0);
   transaction = 0;
   accounts : Account[] = [];
   
@@ -43,12 +43,12 @@ export class DepositWithdrawComponent implements OnInit {
   //FIX THESE METHODS AFTER SERVICE METHODS ARE FIXED!
 
   deposit(){
-    this.depositWithdrawService.deposit(this.amount, this.account).subscribe();
+    //this.depositWithdrawService.deposit(this.amount, this.account).subscribe();
     //add router navigation code here
   }
 
   withdraw(){
-    this.depositWithdrawService.withdraw(this.amount, this.account).subscribe();
+   // this.depositWithdrawService.withdraw(this.amount, this.account).subscribe();
     //add router navigation code here
   }
 
