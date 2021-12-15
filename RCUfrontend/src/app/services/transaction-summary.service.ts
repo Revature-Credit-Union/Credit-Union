@@ -18,7 +18,7 @@ export class TransactonSummaryService {
     return this.httpClient.get(environment.getDeposits, 
       { 
       params : {
-        id : this.tokenStorage.getUser().user_id
+        id : this.tokenStorage.getUser().id
       } 
     }) as Observable<Transaction[]>;
   }
@@ -27,7 +27,7 @@ export class TransactonSummaryService {
     return this.httpClient.get(environment.getWithdrawls, 
       {
         params : {
-        id : this.tokenStorage.getUser().user_id
+        id : this.tokenStorage.getUser().id
       }
     }) as Observable<Transaction[]>;
   }
@@ -36,7 +36,7 @@ export class TransactonSummaryService {
     return this.httpClient.get(environment.getTransfers,
       {
         params : {
-        id : this.tokenStorage.getUser().user_id
+        id : this.tokenStorage.getUser().id
       }
     }) as Observable<Transaction[]>;
   }
