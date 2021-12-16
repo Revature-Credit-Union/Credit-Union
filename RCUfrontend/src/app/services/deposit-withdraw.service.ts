@@ -47,4 +47,10 @@ export class DepositWithdrawService {
   }) as Observable<Account[]>;
   }
 
+  saveTransaction(transaction : Transaction) : Observable<Object> {
+    const body = JSON.stringify(transaction);
+    const head = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
+    return this.httpClient.post(environment.saveTransaction, body, {headers : head}) as Observable<Object>
+  }
+
 }
