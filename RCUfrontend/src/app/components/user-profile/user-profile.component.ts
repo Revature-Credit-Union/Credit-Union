@@ -64,9 +64,11 @@ export class UserProfileComponent implements OnInit {
       },
       err => {
         this.content = JSON.parse(err.error).message;
-        
+        console.log("in the error");
       }
     );
+    document.getElementById("edit-Info")!.style.display = "none";
+    document.getElementById("myInfo")!.style.filter = "blur(0px)"; //blur will blur the background content to make it look nicer
   }
 
 }

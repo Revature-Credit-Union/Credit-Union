@@ -30,13 +30,13 @@
         <form class="editing-form">
             <h2 class="title">Update Information</h2>
             <label>First Name: </label>
-            <input type="text" class="inputs" [(ngModel)] = "form.firstName" name="firstName">
+            <input type="text" class="inputs" [(ngModel)] = "firstName" name="firstName">
             <br>
             <label>Last Name: </label>
-            <input type="text" class="inputs" [(ngModel)] = "form.lastName" name="lastName">
+            <input type="text" class="inputs" [(ngModel)] = "lastName" name="lastName">
             <br>
             <label>Email: </label>
-            <input type="text" class="inputs" placeholder="" [(ngModel)]="form.email" name="email">
+            <input type="text" class="inputs" placeholder="" [(ngModel)]="email" name="email">
             <br>
             <button class="submitbtn btn btn-primary" type="submit" (click)="updateInfo()" (click)="close()"> Submit Changes </button>
             <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
