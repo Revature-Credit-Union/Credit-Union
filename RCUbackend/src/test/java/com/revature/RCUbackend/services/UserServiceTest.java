@@ -36,12 +36,12 @@ public class UserServiceTest {
 	static User user2;
 
 	@BeforeAll
-	static void setUpBeforeAll() {
+	static void setUpBeforeAll() {//Checking to see if this fixes deployment.
 
-		user1 = new User(1, "username1", "password1", "Fname1", "LastName1", "test@email.com", "1234567890", null, null,
-				null);
+		user1 = new User(1, "username1", "password1", "Fname1", "LastName1", "test@email.com", "1234567890", null, null);
 		user2 = new User(2, "username2", "password2", "Fname2", "LastName2", "test2@email.com", "2234567890", null,
-				null, null);
+				null);
+		
 	}
 
 	@Test
