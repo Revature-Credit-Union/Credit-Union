@@ -19,15 +19,31 @@ export class AccountsComponent implements OnInit {
   amount:string='';
   account!:Account;
 
-accountForm = new FormGroup({   balance: new FormControl(''),   userId: new FormControl(''), accountType: new FormControl(''),});
+accountForm = new FormGroup({   
+  balance: new FormControl(''),  
+  accountType: new FormControl('')
+});
 
   ngOnInit(): void {
   }
 
   createAccount():void{
-    //this.account.balance=Number.parseInt(this.accountForm.get("type").value);
-    this.account.ownerId=this.user.user_id;
-    this.account.type=Number.parseInt(this.type);
+    var  type: number = Number.parseInt(this.accountForm.value.accountType);
+    
+    console.log(type);
+
+    var amount :string = this.accountForm.value.balance;
+
+    console.log(amount);
+
+    if(isNaN(type)){
+      console.log("Select an account Type");
+    }
+    if(!amount.match("([0-9]+[.]\d\d|[0-9]+)")){
+      console.log("not valid type");
+    }
+    //this.account.ownerId=this.user.user_id;
+    //this.account.type=Number.parseInt(this.type);
 
     // let pform:string = {
     //   "balance":"${}",
