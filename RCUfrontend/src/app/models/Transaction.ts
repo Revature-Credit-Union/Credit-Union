@@ -1,3 +1,4 @@
+
 export interface Transaction {
     transactionID? : number,
     accountID : number,

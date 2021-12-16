@@ -16,17 +16,15 @@ import { UserService } from '../services/user.service';
 export class SecurityProfileComponent implements OnInit {
 
 
-  form: any = {
-
-    username: null
-  };
-
-  isSuccessful = false;
-  usernameChangeFailed = false;
-  errorMessage = '';
+  users: User[] = [];
+  
+  
+  userID = null;
+  username = "";
+  password = "";
+  goodPassword = true;
 
   constructor(private userService:UserService) { }
-
 
   ngOnInit(): void {
 
@@ -36,24 +34,6 @@ export class SecurityProfileComponent implements OnInit {
 
     document.getElementById("editInfo")!.style.display = "none";
  //f45939eebffd34500feec9cf7abd74c83e5b85c4
-  }
-
-
-
-  onSubmit(): void {
-    const {username} = this.form;
-    
-    this.userService.changeUsername(username).subscribe(
-      data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.usernameChangeFailed = false;
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.usernameChangeFailed = true;
-      }
-    );
   }
   
 
@@ -74,15 +54,15 @@ export class SecurityProfileComponent implements OnInit {
   }
 
 
-  // passwordNotSatisfy() {
+  passwordNotSatisfy() {
 
-  //   if(this.password.length<6) {
-  //     this.goodPassword = false;
-  //   } else
-  //   this.goodPassword = true;
+    if(this.password.length<6) {
+      this.goodPassword = false;
+    } else
+    this.goodPassword = true;
     
 
-  // }
+  }
 
  
 }

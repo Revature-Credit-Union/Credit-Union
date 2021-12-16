@@ -1,4 +1,3 @@
-
 package com.revature.RCUbackend.services;
 
 import java.util.List;
@@ -42,7 +41,6 @@ public class AccountService {
 	}
 	
 	public void withdrawAccount(int amount, Account account) {
-		this.accountRepository.withdraw(amount, account.getAccountId());
+		this.accountRepository.withdrawAccount(amount, account.getAccountId());
 	}
 }
-

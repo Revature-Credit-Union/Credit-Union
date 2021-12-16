@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     const { username, password } = this.form;
 
-    this.authService.login(username, password).subscribe(
+    this.authService.login(username, password ).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
@@ -47,10 +47,10 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.username = this.tokenStorage.getUser().username;
-        this.reloadPage();
+        // this.reloadPage();
         console.log(this.tokenStorage.getUser());
         console.log(this.tokenStorage.getUser().token);
-       
+
       },
       err => {
         this.errorMessage = err.error.message;
@@ -61,5 +61,15 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+
+  viewprofile() {
+
+    this.router.navigate(['profile']);
+  }
+
+  home() {
+    this.router.navigate(['home']);
   }
 }

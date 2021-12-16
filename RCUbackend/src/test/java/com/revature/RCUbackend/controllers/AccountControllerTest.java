@@ -1,6 +1,5 @@
 package com.revature.RCUbackend.controllers;
 
-
 import com.revature.RCUbackend.services.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,6 +7,17 @@ import org.mockito.Mock;
 
 import com.revature.RCUbackend.models.Account;
 import com.revature.RCUbackend.repositories.AccountRepository;
+//import org.junit.Test;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
 import com.revature.RCUbackend.services.*;
 
 import static org.junit.Assert.assertEquals;
@@ -32,18 +42,28 @@ public class AccountControllerTest {
     @BeforeEach
     void setUp(){
         testRepo = new AccountRepository() {
+            List<Account> testList = new ArrayList<>();
+
             @Override
             public List<Account> findAll() {
-                return null;
+                return testList;
             }
 
             @Override
             public List<Account> getById(int userId) {
-                return null;
+                List<Account> toReturn = new ArrayList<>();
+
+                for(int i = 0; i < testList.size(); i++)
+                    if(testList.get(i).getAccountId() == userId)
+                        toReturn.add(testList.get(i));
+
+                return toReturn;
+
             }
 
             @Override
             public void depositAccount(int amount, int accountID) {
+                //for(int i = 0; i<testList.size(); i++)
 
             }
 
@@ -197,8 +217,8 @@ public class AccountControllerTest {
         testUser1 = new Account();
         testUser2 = new Account();
 
-        testUser1.setUserId("test1");
-        testUser2.setUserId("test2");
+        testUser1.setUserId(1);
+        testUser2.setUserId(2);
 
 
         testUser1.setBalance(200);

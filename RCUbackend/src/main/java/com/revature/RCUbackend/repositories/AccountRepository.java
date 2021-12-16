@@ -1,4 +1,3 @@
-
 package com.revature.RCUbackend.repositories;
 
 import java.util.List;
@@ -33,4 +32,3 @@ public interface AccountRepository extends JpaRepository<Account, Integer>{
 	@Query("update Account a SET a.balance = a.balance - ?1 WHERE a.accountId = ?2")
 	public void withdrawAccount(int amount, int accountID);
 }
-
