@@ -4,12 +4,13 @@
 
 export const environment = {
   production: false,
-  getDeposits : "http://localhost:8080/transactions/findDeposits",
-  getWithdrawls : "http://localhost:8080/transactions/findWithdrawls",
-  getTransfers : "http://localhost:8080/transactions/findWithdrawls",
+  getDeposits : "http://localhost:8080/transaction/findDeposits",
+  getWithdrawls : "http://localhost:8080/transaction/findWithdrawls",
+  getTransfers : "http://localhost:8080/transaction/findWithdrawls",
   deposit : "http://localhost:8080/account/deposit",
   withdraw : "http://localhost:8080/account/withdraw",
-  getUserAccounts : "http://localhost:8080/account/findByUser"
+  getUserAccounts : "http://localhost:8080/account/findByUser",
+  saveTransaction : "http://localhost:8080/transaction/new"
 };
 
 /*
