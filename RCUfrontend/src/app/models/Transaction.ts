@@ -3,5 +3,5 @@ export interface Transaction {
     accountID : number,
     transactionType : number,
     amount : number
-    date? : Date
+    date : Date
 }
