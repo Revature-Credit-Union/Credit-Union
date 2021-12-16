@@ -176,26 +176,16 @@ public class TransactionServiceTest {
             public Transaction findByTransactionID(int id) {
                 return null;
             }
-            /*
-            @Override
-            public List<Transaction> findByUserID(int id) {
-                return null;
-            }*/
 
             @Override
             public List<Transaction> findByAccountID(int id) {
-                return null;
-            }
-            /*
-            @Override
-            public List<Transaction> findByTransactionTypeAndUserID(int type, int id) {
                 return null;
             }
 
             @Override
             public List<Transaction> findByTransactionTypeAndAccountID(int type, int id) {
                 return null;
-            }*/
+            }
         };
         this.transactionService = new TransactionService(testRepo);
     }
