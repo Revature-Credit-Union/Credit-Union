@@ -1,5 +1,6 @@
 package com.revature.RCUbackend.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.RCUbackend.models.Response;
 import com.revature.RCUbackend.models.Transaction;
+import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.services.TransactionService;
 
 @RestController("transactionController")
@@ -27,12 +30,12 @@ public class TransactionController {
 	}
 	
 	//any of these mappings are subject to change depending on HTTP requests from frontend
-	
+	/*
     @GetMapping(path = "/allTransactions", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response allTransactions(@RequestBody User user){
         Response response;
-        ArrayList<Transaction> temp = (ArrayList<Transaction>) this.transactionService.findByUserId(user.getUserID());
-
+        ArrayList<Transaction> temp = (ArrayList<Transaction>) this.transactionService.findAll();
+        		
         if(temp != null){
             response = new Response(true, "Transactions found", temp);
         }else{
@@ -40,7 +43,7 @@ public class TransactionController {
         }
 
         return response;
-    }
+    }*/
 	
 	@PostMapping(path = "/new", consumes = MediaType.APPLICATION_JSON_VALUE) 
 	public Transaction saveTransaction(@RequestBody Transaction transaction) {

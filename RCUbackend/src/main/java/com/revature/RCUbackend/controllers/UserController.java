@@ -2,6 +2,7 @@ package com.revature.RCUbackend.controllers;
 
 import com.revature.RCUbackend.models.User;
 import com.revature.RCUbackend.models.ChangePasswordObject;
+import com.revature.RCUbackend.models.ChangeUserInfo;
 import com.revature.RCUbackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -110,6 +111,7 @@ public class UserController {
     	javaMailSender.send(temporaryPasswordMessage);
 		
     	return true;
+    }
 
     @PutMapping(path = "/changeUsername", consumes = MediaType.APPLICATION_JSON_VALUE)
     public boolean changeUsername(@RequestBody ChangePasswordObject changeUsername)

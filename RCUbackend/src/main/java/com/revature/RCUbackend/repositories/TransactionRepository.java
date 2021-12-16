@@ -16,11 +16,11 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
 	
 	public Transaction findByTransactionID(int id);
 	
-	public List<Transaction> findByUserID(int id);
+	//public List<Transaction> findByUserID(int id); // These two were the issues keeping springboot from starting.
 	
 	public List<Transaction> findByAccountID(int id);
 	
-	public List<Transaction> findByTransactionTypeAndUserID(int type, int id);
+	//public List<Transaction> findByTransactionTypeAndUserID(int type, int id);
 	
 	public List<Transaction> findByTransactionTypeAndAccountID(int type, int id);
 }
