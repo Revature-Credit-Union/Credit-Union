@@ -22,10 +22,9 @@ import { SecurityProfileComponent } from './security-profile/security-profile.co
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { ProfileModule } from './modules/profile/profile.module';
 import { TransferComponent } from './components/transfer/transfer.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { DepositWithdrawComponent } from './components/deposit-withdraw/deposit-withdraw.component';
 import { TransactionSummaryComponent } from './components/transaction-summary/transaction-summary.component';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
 
 
@@ -40,7 +39,6 @@ import { AccountsComponent } from './components/accounts/accounts.component';
     ChangePasswordComponent,
     DepositWithdrawComponent,
     TransactionSummaryComponent,
-    CreateAccountComponent,
     AccountsComponent
 
 

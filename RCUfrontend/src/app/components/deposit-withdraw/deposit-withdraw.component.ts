@@ -21,7 +21,7 @@ export class DepositWithdrawComponent implements OnInit {
   }
 
   amount = 0;
-  selectedAccount = new Account(0, 0, 0);
+  selectedAccount = new Account(0, 0, 0, 0);
   transaction = 0;
   accounts : Account[] = [];
   accountGroup = new FormGroup({selectedAccount : new FormControl})

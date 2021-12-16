@@ -63,6 +63,22 @@ export class SecurityProfileComponent implements OnInit {
     this.router.navigate(['change-password']);
   }
 
+  onSubmit(): void {
+    const {username} = this.form;
+
+    this.userService.changeUsername(username).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.usernameChangeFailed = false;
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.usernameChangeFailed = true;
+      }
+    );
+  }
+
   // passwordNotSatisfy() {
 
     // if(this.password.length<6) {

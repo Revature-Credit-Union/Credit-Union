@@ -6,7 +6,7 @@ import { Observable, throwError } from 'rxjs';
 import { User } from '../models/userModel';
 import { EmailValidator } from '@angular/forms';
 
-import { Observable } from 'rxjs';
+
 import { TokenStorageService } from './token-storage.service';
 
 

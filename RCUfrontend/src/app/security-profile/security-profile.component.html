@@ -1,52 +1,44 @@
 <div class="container">
-    <div class="card card-container" id="mySecurity">
+  <div class="card card-container" id="mySecurity">
 
-        <h2 class="Title">Security Settings </h2>
-        <h2 class="username">Username: {{username}}</h2>
-        <h2 class="password">Password: **********</h2>
 
-        <button class="editbtn btn btn-primary" (click)="edit()"><span> Change Username</span></button>
-        <button class="editbtn btn btn-primary" (click)="viewChangePassword()"><span> Reset Password</span></button>
-    
-    </div>
 
-<!-- </div> -->
 
-<div class="editingInfo" id="editInfo">
+
+    <h2 class="Title">Security Settings </h2>
+    <h2 class="username">Username: {{username}}</h2>
+    <h2 class="password">Password: **********</h2>
+
+
+    <button class="editbtn btn btn-primary" (click)="edit()"><span> Change Username</span></button>
+    <button class="editbtn btn btn-primary" (click)="viewChangePassword()"><span> Reset Password</span></button>
+
+  </div>
+
+
+  <div class="editingInfo" id="editInfo">
     <form class="editing-form">
-        <h2>Editing</h2>
-    <form
-    *ngIf="!isSuccessful"
-    name="form"
-    (ngSubmit)="f.form.valid && onSubmit()"
-    #f="ngForm"
-    novalidate
-  >
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input
-        type="username"
-        class="form-control"
-        name="username"
-        [(ngModel)]="form.username"
-        #username="ngModel"
-      />
-      <div class="alert-danger" *ngIf="username.errors && f.submitted">
-        <div *ngIf="username.errors.required">Username is required</div>
-    
-      </div>
-    </div>
-    
-    <div class="editing-form">
-      <button class="submitbtn btn btn-primary">Change</button>
-      <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
-    </div>
+      <h2>Editing</h2>
+      <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="username" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel" />
+          <div class="alert-danger" *ngIf="username.errors && f.submitted">
+            <div *ngIf="username.errors.required">Username is required</div>
 
-    <div class="alert alert-warning" *ngIf="f.submitted && usernameChangeFailed">
-      Username change unsuccessful.<br />{{ errorMessage }}
-    </div>
-  </form>
-        <!-- <h2>Editing</h2>
+          </div>
+        </div>
+
+        <div class="editing-form">
+          <button class="submitbtn btn btn-primary">Change</button>
+          <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
+        </div>
+
+        <div class="alert alert-warning" *ngIf="f.submitted && usernameChangeFailed">
+          Username change unsuccessful.<br />{{ errorMessage }}
+        </div>
+      </form>
+      <!-- <h2>Editing</h2>
         <h2>Enter new Username: </h2><input type="text" [(ngModel)]="username">
 
         <br>
@@ -54,5 +46,13 @@
         <h2> Hello, {{username}}</h2>
         <div *ngIf=!passwordNotSatisfy>
             Password must be at least 6 characters
-        </div> -->
+        </div>
+
+        <button class="submitbtn btn btn-primary" type="submit" (click)="close()"> Submit Changes </button>
+
+
+        <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button> -->
+    </form>
+
+  </div>
 </div>
