@@ -30,11 +30,19 @@ public class AccountService {
 	}
 	
 	public void deposit(int amount, int accountID) {
-		this.accountRepository.depositAccount(amount, accountID);
+		this.accountRepository.deposit(amount, accountID);
 	}
 	
 	public void withdraw(int amount, int accountID) {
-		this.accountRepository.withdrawAccount(amount, accountID);
+		this.accountRepository.withdraw(amount, accountID);
+	}
+	
+	public void depositAccount(int amount, Account account) {
+		this.accountRepository.depositAccount(amount, account.getAccountId());
+	}
+	
+	public void withdrawAccount(int amount, Account account) {
+		this.accountRepository.withdraw(amount, account.getAccountId());
 	}
 }
 
