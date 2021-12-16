@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Objects;
 
@@ -92,7 +91,7 @@ public class UserController {
         boolean success = false;
 
         User changeUser = this.userService.findByUsername(changeUsername.getUsername()).get();
-        if (passwordEncoder.matches(changeUsername.getCurrentPassword(), changeUser.getUsername()) )
+        if (passwordEncoder.matches(changeUsername.getUsername(), changeUser.getUsername()))
         {
             changeUser.setUsername(passwordEncoder.encode(changeUsername.getUsername()));
             this.userService.updateUser(changeUser);

@@ -6,11 +6,12 @@
 
 
         <h2 class="Title">Security Settings </h2>
-        <h2 class="username">Username: </h2>
-        <h2 class="password">Password:</h2>
+        <h2 class="username">Username: {{username}}</h2>
+        <h2 class="password">Password: **********</h2>
 
 
-        <button class="editbtn btn btn-primary" (click)="edit()"><span> Reset Username and Password</span></button>
+        <button class="editbtn btn btn-primary" (click)="edit()"><span> Change Username</span></button>
+        <button class="editbtn btn btn-primary" (click)="viewChangePassword()"><span> Reset Password</span></button>
     
     </div>
 
@@ -24,7 +25,7 @@
     novalidate
   >
     <div class="form-group">
-      <label for="username">Username: </label>
+      <label for="username">Username:</label>
       <input
         type="username"
         class="form-control"
@@ -38,8 +39,9 @@
       </div>
     </div>
     
-    <div class="form-group">
-      <button class="btn btn-primary btn-block">Change</button>
+    <div class="editing-form">
+      <button class="submitbtn btn btn-primary">Change</button>
+      <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
     </div>
 
     <div class="alert alert-warning" *ngIf="f.submitted && usernameChangeFailed">

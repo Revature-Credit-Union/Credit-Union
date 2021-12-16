@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { TransactionSummaryComponent } from './components/transaction-summary/transaction-summary.component';
 import { DepositWithdrawComponent } from './components/deposit-withdraw/deposit-withdraw.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'settings', component: AccountSettingsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: "summary", component: TransactionSummaryComponent},
-  { path: "deposit-withdraw", component: DepositWithdrawComponent}
+  { path: "deposit-withdraw", component: DepositWithdrawComponent},
+  {path: "change-password", component: ChangePasswordComponent}
 
 ];
 

@@ -73,7 +73,7 @@
       Logged in as {{ this.username }}.
     </div>
     <div class="form-group" *ngIf="isLoggedIn">
-      <button class="btn btn-primary btn-block" (click) ="viewprofile()">
+      <button class="btn btn-primary btn-block" (click) ="viewprofile()"  (click)=" reloadPage() ">
       View Profile
       </button>
     </div>

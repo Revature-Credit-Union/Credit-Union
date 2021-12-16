@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-change-password',
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   form: any = {
 
@@ -38,6 +39,11 @@ export class ChangePasswordComponent implements OnInit {
         this.passwordChangeFailed = true;
       }
     );
+  }
+
+
+  close2() {
+    this.router.navigate(['profile']);
   }
 
 }
