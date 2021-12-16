@@ -25,6 +25,8 @@ import { TransferComponent } from './components/transfer/transfer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DepositWithdrawComponent } from './components/deposit-withdraw/deposit-withdraw.component';
 import { TransactionSummaryComponent } from './components/transaction-summary/transaction-summary.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { AccountsComponent } from './components/accounts/accounts.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { TransactionSummaryComponent } from './components/transaction-summary/tr
     TransferComponent,
     ChangePasswordComponent,
     DepositWithdrawComponent,
-    TransactionSummaryComponent
+    TransactionSummaryComponent,
+    CreateAccountComponent,
+    AccountsComponent
 
 
   ],

@@ -47,7 +47,9 @@ export class UserProfileComponent implements OnInit {
   transfer(){
   this.router.navigateByUrl('/transfer');
   }
-
+  accounts(){
+    this.router.navigateByUrl('/accounts');
+      }
  
   close(){
     document.getElementById("edit-Info")!.style.display = "none";
