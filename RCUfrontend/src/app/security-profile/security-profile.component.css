@@ -9,26 +9,31 @@ h2.title{
 
 .editingInfo{
   position: absolute;
-  top: 10rem;
+  top: 35rem;
   bottom: 10rem;
   left: 0;
   right: 0;
   margin: auto;
   width: 30rem;
-  height: auto;  
+  height: 10rem;  
   box-shadow: rgb(3, 3, 3);
   z-index: 9;
   color: white;
-  background-color: rgba(63, 60, 60, 0.479);
+  background-color: rgba(63, 60, 60, 0.767);
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 10px;
+  padding-right: 10px;
 }
 
-input.inputs{
-  margin-left: 10px;
-  margin-top: 5px;
+.editing-form{
+  margin-bottom: 8px;
   
+}
+
+input.form-control{
+  margin-right: 10px;
+  margin-top: 5px;
 }
 
 .submitbtn{
@@ -48,6 +53,7 @@ input.inputs{
   border-style: none;
   border-color: orange;
   margin: auto;
+  margin-bottom: 3px;
   width: 400px;
 }
 

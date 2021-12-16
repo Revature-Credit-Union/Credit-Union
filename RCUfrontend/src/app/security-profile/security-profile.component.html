@@ -1,20 +1,16 @@
 <div class="container">
-    <div class="card card-container" id="myInfo">
-       
-
-
-
+    <div class="card card-container" id="mySecurity">
 
         <h2 class="Title">Security Settings </h2>
         <h2 class="username">Username: {{username}}</h2>
         <h2 class="password">Password: **********</h2>
-
 
         <button class="editbtn btn btn-primary" (click)="edit()"><span> Change Username</span></button>
         <button class="editbtn btn btn-primary" (click)="viewChangePassword()"><span> Reset Password</span></button>
     
     </div>
 
+<!-- </div> -->
 
 <div class="editingInfo" id="editInfo">
     <form class="editing-form">
@@ -58,12 +54,5 @@
         <h2> Hello, {{username}}</h2>
         <div *ngIf=!passwordNotSatisfy>
             Password must be at least 6 characters
-        </div>
-
-        <button class="submitbtn btn btn-primary" type="submit" (click)="close()"> Submit Changes </button>
-
-
-        <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
-    </form>
-
+        </div> -->
 </div>
