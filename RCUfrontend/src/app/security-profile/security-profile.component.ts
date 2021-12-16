@@ -34,13 +34,7 @@ export class SecurityProfileComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    
-    
-
-
     document.getElementById("editInfo")!.style.display = "none";
- //f45939eebffd34500feec9cf7abd74c83e5b85c4
   }
 
 
@@ -79,19 +73,15 @@ export class SecurityProfileComponent implements OnInit {
   // }
 
   close(){
-    document.getElementById("edit-Info")!.style.display = "none";
+    document.getElementById("editInfo")!.style.display = "none";
     document.getElementById("myInfo")!.style.filter = "blur(0px)"; //blur will blur the background content to make it look nicer
 
   }
-
-
-  
 
   viewChangePassword() {
 
     this.router.navigate(['change-password']);
   }
-
 
   // passwordNotSatisfy() {
 

@@ -1,14 +1,5 @@
 
 <div class="container">
-<!-- <div class="container" id="myInfo">
-    <br>
-    <h2 class="first-name">First Name: </h2>
-    <h2 class="last-name">Last Name: </h2>
-    <label class="email">Email: </label>
-    <br>
-    <button class="editbtn btn btn-primary" (click) = "edit()"><span> Edit</span></button>
-</div> -->
-
     <div class="card card-container" id="myInfo">
         <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
         <br>
@@ -16,11 +7,9 @@
         <h2 class="first-name">First Name: {{firstName}} </h2>
         <h2 class="last-name">Last Name: {{lastName}} </h2>
         <label class="email">Email: {{email}}</label>
-
         <!-- <h2 class="form-group" >First Name: {{form.firstName}}</h2>
         <h2 class="last-name">Last Name: {{form.lastName}} </h2>
         <label class="email">Email: {{form.email}}</label> -->
-
         <br>
         <button class="editbtn btn btn-primary" (click)="edit()"><span> Edit</span></button>
         <button class="transferbtn btn-primary btn" (click)="transfer()">Transfer Money</button>
@@ -42,4 +31,18 @@
             <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
         </form>
     </div>
+
+    <!-- <div class="transfer" id="transfer-Info">
+        <form class="transfer-form">
+            <h2 class="title">Transfer Between Accounts</h2>
+            <label>First Name: </label>
+            <input type="text" class="inputs" [(ngModel)] = "firstName" name="firstName">
+            <br>
+            <label>Last Name: </label>
+            <input type="text" class="inputs" [(ngModel)] = "lastName" name="lastName">
+            <br>
+            <button class="submitbtn btn btn-primary" type="submit" (click)="updateInfo()" (click)="close()"> Submit Changes </button>
+            <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
+        </form>
+    </div> -->
 </div>

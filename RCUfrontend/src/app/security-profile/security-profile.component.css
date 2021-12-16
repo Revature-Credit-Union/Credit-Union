@@ -15,7 +15,7 @@ h2.title{
   right: 0;
   margin: auto;
   width: 30rem;
-  height: auto;  
+  height: 10rem;  
   box-shadow: rgb(3, 3, 3);
   z-index: 9;
   color: white;
@@ -23,6 +23,11 @@ h2.title{
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 10px;
+}
+
+.editing-form{
+  margin-bottom: 8px;
+  
 }
 
 input.inputs{
@@ -48,6 +53,7 @@ input.inputs{
   border-style: none;
   border-color: orange;
   margin: auto;
+  margin-bottom: 3px;
   width: 400px;
 }
 
