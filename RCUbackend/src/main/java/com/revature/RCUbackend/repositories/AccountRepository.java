@@ -19,10 +19,18 @@ public interface AccountRepository extends JpaRepository<Account, Integer>{
 	
 	@Modifying
 	@Query("update Account a SET a.balance = a.balance + :amount WHERE a.accountId = :accountID")
-	public void depositAccount(@Param("amount") int amount, @Param("accountID") int accountID);
+	public void deposit(@Param("amount") int amount, @Param("accountID") int accountID);
 	
 	@Modifying
 	@Query("update Account a SET a.balance = a.balance - :amount WHERE a.accountId = :accountID")
-	public void withdrawAccount(@Param("amount") int amount, @Param("accountID") int accountID);
+	public void withdraw(@Param("amount") int amount, @Param("accountID") int accountID);
+	
+	@Modifying
+	@Query("update Account a SET a.balance = a.balance + ?1 WHERE a.accountId = ?2")
+	public void depositAccount(int amount, int accountID);
+	
+	@Modifying
+	@Query("update Account a SET a.balance = a.balance - ?1 WHERE a.accountId = ?2")
+	public void withdrawAccount(int amount, int accountID);
 }
 
