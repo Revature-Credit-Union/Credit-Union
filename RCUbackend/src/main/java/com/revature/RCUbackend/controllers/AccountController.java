@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,11 +49,11 @@ public class AccountController {
 		this.accountService.withdraw(amount, accountID);
 	}
 	
-//	@PostMapping(path = "/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
-//	public void transfer(@RequestParam int amount, @RequestBody Account fromAccount, @RequestBody Account toAccount) {
-//		this.accountService.withdraw(amount, fromAccount);
-//		this.accountService.deposit(amount, toAccount);
-//	}
+	@PostMapping(path = "/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void transfer(@RequestParam int amount, @RequestBody Account fromAccount, @RequestBody Account toAccount) {
+		this.accountService.withdrawAccount(amount, fromAccount);
+		this.accountService.depositAccount(amount, toAccount);
+	}
 }
 
 	
