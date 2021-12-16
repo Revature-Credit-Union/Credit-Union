@@ -25,6 +25,11 @@ export class DepositWithdrawComponent implements OnInit {
   transaction = 0;
   accounts : Account[] = [];
   accountGroup = new FormGroup({selectedAccount : new FormControl})
+  enactedTransaction : Transaction = {
+    accountID : 0,
+    transactionType : 0,
+    amount : 0,
+    date : new Date()}
   
   changeTransaction(entry : number){
     this.transaction = entry;
@@ -38,10 +43,26 @@ export class DepositWithdrawComponent implements OnInit {
   enactTransaction() {
     if (this.transaction === 1) {
       this.deposit()
+      this.enactedTransaction =  {
+        accountID : this.selectedAccount.accountId,
+        transactionType : 0,
+        amount : this.amount,
+        date : new Date()
+      }
+
+      this.saveTransaction(this.enactedTransaction)
     }
 
     else if (this.transaction === 2) {
       this.withdraw();
+      this.enactedTransaction =  {
+        accountID : this.selectedAccount.accountId,
+        transactionType : 1,
+        amount : this.amount,
+        date : new Date()
+      }
+
+      this.saveTransaction(this.enactedTransaction)
     }
   }
 
@@ -67,5 +88,9 @@ export class DepositWithdrawComponent implements OnInit {
       console.log(data);
       this.accounts = data
     });
+  }
+
+  saveTransaction(transaction : Transaction){
+    this.depositWithdrawService.saveTransaction(transaction).subscribe();
   }
 }
