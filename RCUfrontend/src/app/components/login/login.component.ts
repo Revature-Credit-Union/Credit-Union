@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   };
   isLoggedIn = false;
   isLoginFailed = false;
+  isCalledOnce = true;
   errorMessage = '';
   roles: string[] = [];
 
@@ -59,9 +60,6 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  reloadPage(): void {
-    window.location.reload();
-  }
 
 
   viewprofile() {
@@ -72,4 +70,14 @@ export class LoginComponent implements OnInit {
   home() {
     this.router.navigate(['home']);
   }
+
+  reloadPage() : void {
+
+    
+     window.location.reload()
+
+     window.location.href = window.location.href;
+     
+    }
+
 }

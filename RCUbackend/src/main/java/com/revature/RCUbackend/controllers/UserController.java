@@ -10,7 +10,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -111,6 +110,23 @@ public class UserController {
     	javaMailSender.send(temporaryPasswordMessage);
 		
     	return true;
+
+    @PutMapping(path = "/changeUsername", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean changeUsername(@RequestBody ChangePasswordObject changeUsername)
+    {
+        boolean success = false;
+
+        User changeUser = this.userService.findByUsername(changeUsername.getUsername()).get();
+        if (passwordEncoder.matches(changeUsername.getUsername(), changeUser.getUsername()))
+        {
+            changeUser.setUsername(passwordEncoder.encode(changeUsername.getUsername()));
+            this.userService.updateUser(changeUser);
+            success = true;
+        }
+        System.out.println(changeUser);
+
+        return success;
+
     }
     @PutMapping(path ="/changeProfileSettings", consumes = MediaType.APPLICATION_JSON_VALUE)
     public boolean updateUserInfo (@RequestBody ChangeUserInfo user){

@@ -1,3 +1,4 @@
+import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenStorageService } from './services/token-storage.service';
@@ -12,6 +13,7 @@ export class AppComponent {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
+  isCalledOnce = true;
   username?: string;
   first_name?: string;
 
@@ -29,6 +31,7 @@ export class AppComponent {
 
       this.username = user.username;
       this.first_name = user.first_name;
+     
       
     }
     
@@ -37,4 +40,20 @@ export class AppComponent {
   logout(): void {
     this.tokenStorageService.signOut();
   }
+
+  reloadPage() {
+
+     if(this.isCalledOnce === true){
+      window.location.reload()
+      this.isCalledOnce = false;
+     }
+  
+     
+    
+    
+    
+  }
+
+
+ 
 }

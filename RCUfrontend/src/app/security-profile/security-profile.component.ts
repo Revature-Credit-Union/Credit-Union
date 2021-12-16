@@ -4,6 +4,7 @@ import { User } from '../models/userModel';
 import { Router } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { UserService } from '../services/user.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 
 
@@ -14,17 +15,22 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./security-profile.component.css']
 })
 export class SecurityProfileComponent implements OnInit {
+  username = this.tokenService.getUser().username;
+  password = this.tokenService.getUser().password;
 
+  form: any = {
 
-  users: User[] = [];
+    username: this.username
+    
+  };
+
   
+  isSuccessful = false;
+  usernameChangeFailed = false;
+  errorMessage = '';
   
-  userID = null;
-  username = "";
-  password = "";
-  goodPassword = true;
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private tokenService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -49,8 +55,22 @@ export class SecurityProfileComponent implements OnInit {
     document.getElementById("myInfo")!.style.filter = "blur(4px)"; //blur will blur the background content to make it look nicer
   }
  
+  // close(){
+  //   document.getElementById("editInfo")!.style.display = "close";
+  // }
+
   close(){
-    document.getElementById("editInfo")!.style.display = "close";
+    document.getElementById("edit-Info")!.style.display = "none";
+    document.getElementById("myInfo")!.style.filter = "blur(0px)"; //blur will blur the background content to make it look nicer
+
+  }
+
+
+  
+
+  viewChangePassword() {
+
+    this.router.navigate(['change-password']);
   }
 
 

@@ -40,7 +40,7 @@
             <label>Email: </label>
             <input type="text" class="inputs" placeholder="" [(ngModel)]="form.email" name="email">
             <br>
-            <button class="submitbtn btn btn-primary" type="submit" (click)="updateInfo()"> Submit Changes </button>
+            <button class="submitbtn btn btn-primary" type="submit" (click)="updateInfo()" (click)="close()"> Submit Changes </button>
             <button class="closebtn btn btn-primary" (click)="close()"> Cancel </button>
         </form>
     </div>

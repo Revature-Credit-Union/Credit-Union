@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
@@ -21,6 +21,8 @@ import { TransactionSummaryComponent } from './components/transaction-summary/tr
 import { DepositWithdrawComponent } from './components/deposit-withdraw/deposit-withdraw.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
 
+
+
 const routes: Routes = [
   {path: '', redirectTo: '/front-door', pathMatch: 'full'},
     //{ path: 'home', component: HomeComponent },
@@ -37,7 +39,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: "summary", component: TransactionSummaryComponent},
   { path: "deposit-withdraw", component: DepositWithdrawComponent},
-  { path: "accounts", component: AccountsComponent}
+  { path: "accounts", component: AccountsComponent},
+  {path: "change-password", component: ChangePasswordComponent}
+
 ];
 
 @NgModule({
