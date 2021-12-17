@@ -1,4 +1,5 @@
 About the Project
+
 Revature Credit Union is a banking and financial application. It is designed to allow users to create multiple accounts per user, transfer money between accounts, and manage account and user info.
 
 
