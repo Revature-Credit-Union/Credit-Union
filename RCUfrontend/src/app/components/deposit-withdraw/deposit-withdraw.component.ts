@@ -40,6 +40,10 @@ export class DepositWithdrawComponent implements OnInit {
     this.selectedAccount = account;
   }
 
+  goToDepositWithdraw(){
+    this.router.navigateByUrl("/deposit-withdraw")
+  }
+
   enactTransaction() {
     if (this.transaction === 1) {
       this.deposit()

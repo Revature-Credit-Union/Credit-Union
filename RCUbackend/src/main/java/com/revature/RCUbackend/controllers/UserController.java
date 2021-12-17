@@ -66,6 +66,14 @@ public class UserController {
         userService.deleteUser(u);
     }
     
+    /**
+     * This method is used to change the password of a logged in user.
+     * @param changePasswordObject Object containing a current password, new password,
+     * confirmation of a new password, and username.
+     * @return Returns boolean true if currentPassword matches the password in the database
+     * and newPassword and confirmNewPassword matches. Otherwise returns boolean false.
+     */
+    
     @PutMapping(path = "/changePassword", consumes = MediaType.APPLICATION_JSON_VALUE)
     public boolean changePassword(@RequestBody ChangePasswordObject changePasswordObject)
     {
@@ -83,6 +91,14 @@ public class UserController {
 
     	return success;
     }
+    
+    /**
+     * This method sets a pseudorandom string as the user's password and sends the password to the user's email.
+     *
+     * @param resetUser - The user whose password is to be reset. This method requires an email passed in as a JSON
+     * key/value pair.
+     * @return Simply returns boolean value true if the method finishes running.
+     */
     
     @PostMapping(path = "/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public boolean resetPassword(@RequestBody User resetUser) {

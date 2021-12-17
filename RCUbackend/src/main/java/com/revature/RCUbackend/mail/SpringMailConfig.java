@@ -10,6 +10,9 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @Configuration
 public class SpringMailConfig {
 
+	//Configuration for JavaMailSender through Spring Mail. 
+	//Replace with whatever throwaway email you want to use.
+	
 	@Bean
 	public JavaMailSender javaMailSender() {
 	    JavaMailSenderImpl javaMailSenderImpl = new JavaMailSenderImpl();
